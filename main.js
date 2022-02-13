@@ -37,8 +37,7 @@ async function getGoldPricesChartConfig(startDate, endDate) {
   return config;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  document.getElementById('header').style.color = '#666';
+async function renderGoldPrices() {
   let fromDate = '2022-01-01';
   let endDate = '2022-02-13';
 
@@ -69,4 +68,49 @@ document.addEventListener('DOMContentLoaded', async () => {
     const update = await getGoldPricesChartConfig(fromDate, endDate);
     updateChart(update);
   });
+}
+
+async function initTranslations() {
+  const req = await fetch('https://libretranslate.de/languages');
+  const languages = await req.json();
+
+  const sourceLangSelect = document.getElementById('source-lang');
+  const targetLangSelect = document.getElementById('target-lang');
+  const textarea = document.getElementById('text-to-translate');
+  const button = document.getElementById('translate');
+
+  function createLangOption(language) {
+    const option = document.createElement('option');
+    option.value = language.code;
+    option.innerText = language.name;
+    return option;
+  }
+
+  for (const language of languages) {
+    sourceLangSelect.appendChild(createLangOption(language));
+    targetLangSelect.appendChild(createLangOption(language));
+  }
+
+  function generateTranslateQuery(source, target, text) {
+    return `?q=${encodeURIComponent(text)}&source=${source}&target=${target}`;
+  }
+
+  button.addEventListener('click', async () => {
+    const sourceLang = sourceLangSelect.value;
+    const targetLang = targetLangSelect.value;
+    const text = textarea.value;
+    const query = generateTranslateQuery(sourceLang, targetLang, text);
+    const url = `https://libretranslate.de/translate${query}`;
+
+    const response = await fetch(url, {method: 'POST'});
+    const {translatedText} = await response.json();
+
+    document.getElementById('translated').innerText = translatedText;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  document.getElementById('header').style.color = '#666';
+  // renderGoldPrices();
+  initTranslations();
 });
