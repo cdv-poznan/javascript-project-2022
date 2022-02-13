@@ -10,3 +10,21 @@ body {
 #translated {
   font-size: 200%;
 }
+
+#news-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.post {
+  width: 200px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.post img {
+  max-height: 100px;
+}

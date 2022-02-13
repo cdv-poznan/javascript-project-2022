@@ -109,8 +109,54 @@ async function initTranslations() {
   });
 }
 
+async function displayNews() {
+  const res = await fetch('https://inshortsapi.vercel.app/news?category=all');
+  const json = await res.json();
+
+  const newList = document.getElementById('news-list');
+
+  function createPost(news) {
+    const post = document.createElement('div');
+    post.classList.add('post');
+
+    const img = document.createElement('img');
+    img.src = news.imageUrl;
+
+    post.appendChild(img);
+
+    const p = document.createElement('p');
+    p.innerText = news.content;
+
+    post.appendChild(p);
+
+    const link = document.createElement('a');
+    link.href = news.readMoreUrl;
+    link.target = '_blank';
+    link.innerText = 'Read more…';
+
+    post.appendChild(link);
+
+    newList.appendChild(post);
+  }
+
+  for (const news of json.data.slice(0, 5)) {
+    createPost(news);
+  }
+
+  let tick = 5;
+
+  setInterval(() => {
+    const old = document.querySelector('.post');
+    old.remove();
+    const index = tick % json.data.length;
+    createPost(json.data[index]);
+    tick++;
+  }, 10000);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('header').style.color = '#666';
   renderGoldPrices();
   initTranslations();
+  displayNews();
 });
