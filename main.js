@@ -5,10 +5,7 @@ async function fetchGoldPrices(startDate, endDate) {
   return await res.json();
 }
 
-async function renderGoldPricesChart(startDate, endDate) {
-  const canvas = document.getElementById('canvas');
-  const context = canvas.getContext('2d');
-
+async function getGoldPricesChartConfig(startDate, endDate) {
   const goldPrices = await fetchGoldPrices(startDate, endDate);
 
   const dates = goldPrices.map(({data}) => data);
@@ -37,26 +34,39 @@ async function renderGoldPricesChart(startDate, endDate) {
     },
   };
 
-  const chart = new Chart(context, config);
+  return config;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('header').style.color = '#666';
-
-  const fromInput = document.getElementById('from-date');
-  const endInput = document.getElementById('end-date');
   let fromDate = '2022-01-01';
   let endDate = '2022-02-13';
 
-  fromInput.addEventListener('change', event => {
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
+
+  const config = await getGoldPricesChartConfig(fromDate, endDate);
+
+  const chart = new Chart(context, config);
+
+  const fromInput = document.getElementById('from-date');
+  const endInput = document.getElementById('end-date');
+
+  function updateChart(config) {
+    chart.config.data.labels = config.data.labels;
+    chart.config.data.datasets = config.data.datasets;
+    chart.update();
+  }
+
+  fromInput.addEventListener('change', async event => {
     fromDate = event.target.value;
-    renderGoldPricesChart(fromDate, endDate);
+    const update = await getGoldPricesChartConfig(fromDate, endDate);
+    updateChart(update);
   });
 
-  endInput.addEventListener('change', event => {
+  endInput.addEventListener('change', async event => {
     endDate = event.target.value;
-    renderGoldPricesChart(fromDate, endDate);
+    const update = await getGoldPricesChartConfig(fromDate, endDate);
+    updateChart(update);
   });
-
-  renderGoldPricesChart(fromDate, endDate);
 });
