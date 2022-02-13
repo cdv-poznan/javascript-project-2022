@@ -28,3 +28,11 @@ body {
 .post img {
   max-height: 100px;
 }
+
+.temp {
+  font-size: 48px;
+}
+
+.weather-description {
+  font-size: 32px;
+}
