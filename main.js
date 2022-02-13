@@ -115,6 +115,8 @@ async function displayNews() {
 
   const newList = document.getElementById('news-list');
 
+  document.getElementById('news-loader').remove();
+
   function createPost(news) {
     const post = document.createElement('div');
     post.classList.add('post');
@@ -184,21 +186,43 @@ async function initGeoWeather() {
     return m.get(code);
   }
 
+  function showError() {
+    document.getElementById('weather-loader').remove();
+    const errorDiv = document.createElement('div');
+    errorDiv.classList.add('error');
+    errorDiv.innerText = 'Error while loading the weather :(';
+    weatherDiv.appendChild(errorDiv);
+  }
+
   async function getWeather(lat, lon) {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timeformat=unixtime`
-    const res = await fetch(url)
-    const {current_weather} = await res.json();
-    const {temperature, windspeed, winddirection, weathercode} = current_weather;
+    // try/catch - obsługa błędów
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timeformat=unixtime`;
+      const res = await fetch(url);
 
-    const tempDiv = document.createElement('div');
-    tempDiv.classList.add('temp');
-    tempDiv.innerText = `${temperature} °C`;
-    weatherDiv.appendChild(tempDiv);
+      if (!res.ok) {
+        showError();
+        return;
+      }
 
-    const descriptionDiv = document.createElement('div');
-    descriptionDiv.classList.add('weather-description');
-    descriptionDiv.innerText = getWeatherDescription(weathercode);
-    weatherDiv.appendChild(descriptionDiv);
+      const {current_weather} = await res.json();
+      const {temperature, windspeed, winddirection, weathercode} =
+        current_weather;
+
+      document.getElementById('weather-loader').remove();
+
+      const tempDiv = document.createElement('div');
+      tempDiv.classList.add('temp');
+      tempDiv.innerText = `${temperature} °C`;
+      weatherDiv.appendChild(tempDiv);
+
+      const descriptionDiv = document.createElement('div');
+      descriptionDiv.classList.add('weather-description');
+      descriptionDiv.innerText = getWeatherDescription(weathercode);
+      weatherDiv.appendChild(descriptionDiv);
+    } catch (error) {
+      showError();
+    }
   }
 
   navigator.geolocation.getCurrentPosition(async position => {
