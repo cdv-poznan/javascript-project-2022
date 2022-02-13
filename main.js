@@ -111,6 +111,6 @@ async function initTranslations() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('header').style.color = '#666';
-  // renderGoldPrices();
+  renderGoldPrices();
   initTranslations();
 });
