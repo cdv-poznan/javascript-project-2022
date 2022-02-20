@@ -1,22 +1,72 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt wstępny</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Adam Matusiak">
+		<meta name="keywords" content="weather application, curious facts">
+		<meta name="description" content="Page showing the weather in chosen localisation, curious facts from the world. The page contains currency convert and day organiser applications.">
 
-<body>
+		<title>Projekt wstępny</title>
 
-    <section class="upper-right">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
 
-    <h2>Witaj! Dziś jest <span class="day"></span>. Czy wiesz, że...</h2>
-        <div class="curiosity"></div>
+		<script src="https://kit.fontawesome.com/e4b4fec820.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="style.css" />
+		
+	</head>
 
-    </section>
+	<body>
 
-    <script src="main.js"></script>
-</body>
+		<section class="upper-right">
+			<h2>Witaj! Dziś jest <span class="day"></span>. Czy wiesz, że...</h2>
+			<div class="curiosity"></div>
+		</section>
+
+		<section class="converter">
+			<div class="wrapper">
+				<h1>Exchange Rate Converter</h1>
+
+				<div class="converter-body">
+					<div class="left">
+						<input type="number" class="base-amount" placeholder="Wpisz wartość" min="0">
+						<select id="currency-one">
+							<option value="PLN" selected>PLN</option>
+							<option value="EUR">EUR</option>
+							<option value="USD">USD</option>
+							<option value="GBP">GBP</option>
+							<option value="CHF">CHF</option>
+							<option value="JPY">JPY</option>
+						</select>
+					</div>
+
+				<button class="changing">
+					<i class="fa-solid fa-arrow-right-arrow-left"></i>
+				</button>
+					
+				<div class="right">
+					<input type="number" class="converted-amount">
+					<select id="currency-two">
+						<option value="PLN">PLN</option>
+						<option value="EUR" selected>EUR</option>
+						<option value="USD">USD</option>
+						<option value="GBP">GBP</option>
+						<option value="CHF">CHF</option>
+						<option value="JPY">JPY</option>
+					</select>
+				</div>
+				</div>
+
+				<p class="rate-info"></p>
+
+			</div>
+		</section>
+
+
+
+		<script src="main.js"></script>
+	</body>
 </html>
