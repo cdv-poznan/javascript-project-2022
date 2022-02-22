@@ -19,7 +19,7 @@ generateCuriosity()
 const currencyFirst = document.querySelector('#currency-one')
 const currencySecond = document.querySelector('#currency-two')
 const changeBtn = document.querySelector('.changing')
-const amountFirst = document.querySelector('base-amount')
+const amountFirst = document.querySelector('.base-amount')
 const amountSecond = document.querySelector('.converted-amount')
 const rateInfo = document.querySelector('.rate-info')
 
@@ -30,15 +30,30 @@ const calculation = () => {
         const currencyOne = currencyFirst.value
         const currencyTwo = currencySecond.value
         // console.log(data)
-        console.log(currencyOne);
-        console.log(currencyTwo);
+        // console.log(currencyOne)
+        // console.log(currencyTwo)
 
-        const rate = data.conversion_rate[currencyTwo]       
-        console.log(rate);
+        const rate = data.conversion_rate
+        console.log(rate)
+        
         rateInfo.textContent = `1 ${currencyOne} = ${rate} ${currencyTwo}`
+
+        amountSecond.value = (amountFirst.value * rate).toFixed(2)
         
     })
 }
 
-calculation ()
+const change = () => {
+    const firstValue = currencyFirst.value
+    currencyFirst.value = currencySecond.value
+    currencySecond.value = firstValue
+    calculation ()
+}
+
+currencyFirst.addEventListener('change', calculation)
+currencySecond.addEventListener('change', calculation)
+amountFirst.addEventListener('input', calculation)
+changeBtn.addEventListener('click', change)
+
+calculation()
 
