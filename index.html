@@ -1,72 +1,139 @@
 <!DOCTYPE html>
 <html lang="pl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="author" content="Adam Matusiak">
-		<meta name="keywords" content="weather application, curious facts">
-		<meta name="description" content="Page showing the weather in chosen localisation, curious facts from the world. The page contains currency convert and day organiser applications.">
 
-		<title>Projekt wstępny</title>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Adam Matusiak">
+	<meta name="keywords" content="weather application, curious facts">
+	<meta name="description"
+		content="Page showing the weather in chosen localisation, curious facts from the world. The page contains currency convert and day organiser applications.">
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
+	<title>Projekt wstępny</title>
 
-		<script src="https://kit.fontawesome.com/e4b4fec820.js" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="style.css" />
-		
-	</head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto+Condensed:wght@300;400&display=swap"
+		rel="stylesheet">
+	
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://kit.fontawesome.com/e4b4fec820.js" crossorigin="anonymous"></script>
+</head>
 
-	<body>
+<body>
 
-		<section class="upper-right">
-			<h2>Witaj! Dziś jest <span class="day"></span>. Czy wiesz, że...</h2>
-			<div class="curiosity"></div>
-		</section>
+	<header>
+		<div class="header-img">
+			<nav>
+				<div class="logo">
+					<i class="fa-brands fa-accusoft"></i>
+					<span>Digital Solutions</span>
+				</div>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">O nas</a></li>
+					<li><a href="#">Cennik</a></li>
+					<li><a href="#">Kontakt</a></li>
+					<li><a href="#">Narzędzia</a></li>
+				</ul>
+			</nav>
+			<div class="header-text">
+				<h1>The Future Begins</h1>
+				<p>Professional solutions for your company</p>
+			</div>
+		</div>
+	</header>
+	
 
-		<section class="converter">
-			<div class="wrapper">
-				<h1>Exchange Rate Converter</h1>
 
-				<div class="converter-body">
-					<div class="left">
-						<input type="number" class="base-amount" placeholder="Wpisz wartość" min="0">
-						<select id="currency-one">
-							<option value="PLN" selected>PLN</option>
-							<option value="EUR">EUR</option>
-							<option value="USD">USD</option>
-							<option value="GBP">GBP</option>
-							<option value="CHF">CHF</option>
-							<option value="JPY">JPY</option>
-						</select>
-					</div>
+
+<!-- 
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2 sticky-top">
+		<div class="container">
+		  <a class="navbar-brand" href="#">
+			<i class="fa-brands fa-battle-net text-primary position-relative m-2 px-3 fa-2x align-middle"></i>World<span class="text-primary">Wide</span> Solutions</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav ms-auto">
+			  <li class="nav-item">
+				<a class="nav-link px-lg-3 active" aria-current="page" href="#">Home</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link px-lg-3" href="#">O nas</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link px-lg-3" href="#">Cennik</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link px-lg-3" href="#">Kontakt</a>
+			  </li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Narzędzia
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				  <li><a class="dropdown-item" href="calculator.html">Kalkulator walutowy</a></li>
+				  <li><a class="dropdown-item" href="organizer.html">Organizer</a></li>
+				  <li><a class="dropdown-item" href="weather.html">Pogoda</a></li>
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav> -->
+
+
+	<section class="upper-right">
+		<h2>Witaj! Dziś jest <span class="day"></span>. Czy wiesz, że...</h2>
+		<div class="curiosity"></div>
+	</section>
+
+	<!-- <section class="converter">
+		<div class="wrapper">
+			<h1>Exchange Rate Converter</h1>
+
+			<div class="converter-body">
+				<div class="left">
+					<input type="number" class="base-amount" placeholder="Wpisz wartość" min="0">
+					<select id="currency-one">
+						<option value="EUR" selected>EUR</option>
+						<option value="USD">USD</option>
+						<option value="GBP">GBP</option>
+						<option value="CHF">CHF</option>
+						<option value="JPY">JPY</option>
+						<option value="PLN">PLN</option>
+					</select>
+				</div>
 
 				<button class="changing">
 					<i class="fa-solid fa-arrow-right-arrow-left"></i>
 				</button>
-					
+
 				<div class="right">
-					<input type="number" class="converted-amount">
+					<input type="number" class="converted-amount" min="0">
 					<select id="currency-two">
-						<option value="PLN">PLN</option>
-						<option value="EUR" selected>EUR</option>
+						<option value="PLN" selected>PLN</option>
+						<option value="EUR">EUR</option>
 						<option value="USD">USD</option>
 						<option value="GBP">GBP</option>
 						<option value="CHF">CHF</option>
 						<option value="JPY">JPY</option>
 					</select>
 				</div>
-				</div>
-
-				<p class="rate-info"></p>
-
 			</div>
-		</section>
 
+			<p class="rate-info"></p>
 
+		</div>
+	</section> -->
 
-		<script src="main.js"></script>
-	</body>
+	
+
+	<script src="main.js"></script>
+</body>
+
 </html>
