@@ -5,6 +5,7 @@ const changeBtn = document.querySelector('.changing')
 const amountFirst = document.querySelector('.base-amount')
 const amountSecond = document.querySelector('.converted-amount')
 const rateInfo = document.querySelector('.rate-info')
+const total = document.querySelector('.total')
 
 const calculation = () => {
     fetch(`https://v6.exchangerate-api.com/v6/89de10cd4b5fc62d16b4a029/pair/${currencyFirst.value}/${currencySecond.value}`)
@@ -24,6 +25,7 @@ const calculation = () => {
         // rateInfo.textContent = `${val}`
 
         amountSecond.value = (amountFirst.value * rate).toFixed(2)
+        total.textContent = `${amountFirst.value} ${currencyOne} to ${amountSecond.value} ${currencyTwo}`
         
     })
 }

@@ -16,7 +16,6 @@ generateCuriosity()
 
 // ------------------------------------------
 
-<<<<<<< HEAD
 // const currencyFirst = document.querySelector('#currency-one')
 // const currencySecond = document.querySelector('#currency-two')
 // const changeBtn = document.querySelector('.changing')
@@ -42,7 +41,6 @@ generateCuriosity()
 //         // rateInfo.textContent = `${val}`
 
 //         amountSecond.value = (amountFirst.value * rate).toFixed(2)
-=======
 const currencyFirst = document.querySelector('#currency-one')
 const currencySecond = document.querySelector('#currency-two')
 const changeBtn = document.querySelector('.changing')
@@ -66,12 +64,10 @@ const calculation = () => {
         rateInfo.textContent = `1 ${currencyOne} = ${rate} ${currencyTwo}`
 
         amountSecond.value = (amountFirst.value * rate).toFixed(2)
->>>>>>> 948139af09914ea1e51937237c51afda7804f70e
-        
-//     })
-// }
+    
+    })
+}
 
-<<<<<<< HEAD
 // const change = () => {
 //     const firstValue = currencyFirst.value
 //     currencyFirst.value = currencySecond.value
@@ -85,7 +81,6 @@ const calculation = () => {
 // changeBtn.addEventListener('click', change)
 
 // calculation()
-=======
 const change = () => {
     const firstValue = currencyFirst.value
     currencyFirst.value = currencySecond.value
@@ -99,5 +94,3 @@ amountFirst.addEventListener('input', calculation)
 changeBtn.addEventListener('click', change)
 
 calculation()
->>>>>>> 948139af09914ea1e51937237c51afda7804f70e
-

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Adam Matusiak">
+	<meta name="keywords" content="organiser">
+	<meta name="description" content="The page contains day organiser applications.">
+
+	<title>Organiser</title>
+
+	
+	<link
+		href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto+Condensed:wght@300;400&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="style.css" />
+	
+	<script src="https://kit.fontawesome.com/e4b4fec820.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	
+<div class="menu">
+	<h1> <i class="fa-solid fa-messages"></i> My-Planner</h1>
+
+	<div class="menu-buttons">
+		<button class="add icon"><i class="fa-solid fa-circle-plus"></i> Add</button>
+		<button class="remove-all icon"><i class="fa-solid fa-trash-can"></i>Remove All</button>
+	</div>
+</div>
+
+<div class="notes-area">
+	<div class="note">
+		<div class="note-header">
+			<h3 class="note-title">Notatka 1</h3>
+			<button class="delete-note"><i class="fa-solid fa-xmark"></i></button>
+		</div>
+		<div class="note-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore atque expedita debitis provident nisi beatae delectus, quis quae, dolores accusamus a at nemo iusto corrupti. Doloribus provident illo veritatis qui!</div>
+	</div>
+</div>
+
+<div class="notes-panel">
+	<h2>Add Note</h2>
+	<label for="category">Choose category</label>
+	<select id="category">
+	<option value="0" disabled selected> Choose category </option>
+	<option value="1">Work</option>
+	<option value="0">Shopping</option>
+	<option value="0">Meeting</option>
+	<option value="0">Fees</option>
+	<option value="0">Event</option>
+	<option value="0">Personal</option>
+	<option value="0">Other</option>
+</select>
+
+<label for="text">Write your note here</label>
+<textarea id=""></textarea>
+
+<p class="error">Fill in all data!</p>
+
+<div class="panel-buttons">
+	<button class="save icon"><i class="fa-light fa-circle-check"></i> Save </button>
+	<button class="cancel icon"><i class="fa-light fa-circle-xmark"></i></i> Cancel </button>
+</div>
+
+</div>
+
+	<script src="organiser.js"></script>
+</body>
+
+</html>

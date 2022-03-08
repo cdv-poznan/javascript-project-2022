@@ -71,13 +71,40 @@ nav a:hover {
 	font-size: 3rem;
 }
 
+/* CALCULATOR */
 
 
 
 
+/* ORGANISER */
 
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
 
+.menu button, .panel-buttons .save, .panel-buttons .cancel {
+    padding: 10px 30px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+}
 
+.menu button:hover, .panel-buttons .save:hover, .panel-buttons .cancel:hover {
+    background-color: rgb(31, 28, 28);
+    color: azure;
+}
+
+.icon {
+   margin-right: 25px;
+}
+
+.add {
+    margin-right: 10px;
+}
 
 
 
