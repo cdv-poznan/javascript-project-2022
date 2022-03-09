@@ -25,10 +25,32 @@ const calculation = () => {
         // rateInfo.textContent = `${val}`
 
         amountSecond.value = (amountFirst.value * rate).toFixed(2)
-        total.textContent = `${amountFirst.value} ${currencyOne} to ${amountSecond.value} ${currencyTwo}`
+
+       
+
+                if(amountFirst.value > '0' ) {
+            total.textContent = `${amountFirst.value} ${currencyOne} to ${amountSecond.value} ${currencyTwo}`
+        }
         
     })
 }
+
+// if(amountSecond.textContent !== '0,00') {
+//     total.textContent = `${amountFirst.value} ${currencyOne} to ${amountSecond.value} ${currencyTwo}`
+// } else {
+//     total.style.visibility = 'hidden';
+//    }
+
+
+// const testVisibility = () => {
+//     total.textContent = `${amountFirst.value} ${currencyOne} to ${amountSecond.value} ${currencyTwo}`
+//     if(amountSecond.textContent !== '0,00') {
+//         total.style.visibility = 'visible';
+//     } else {
+//         total.style.visibility = 'hidden';
+       
+//     }
+// }
 
 const change = () => {
     const firstValue = currencyFirst.value
