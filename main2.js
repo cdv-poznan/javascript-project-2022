@@ -7,6 +7,10 @@ const amountSecond = document.querySelector('.converted-amount')
 const rateInfo = document.querySelector('.rate-info')
 const total = document.querySelector('.total')
 
+const infoBtn = document.querySelector('.fa-circle-info');
+const explanation = document.querySelector('.explanation');
+const closeModalBtn = document.querySelector('.close');
+
 const calculation = () => {
     fetch(`https://v6.exchangerate-api.com/v6/89de10cd4b5fc62d16b4a029/pair/${currencyFirst.value}/${currencySecond.value}`)
     .then(res => res.json())
@@ -59,9 +63,27 @@ const change = () => {
     calculation ()
 }
 
+const showExplanation = () => {
+    if (!(explanation.style.display === 'block')) {
+        explanation.style.display = 'block';
+    } else {
+        explanation.style.display = 'none';
+    };
+
+    explanation.classList.toggle('modal-animation')
+}
+
+
+
+
+
 currencyFirst.addEventListener('change', calculation)
 currencySecond.addEventListener('change', calculation)
 amountFirst.addEventListener('input', calculation)
 changeBtn.addEventListener('click', change)
+
+infoBtn.addEventListener('click', showExplanation);
+closeModalBtn.addEventListener('click', showExplanation);
+window.addEventListener('click', e => e.target === explanation ? showExplanation() : false);
 
 calculation()
