@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Web App based on API ... " />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Emilia" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>My JS Project</title>
+  </head>
 
-<head>
-    <title>JavaScript Project</title>
-</head>
+  <body>
+    <h1 id="appname">Movie App</h1>
 
-<body>
-    <h1>JavaScript Project</h1>
-</body>
+    <label for="searchMovie"
+      >Find your movie and reach your knowledge about</label
+    >
+    <!-- search movie  -->
+    <input
+      type="text"
+      id="searchMovie"
+      name="searchTxt"
+      placeholder="Write movie name"
+      value=""
+    />
+    <!-- <button type="button" onclick="findMovie()">Szukaj</button> -->
 
+    <h2>movies:</h2>
+    <div id="movieList"></div>
+    <div id="currentClickedMovieId"></div>
+
+    <h4>Collection suggested movies:</h4>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="/main.js"></script>
+  </body>
 </html>
