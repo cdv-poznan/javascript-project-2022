@@ -12,30 +12,32 @@
 // - wyświetlenie informacjami filmu - lub wyświetlenie ich poniżej bez zmiany url
 
 window.addEventListener("DOMContentLoaded", () => {
-  const apiKey = "k_28x30ddn"; //    const apiKey= "k_pgd93xda"
-  const inputMovieSearch = document.getElementById("searchMovie");
-  const searchResultsMovies = document.getElementById("movieList");
-  const suggestedResultsList = document.getElementById("suggestedResultsList");
+  // const apiKey = "k_pgd93xda"; //second apikey
+  const apiKey = "k_28x30ddn";
+  const inputSearchMovie = document.getElementById("search-movie");
+  const searchResultsMovies = document.getElementById("results-movies");
+  const genresList = document.getElementById("genres-list");
+  const suggestedResultsList = document.getElementById("suggested-results");
   const urlAPI = `https://imdb-api.com/en/API/SearchMovie/${apiKey}`;
   const urlDetailsAPI = `https://imdb-api.com/en/API/Title/${apiKey}`;
   const advancedSearchUrl = `https://imdb-api.com/API/AdvancedSearch/${apiKey}`;
 
   function init() {
-    inputMovieSearch.addEventListener("keyup", debounce(getMovies, 300));
-
+    inputSearchMovie.addEventListener("keyup", debounce(getMovies, 300));
+    // event listener on click movie id from titles list
     searchResultsMovies.addEventListener("click", (event) => {
-      //zamienić na funkcję - powtarza sie
       const movieID = event.target.closest("a").id;
       getDetails(movieID);
     });
+    // event listener on click movie id for suggestion movies
     suggestedResultsList.addEventListener("click", (event) => {
-      //zamienić na funkcję - powtarza sie powyżej
       const movieID = event.target.closest("a").id;
       getDetails(movieID);
     });
   }
   init();
 
+  // wait for execute
   function debounce(callback, delay) {
     let timeout;
     return function () {
@@ -44,9 +46,9 @@ window.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  //search results
+  // search results
   async function getMovies(movie) {
-    const movieValue = inputMovieSearch.value;
+    const movieValue = inputSearchMovie.value;
     const results = await fetch(`${urlAPI}/${movieValue}`)
       .then((response) => response.json())
       .then((data) => data.results)
@@ -58,25 +60,27 @@ window.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.log(error));
   }
 
+  // create movie list in DOM
   function createMoviesDOM(movies, htmlTarget) {
     for (const movie of movies) {
       const movieElement = document.createElement("div");
-      movieElement.classList.add("singleMovieList");
+      movieElement.classList.add("selected-movie");
       // movieElement.innerHTML = `<a id="${movie.id}" href="${urlAPI}${movie.id}">${movie.title}</a>`;
       movieElement.innerHTML = `<a id="${movie.id}">${movie.title}</a>`;
       // movieElement.innerHTML = `<img src="${movie.image}" alt="${movie.title}">`;
       movieElement.style.backgroundImage = `url(${movie.image})`;
+      // movieElement.classList.add("single-movie");
       htmlTarget.appendChild(movieElement);
     }
   }
 
-  // function which get link and create details DOM
+  // get id from selected movie link and create div with details in DOM
   async function getDetails(movieId) {
     const details = await fetch(`${urlDetailsAPI}/${movieId}`)
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
-        //add to DOM div after clicked on link
+        // add to DOM div after clicked on link
         createMovieDetailsDom(data);
         const genres = transformGenresToApiParam(data.genreList); // " "
         showSuggestions(genres);
@@ -84,45 +88,24 @@ window.addEventListener("DOMContentLoaded", () => {
     // .catch((error) => new Error("Details not found"));
   }
 
-  // suggestions
-  async function showSuggestions(genres) {
-    // transformGenresToApiParam(genres);
-    const suggestions = await fetch(`${advancedSearchUrl}/?genres=${genres}`)
-      .then((response) => response.json())
-      .then((data) => data.results)
-      .then((data) => {
-        createMoviesDOM(data, suggestedResultsList);
-      });
-    // .catch((error) => new Error("Details not found"));
-  }
-
-  function transformGenresToApiParam(genres) {
-    const currentGenres = genres.map((genre) => {
-      return genre.value;
-    });
-    return currentGenres.join().toLowerCase(); // "genre1,genre2,genre3"
-  }
-
-  // function which create details DOM
+  // create selected from API details of movie in DOM element
   function createMovieDetailsDom(data) {
-    const insideDetailBox = document.getElementById("currentClickedMovieId");
+    const insideDetailBox = document.getElementById("clicked-movie-id");
+    insideDetailBox.classList.add("detail-conatiner");
     insideDetailBox.innerHTML = "";
-
     //image
     if (data.image) {
       const detailBoxImage = document.createElement("div");
       const title = data.title ? data.title : "";
       detailBoxImage.innerHTML = `<img src="${data.image}" alt="${title}">`;
-      detailBoxImage.classList.add("currentMovieImage");
+      detailBoxImage.classList.add("movie-image");
       detailBoxImage.classList.add("box-left");
       insideDetailBox.appendChild(detailBoxImage);
     }
-
     //rightBox
     const detailBoxRight = document.createElement("div");
     detailBoxRight.classList.add("box-right");
     insideDetailBox.append(detailBoxRight);
-
     //title
     if (data.title) {
       const detailBox = document.createElement("div");
@@ -130,7 +113,6 @@ window.addEventListener("DOMContentLoaded", () => {
       detailBox.classList.add("singleMovieDetails");
       detailBoxRight.appendChild(detailBox);
     }
-
     //plot
     if (data.plot) {
       const detailBoxPlot = document.createElement("p");
@@ -138,7 +120,6 @@ window.addEventListener("DOMContentLoaded", () => {
       detailBoxPlot.classList.add("plot");
       detailBoxRight.appendChild(detailBoxPlot);
     }
-
     //rating
     if (data.imDbRating) {
       const detailBoxRating = document.createElement("p");
@@ -146,7 +127,6 @@ window.addEventListener("DOMContentLoaded", () => {
       detailBoxRating.classList.add("rating");
       detailBoxRight.appendChild(detailBoxRating);
     }
-
     // year
     if (data.year) {
       const detailBoxYear = document.createElement("p");
@@ -154,8 +134,7 @@ window.addEventListener("DOMContentLoaded", () => {
       detailBoxYear.classList.add("year");
       detailBoxRight.appendChild(detailBoxYear);
     }
-
-    // genre
+    // genres
     if (data.genres) {
       const detailBoxGenres = document.createElement("p");
       detailBoxGenres.innerHTML = `${data.genres}`;
@@ -163,7 +142,10 @@ window.addEventListener("DOMContentLoaded", () => {
       detailBoxGenres.id = "genres";
       detailBoxRight.appendChild(detailBoxGenres);
     }
-
+    // list genres
+    if (data.genreList) {
+      createGenresDom(data.genreList, genresList);
+    }
     // languages
     if (data.languages) {
       const detailBoxLanguages = document.createElement("p");
@@ -171,21 +153,20 @@ window.addEventListener("DOMContentLoaded", () => {
       detailBoxLanguages.classList.add("movie-languages");
       detailBoxRight.appendChild(detailBoxLanguages);
     }
-
     //stars - create ul
     if (data.starList) {
       createStars(data.starList, detailBoxRight);
     }
-
     //runtimeStr
     if (data.runtimeStr) {
       const detailBoxRuntimeStr = document.createElement("p");
       detailBoxRuntimeStr.innerHTML = `${data.runtimeStr}`;
-      detailBoxRuntimeStr.classList.add("runtimeStr");
+      detailBoxRuntimeStr.classList.add("runtime-str");
       detailBoxRight.appendChild(detailBoxRuntimeStr);
     }
   }
 
+  // list with stars from movie - create list in DOM
   function createStars(stars, box) {
     const detailBoxStars = document.createElement("ul");
     detailBoxStars.classList.add("stars");
@@ -196,5 +177,41 @@ window.addEventListener("DOMContentLoaded", () => {
       starElement.innerHTML = star.name;
       detailBoxStars.appendChild(starElement);
     }
+  }
+
+  //add to DOM div after clicked on selected movie
+  // suggestions
+  async function showSuggestions(genres) {
+    // transformGenresToApiParam(genres);
+    const suggestions = await fetch(`${advancedSearchUrl}/?genres=${genres}`)
+      .then((response) => response.json())
+      .then((data) => data.results)
+      .then((data) => {
+        // create element in DOM with genres which was selected to suggestions
+        createMoviesDOM(data, suggestedResultsList);
+      });
+    // .catch((error) => new Error("Details not found"));
+  }
+
+  // transform genres to api param
+  function transformGenresToApiParam(genres) {
+    const forSuggestionsGenres = genres.map((genre) => {
+      return genre.value;
+    });
+    return forSuggestionsGenres.join().toLowerCase(); // "genre1,genre2,genre3"
+  }
+
+  // create div with genres in DOM
+  function createGenresDom(genres) {
+    const genresElement = document.getElementById("genres-list");
+    genresElement.classList.add("genres-suggestions");
+    genresElement.innerHTML = "";
+    for (const genre of genres) {
+      const genreElement = document.createElement("li");
+      genreElement.classList.add("single-genre");
+      genreElement.innerHTML = `${genre.value}`;
+      genresElement.appendChild(genreElement);
+    }
+    // genresList.appendChild(genresElement);
   }
 });

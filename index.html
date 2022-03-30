@@ -7,34 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Emilia" />
     <link rel="stylesheet" href="/style.css" />
-    <title>Movie App</title>
+    <title>movie app</title>
   </head>
 
   <body>
-    <h1 id="appname">Movie App</h1>
+    <h1 id="appname">vidget</h1>
 
-    <label for="searchMovie"
-      >Find your movie and reach your knowledge about</label
-    >
+    <label for="searchMovie">Write title and find movie</label>
     <!-- search movie  -->
     <input
       type="text"
-      id="searchMovie"
+      id="search-movie"
       name="searchTxt"
-      placeholder="Write movie name"
+      placeholder="Write movie title"
       value=""
     />
     <!-- <button type="button" onclick="findMovie()">Szukaj</button> -->
 
-    <h2>movies:</h2>
-    <div id="movieList"></div>
-    <div id="currentClickedMovieId"></div>
+    <h2>Movies find for you</h2>
+    <div id="results-movies" class="results-movies"></div>
+    <div id="clicked-movie-id"></div>
 
     <h4>
-      <!-- from genres of movie wchich was clicked -->
-      Collection suggested movies
+      <!-- suggestions from genres of movie wchich was clicked -->
+      Suggested films based on categories
     </h4>
-    <div id="suggestedResultsList"></div>
+    <ul id="genres-list"></ul>
+    <!-- suggested movies -->
+    <div id="suggested-results" class="results-genres"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="/main.js"></script>
