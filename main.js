@@ -9,8 +9,9 @@ async function bookSearchByTitle() {
     const button = document.getElementById('Search');
     button.addEventListener('click', async ()=>{
         document.getElementById("logo").style.display = "flex";
-        document.getElementById("logo").style.marginLeft = "0px";
+        document.getElementById("logo").style.marginLeft = "20px";
         document.getElementById("logo").style.marginRight = "0px";
+        document.getElementById("logo").style.marginTop = "20px";
         document.getElementById("logo").style.height = "100px";
         document.getElementById("logo").style.position = "absolute";
         const text = TextToSearch.value;
@@ -18,8 +19,7 @@ async function bookSearchByTitle() {
         const url = `http://openlibrary.org/search.json${query}`;
         const response = await fetch(url);
         const {docs} = await response.json();
-        console.log({docs}); 
-        console.log(docs.length);
+        
         for (let i=0; i<docs.length; i++ ) {
             const object = docs[i];
             console.log(object);
