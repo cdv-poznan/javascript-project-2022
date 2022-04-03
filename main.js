@@ -16,7 +16,7 @@ async function bookSearchByTitle() {
         document.getElementById("logo").style.position = "absolute";
         const text = TextToSearch.value;
         const query = getBookByTitleQuery(text);
-        const url = `http://openlibrary.org/search.json${query}`;
+        const url = `https://openlibrary.org/search.json${query}`;
         const response = await fetch(url);
         const {docs} = await response.json();
         
