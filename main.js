@@ -14,6 +14,7 @@
 window.addEventListener("DOMContentLoaded", () => {
   // const apiKey = "k_pgd93xda"; //second apikey
   const apiKey = "k_28x30ddn";
+  const insideDetailBox = document.getElementById("clicked-movie-id");
   const inputSearchMovie = document.getElementById("search-movie");
   const searchResultsMovies = document.getElementById("results-movies");
   const genresList = document.getElementById("genres-list");
@@ -46,16 +47,23 @@ window.addEventListener("DOMContentLoaded", () => {
     };
   }
 
+  // clear html target
+  function clearHtml(target) {
+    target.innerHTML = "";
+  }
+
   // search results
   async function getMovies(movie) {
     const movieValue = inputSearchMovie.value;
     const results = await fetch(`${urlAPI}/${movieValue}`)
       .then((response) => response.json())
       .then((data) => data.results)
-      .then((data) => {
+      .then((results) => {
         // console.log(data); // return results in console;
+        //add pagintion
         // add to DOM
-        createMoviesDOM(data, searchResultsMovies);
+        clearHtml(searchResultsMovies);
+        createMoviesDOM(results, searchResultsMovies);
       })
       .catch((error) => console.log(error));
   }
@@ -81,6 +89,7 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         // console.log(data);
         // add to DOM div after clicked on link
+        clearHtml(insideDetailBox);
         createMovieDetailsDom(data);
         const genres = transformGenresToApiParam(data.genreList); // " "
         showSuggestions(genres);
@@ -90,9 +99,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // create selected from API details of movie in DOM element
   function createMovieDetailsDom(data) {
-    const insideDetailBox = document.getElementById("clicked-movie-id");
+    // const insideDetailBox = document.getElementById("clicked-movie-id");
     insideDetailBox.classList.add("detail-conatiner");
-    insideDetailBox.innerHTML = "";
+    // insideDetailBox.innerHTML = "";
     //image
     if (data.image) {
       const detailBoxImage = document.createElement("div");
@@ -110,7 +119,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (data.title) {
       const detailBox = document.createElement("div");
       detailBox.innerHTML = `${data.title}`;
-      detailBox.classList.add("singleMovieDetails");
+      detailBox.classList.add("title");
       detailBoxRight.appendChild(detailBox);
     }
     //plot
@@ -122,15 +131,19 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     //rating
     if (data.imDbRating) {
+      const ratingIMDb = document.createElement("p");
+      ratingIMDb.innerHTML = `IMDb Rating`;
+      ratingIMDb.classList.add("rating-title");
+      detailBoxRight.appendChild(ratingIMDb);
       const detailBoxRating = document.createElement("p");
-      detailBoxRating.innerHTML = `${data.imDbRating}`;
+      detailBoxRating.innerHTML = `${data.imDbRating} / 10`;
       detailBoxRating.classList.add("rating");
       detailBoxRight.appendChild(detailBoxRating);
     }
     // year
     if (data.year) {
       const detailBoxYear = document.createElement("p");
-      detailBoxYear.innerHTML = `${data.year}`;
+      detailBoxYear.innerHTML = `Year: ${data.year}`;
       detailBoxYear.classList.add("year");
       detailBoxRight.appendChild(detailBoxYear);
     }
@@ -157,12 +170,26 @@ window.addEventListener("DOMContentLoaded", () => {
     if (data.starList) {
       createStars(data.starList, detailBoxRight);
     }
+    //awards
+    if (data.awards) {
+      const detailBoxAwards = document.createElement("p");
+      detailBoxAwards.innerHTML = `${data.awards}`;
+      detailBoxAwards.classList.add("movie-awards");
+      detailBoxRight.appendChild(detailBoxAwards);
+    }
     //runtimeStr
     if (data.runtimeStr) {
       const detailBoxRuntimeStr = document.createElement("p");
       detailBoxRuntimeStr.innerHTML = `${data.runtimeStr}`;
       detailBoxRuntimeStr.classList.add("runtime-str");
       detailBoxRight.appendChild(detailBoxRuntimeStr);
+    }
+    //trailer
+    if (data.trailer) {
+      const detailBoxTrailer = document.createElement("a");
+      detailBoxTrailer.innerHTML = `${data.trailer}`;
+      detailBoxTrailer.classList.add("trailer");
+      detailBoxRight.appendChild(detailBoxTrailer);
     }
   }
 
@@ -179,7 +206,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //add to DOM div after clicked on selected movie
+  //add to DOM div after clicked on link form suggested movies
   // suggestions
   async function showSuggestions(genres) {
     // transformGenresToApiParam(genres);
@@ -206,6 +233,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const genresElement = document.getElementById("genres-list");
     genresElement.classList.add("genres-suggestions");
     genresElement.innerHTML = "";
+    // genresElement.classList.add("genres");
+    // genresElement.innerHTML = `<h2>Suggestes movies from Genres:</h2>`;
     for (const genre of genres) {
       const genreElement = document.createElement("li");
       genreElement.classList.add("single-genre");
@@ -214,4 +243,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     // genresList.appendChild(genresElement);
   }
+
+  // maybe add pagination for search results
 });
