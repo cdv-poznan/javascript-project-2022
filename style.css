@@ -4,6 +4,8 @@ body {
 }
 a {
     cursor: pointer;
+    /* height: 100%;
+    width: 100%; */
 }
 label  {
     font-size: 1.5em;
@@ -51,9 +53,12 @@ input {
     height: 100%;
     padding: 20px;
     margin: 50px auto;
+    justify-items: center;
 }
 .movie-image img {
-    width: 100%;
+    max-height: 700px;
+    width: auto;
+    /* width: 100%; */
     height: 100%;
 }
 .box-left,
@@ -63,7 +68,37 @@ input {
     background-color: rgb(245, 241, 241);
 }
 .box-right {
-    padding: 20px;
+    padding: 50px;
+    max-width: 600px;
+}
+/* DETAILS MOVIE */
+/* rating */
+.title {
+    font-size: 2em;
+    color: black;
+    font-weight: bold;
+}
+.rating {
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0;
+}
+.rating::before {
+    content: "\2605";
+    color: goldenrod;
+    margin-right: 10px;
+}
+.rating-title {
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+    margin: 20px 0 0 0;
+}
+/* awards */
+.movie-awards {
+    font-size: 1.5em;
+    color: black;
+    margin: 0;
 }
 /* suggestions */
 .genres-suggestions {
@@ -79,4 +114,13 @@ li.single-genre {
     color: white;
     padding: 10px 50px;
     border-radius: 9px;
+}
+
+/* pagination */
+.next-btn, 
+.prev-btn {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color: white;
 }

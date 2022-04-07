@@ -1,4 +1,3 @@
-"use strict";
 // imdb API
 // przykładowy link
 // "https://imdb-api.com/en/API/Title/k_1234567/..."
@@ -10,6 +9,9 @@
 
 // - za pomocą ID filmu znajdujacego się w repsonse dodanie dodatkowych informacji oraz linku do tych informacji
 // - wyświetlenie informacjami filmu - lub wyświetlenie ich poniżej bez zmiany url
+
+"use strict";
+import loadPaging from "./pagination.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   // const apiKey = "k_pgd93xda"; //second apikey
@@ -59,11 +61,15 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((data) => data.results)
       .then((results) => {
-        // console.log(data); // return results in console;
-        //add pagintion
+        //  console.log(results); // return results in console;
+        // add pagintion
         // add to DOM
         clearHtml(searchResultsMovies);
-        createMoviesDOM(results, searchResultsMovies);
+        loadPaging(results.length, (pagingOptions) => {
+          // how to prevent paginate if (results.length <= 0)
+          const newArray = pageArraySplit(results, pagingOptions);
+          createMoviesDOM(newArray, searchResultsMovies);
+        });
       })
       .catch((error) => console.log(error));
   }
@@ -244,5 +250,13 @@ window.addEventListener("DOMContentLoaded", () => {
     // genresList.appendChild(genresElement);
   }
 
-  // maybe add pagination for search results
+  // pagination for search results
+  function pageArraySplit(array, pagingOptions) {
+    const currentPageNumber = pagingOptions.currentPageNumber;
+    const perPage = pagingOptions.perPage;
+    const startingIndex = (currentPageNumber - 1) * perPage;
+    const endingIndex = startingIndex + perPage;
+
+    return array.slice(startingIndex, endingIndex);
+  }
 });
