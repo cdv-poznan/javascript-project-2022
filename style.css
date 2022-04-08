@@ -105,16 +105,16 @@ input {
     justify-items: center;
 }
 .movie-image img {
-    max-height: 700px;
+    max-height: 600px;
     width: auto;
     /* width: 100%; */
-    height: 100%;
+    /* height: 100%; */
 }
 .box-left,
 .box-right {
     height: auto;
     float: left;
-    background-color: rgb(245, 241, 241);
+    /* background-color: rgb(245, 241, 241); */
 }
 .box-right {
     padding: 50px;
@@ -124,7 +124,7 @@ input {
 /* rating */
 .title {
     font-size: 2em;
-    color: black;
+    /* color: black; */
     font-weight: bold;
 }
 .rating {
@@ -140,13 +140,13 @@ input {
 .rating-title {
     font-size: 1em;
     font-weight: bold;
-    color: black;
+    /* color: black; */
     margin: 20px 0 0 0;
 }
 /* awards */
 .movie-awards {
     font-size: 1.5em;
-    color: black;
+    /* color: black; */
     margin: 0;
 }
 /* suggestions */
@@ -158,11 +158,29 @@ input {
     flex-direction: row;
     margin: 50px auto;
 }
-li.single-genre {
+.single-genre {
     background: black;
     color: white;
     padding: 10px 50px;
     border-radius: 9px;
+    --glow-color: rgb(181, 251, 168);
+    --glow-spread-color: rgba(123, 255, 127, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(11, 123, 5);
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
 }
 
 /* pagination */
@@ -179,7 +197,7 @@ div#current-page,
 div#total-pages {
     display: inline-block;
 }
-
+ 
 button {
     --glow-color: rgb(217, 176, 255);
     --glow-spread-color: rgba(191, 123, 255, 0.781);
