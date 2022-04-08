@@ -61,12 +61,11 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((data) => data.results)
       .then((results) => {
-        //  console.log(results); // return results in console;
+        console.log(results); // return results in console;
         // add pagintion
-        // add to DOM
-        clearHtml(searchResultsMovies);
         loadPaging(results.length, (pagingOptions) => {
-          // how to prevent paginate if (results.length <= 0)
+          // add to DOM
+          clearHtml(searchResultsMovies);
           const newArray = pageArraySplit(results, pagingOptions);
           createMoviesDOM(newArray, searchResultsMovies);
         });

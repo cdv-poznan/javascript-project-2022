@@ -1,12 +1,19 @@
 body {
-    background-color: beige;
+    background-color: rgb(0, 0, 0);
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    /* vertical-align: middle; */
+    height: 100vh;
+    width: 100vw;
 }
 a {
     cursor: pointer;
     /* height: 100%;
     width: 100%; */
 }
+/* input */
 label  {
     font-size: 1.5em;
     color: black;
@@ -14,10 +21,52 @@ label  {
 }
 input {
     font-size: 1.5em;
+    margin: 0 auto;
+    text-align: center;
     /* font-weight: bold; */
     color: black;
     display: block;
 }
+/* end input */
+/* loader */
+.loader-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+   }
+   
+   .loader {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 10px solid #162534;
+    border-top-color: #46a2bb;
+    border-bottom-color: #a52ec6;
+    border-radius: 50%;
+    animation: rotate0925 5s linear infinite;
+   }
+   
+   .loader-inner {
+    border-top-color: #f338d4;
+    border-bottom-color: #fff;
+    animation-duration: 2.5s;
+   }
+   
+   @keyframes rotate0925 {
+    0% {
+     transform: scale(1) rotate(360deg);
+    }
+   
+    50% {
+     transform: scale(.8) rotate(-360deg);
+    }
+   
+    100% {
+     transform: scale(1) rotate(360deg);
+    }
+   }
+/* end loader */
+
 .results-movies,
 .results-genres {
     display: flex;
@@ -124,3 +173,58 @@ li.single-genre {
     background-color: black;
     color: white;
 }
+.next-btn, 
+.prev-btn,
+div#current-page,
+div#total-pages {
+    display: inline-block;
+}
+
+button {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+   }
+   
+   button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+   }
+   
+   button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+   }
+   
+   button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
