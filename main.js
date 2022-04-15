@@ -1,5 +1,18 @@
-const characterInformationContainer = document.querySelector('.character__data')
-const inputForm = document.querySelector('.input__form')
+const characterInformationContainer = document.querySelector('.character__data');
+const searchContainer = document.querySelector('.search__container');
+
+
+
+
+
+
+
+// document.getElementById('btn__form').addEventListener('click', function () {
+//     const inputForm = document.querySelector('.input__form').value;
+//     console.log(inputForm);
+//     getInformation(inputForm);
+
+// });
 
 
 
@@ -30,12 +43,15 @@ const request = fetch(`http://hp-api.herokuapp.com/api/characters`)
 .then(data => fillInformation(data[1]));
 */
 
-const getInformation = function(charaterName){
+
+// get Information about character function
+
+const getInformation = function(characterName){
 fetch(`http://hp-api.herokuapp.com/api/characters`)
 .then(response => response.json())
 .then(data => {
-    const result = data.find( ({ name }) => name === `${charaterName}` );
-    console.log(result.name);
+    const result = data.find( ({ name }) => name === `${characterName}` );
+    // console.log(result.name);
     // console.log(data)
 
   
@@ -57,13 +73,36 @@ fetch(`http://hp-api.herokuapp.com/api/characters`)
         
     
 
-
 });
 
 
 
     
 };
-getInformation('Harry Potter')
+
+// Capitalize The First Letter Of Each Word in input__form
+
+function capitalizeTheFirstLetterOfEachWord(word) {
+    const separateWord = word.toLowerCase().split(' ');
+    for (let i = 0; i < separateWord.length; i++) {
+       separateWord[i] = separateWord[i].charAt(0).toUpperCase() +
+       separateWord[i].substring(1);
+    }
+    return separateWord.join(' ');
+ }
+//  console.log(capitalizeTheFirstLetterOfEachWord("harry potter"));
+
+
+
+// Action on click
+
+searchContainer.addEventListener('submit', function (e) {
+    characterInformationContainer.innerHTML = '';
+    e.preventDefault();
+    // const characterNameFromUser = document.querySelector('.input__form').value
+    const characterNameFromUser = capitalizeTheFirstLetterOfEachWord(document.querySelector('.input__form').value);
+    getInformation(characterNameFromUser)
+    console.log(characterNameFromUser);
+});
 
 

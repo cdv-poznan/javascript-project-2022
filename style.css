@@ -345,6 +345,7 @@
   
   .search__container input {
     /* line-height: 2rem; */
+    text-transform: capitalize;
     width: 80rem;
     border:none;
     border-bottom: 2px solid var(--color-tertiary);
