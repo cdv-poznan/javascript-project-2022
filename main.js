@@ -19,18 +19,37 @@ async function bookSearchByTitle() {
         const url = `https://openlibrary.org/search.json${query}`;
         const response = await fetch(url);
         const {docs} = await response.json();
-        
+        console.log(response);
+
+        const children = document.getElementById('Results').children;
+        for (i=0; i<children.length; i++) {
+            document.getElementById('Results').removeChild(children[i]);
+        }       
+
         for (let i=0; i<docs.length; i++ ) {
             const object = docs[i];
-            console.log(object);
-            const {key, title} = object;
-            console.log(title);
-            console.log('https://openlibrary.org'+ key);
+            const {key, title, cover_edition_key} = object;
+            let border = document.createElement('div');
             let element = document.createElement('div');
-            let url = 'https://openlibrary.org'+ key
-            element.innerText = title + " " + url; 
-            element.classList.add('Result');
-            document.getElementById('Results').appendChild(element);
+            let elementImg = document.createElement('img');
+            let elementButton = document.createElement('button');
+            let elementLink = document.createComment('a');
+            let url = 'https://openlibrary.org'+ key;
+            let urlCover = 'https://covers.openlibrary.org/b/olid/'+ cover_edition_key + "-M.jpg";
+            // elementImg.src(urlCover);
+            elementImg.setAttribute("src", urlCover);
+            // elementLink.setAttribute("href", url);
+            element.innerText = title + " " + url + " " + urlCover;
+            border.classList.add('border');
+            element.classList.add('text');
+            elementImg.classList.add('img');
+            elementButton.classList.add('button');
+            elementButton.innerText='czytaj więcej';
+            document.getElementById('Results').appendChild(border);
+            border.appendChild(element);
+            border.appendChild(elementImg);
+            border.appendChild(elementButton);
+            // document.getElementById('Results').appendChild(elementLink);
         }
     })
 }
