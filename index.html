@@ -1,69 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JavaScript Project</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1 id="header">JavaScript Project</h1>
+<html lang="en">
 
-    <section>
-      <h2>Weather</h2>
-      <div id="geo"></div>
-      <div id="weather">
-        <div id="weather-loader" class="loader">Loading...</div>
-      </div>
-    </section>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Tibia News</title>
+</head>
 
-    <section>
-      <h2>News</h2>
-      <div id="news-list">
-        <div id="news-loader" class="loader">Loading...</div>
+<body>
+  <section id="main_page_section1">
+    <p class="main_para">Welcome to the website dedicated to the online game Tibia.<br> Tibia is a 1997 massively
+      multiplayer online role-playing game (MMORPG) developed and published by CipSoft. It is one of the earliest and
+      longest-running MMORPGs, with its popularity peaking in 2007. It is a free game to download and play, though
+      players may pay to upgrade to a premium account, granting substantial in-game benefits. Tibia is a two-dimensional
+      tile-based game set in a fantasy world with pixel art graphics and a top-down perspective.</p>
+    <h1 id="main_header">CHOOSE A SECTION</h1>
+    <div id="main_div">
+      <div class="main_page_div">
+        <a href="index_2_tibia.html"><img src="image/logo-tibia.png" class="main_image"
+            alt="main image of Tibia informations"></a>
+        <p>TIBIA INFORMATIONS</p>
       </div>
-    </section>
+      <div class="main_page_div">
+        <a href="index_3_tibia.html"><img src="image/tibia_char700.png" class="main_image"
+            alt=" main image of Tibia fansites"></a>
+        <p>TIBIA FANSITES</p>
+      </div>
+      <div class="main_page_div">
+        <a href="index_4_tibia.html"><img src="image/tibia_map_800.png" class="main_image"
+            alt="main image of Tibia worlds"></a>
+        <p>TIBIA WORLDS</p>
+      </div>
+      <div class="main_page_div">
+        <a href="index_5_tibia.html"><img src="image/monster_tibia.png" class="main_image"
+            alt="main image of Tibia monster"></a>
+        <p>TIBIA CREATURES</p>
+      </div>
+      <div class="main_page_div">
+        <a href="index_6_tibia.html"><img src="image/main_tibia.png" class="main_image"
+            alt=" main image of Tibia spells"></a>
+        <p>TIBIA LIST OF SPELLS</p>
+      </div>
+    </div>
+  </section>
+</body>
 
-    <section>
-      <h2>Translate</h2>
-      <div>
-        <label>
-          <span>From</span>
-          <select id="source-lang"></select>
-        </label>
-        <label>
-          <span>To</span>
-          <select id="target-lang"></select>
-        </label>
-      </div>
-      <div>
-        <textarea id="text-to-translate">
-          Awareness of issues such as climate protection and pollution has risen in Germany in the past 20 years, a study shows. And many people are ready to make lifestyle changes as a result.
-        </textarea>
-      </div>
-      <div>
-        <button id="translate">Translate</button>
-      </div>
-      <div id="translated"></div>
-    </section>
-
-    <section>
-      <h2>Gold prices</h2>
-      <div>
-        <label>
-          <span>From</span>
-          <input id="from-date" type="date" value="2022-01-01" />
-        </label>
-        <label>
-          <span>To</span>
-          <input id="end-date" type="date" value="2022-02-13" />
-        </label>
-      </div>
-      <canvas id="canvas"></canvas>
-    </section>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.js"></script>
-    <script src="main.js"></script>
-  </body>
 </html>
