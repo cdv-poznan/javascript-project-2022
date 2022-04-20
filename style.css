@@ -31,3 +31,10 @@ body {
   border-radius: 5px;
   margin: 15px auto;
 }
+/* CSS for index_2_tibia */
+.news-list:nth-child(odd) {
+  background-color:#ca6939;
+}
+.news-list:nth-child(even) {
+  background-color:#cc8866;
+}
