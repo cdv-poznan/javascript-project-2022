@@ -3,6 +3,25 @@ body {
   background-color: #cc8866;
   border-radius: 5px;
   margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:link {
+  text-decoration: underline;
+  transition: 0.8s ease-in-out;
+
+}
+
+a:hover {
+  color: yellow;
+  text-decoration: underline;
+  font-size: large;
+  transition: 0.8s ease-in-out;
 }
 
 /* CSS for main side */
@@ -37,4 +56,26 @@ body {
 }
 .news-list:nth-child(even) {
   background-color:#cc8866;
+}
+#page2_h1 {
+  text-align: center;
+}
+
+/* CSS for index_3_tibia */
+#main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.site-list {
+  width: 200px;
+  border: 1px solid;
+  margin: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+#page3_h1 {
+  text-align: center;
 }
