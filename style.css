@@ -1,9 +1,14 @@
 /* CSS for all */
 body {
   background-color: #cc8866;
+  /* #4daacb */
+  /* d5be90 */
+  /* #7ebace */
+  /* #d29779 - ok */
   border-radius: 5px;
   margin: 0;
-  font-family: 'Share Tech Mono', monospace;
+  padding: 5px;
+  font-family: "Share Tech Mono", monospace;
 }
 
 a {
@@ -14,7 +19,6 @@ a {
 a:link {
   text-decoration: underline;
   transition: 0.8s ease-in-out;
-
 }
 
 a:hover {
@@ -42,6 +46,7 @@ a:hover {
 
 .main_image {
   max-width: 100%;
+  /* height: 150px; */
 }
 .main_page_div {
   width: 250px;
@@ -49,18 +54,33 @@ a:hover {
   border: 1px solid;
   border-radius: 5px;
   margin: 15px auto;
+  transition: 0.7s ease-in-out;
 }
-/* CSS for index_2_tibia */
+.main_page_div:hover {
+  width: 300px;
+  transition: 0.7s ease-in-out;
+}
+#main_div a {
+  text-decoration: none;
+}
+#main_div a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/*  CSS for index_2_tibia */
 .news-list:nth-child(odd) {
-  background-color:#ca6939;
+  background-color: #ca6939;
 }
 .news-list:nth-child(even) {
-  background-color:#cc8866;
+  background-color: #cc8866;
 }
 #page2_h1 {
   text-align: center;
 }
-
+#main_news {
+  text-align: center;
+}
 /* CSS for index_3_tibia */
 #main {
   display: flex;
