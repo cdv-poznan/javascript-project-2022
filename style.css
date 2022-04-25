@@ -1,10 +1,6 @@
 /* CSS for all */
 body {
   background-color: #cc8866;
-  /* #4daacb */
-  /* d5be90 */
-  /* #7ebace */
-  /* #d29779 - ok */
   border-radius: 5px;
   margin: 0;
   padding: 5px;
@@ -71,6 +67,7 @@ a:hover {
 /*  CSS for index_2_tibia */
 .news-list:nth-child(odd) {
   background-color: #ca6939;
+  padding: 5px;
 }
 .news-list:nth-child(even) {
   background-color: #cc8866;
@@ -91,11 +88,62 @@ a:hover {
 .site-list {
   width: 200px;
   border: 1px solid;
+  border-radius: 5px;
   margin: 5px;
   text-align: center;
   padding: 5px;
 }
 
 #page3_h1 {
+  text-align: center;
+}
+
+/* CSS for index_4_tibia */
+.world-list:nth-child(odd) {
+  background-color: #ca6939;
+  padding: 5px;
+}
+.world-list:nth-child(even) {
+  background-color: #cc8866;
+}
+#page4_h1 {
+  text-align: center;
+}
+#world {
+  text-align: center;
+}
+
+/* CSS or index_5_tibia */
+#monsterBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.monster-list {
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+#page5_h1 {
+  text-align: center;
+}
+
+/* CSS for index_6_tibia */
+.spell_list:nth-child(odd) {
+  background-color: #ca6939;
+  padding: 5px;
+}
+.spell_list:nth-child(even) {
+  background-color: #cc8866;
+}
+#page6_h1 {
+  text-align: center;
+}
+#spellBox {
   text-align: center;
 }
