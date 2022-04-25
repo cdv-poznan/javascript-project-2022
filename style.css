@@ -1,6 +1,6 @@
 body {
     background-color: rgb(0, 0, 0);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: white;
     text-align: center;
     margin: 0 auto;
@@ -13,6 +13,19 @@ a {
     /* height: 100%;
     width: 100%; */
 }
+h1 {
+    font-size: 120px;
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    line-height: 1;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    background-image: linear-gradient(0deg, rgba(255, 0, 150, 0.15), rgba(255, 0, 150, 0.15)), url(/cinema.jpg);
+    background-size: cover;
+}
 /* input */
 label  {
     font-size: 1.5em;
@@ -20,65 +33,36 @@ label  {
     display: block;
 }
 input {
-    font-size: 1.5em;
-    margin: 0 auto;
+    font-size: 1.2em;
+    margin: 0 auto 100px auto;
+    padding: 20px 50px;
+    background: black;
     text-align: center;
-    /* font-weight: bold; */
-    color: black;
+    color: rgb(212, 212, 212);
     display: block;
+    border: 1px solid #170f32;
+    box-shadow: 1px 3px 55px 3px #3e268d;
+    border-radius: 10px;
+}
+input:focus {
+    outline: none;
 }
 /* end input */
-/* loader */
-.loader-wrapper {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto;
-   }
-   
-   .loader {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    border: 10px solid #162534;
-    border-top-color: #46a2bb;
-    border-bottom-color: #a52ec6;
-    border-radius: 50%;
-    animation: rotate0925 5s linear infinite;
-   }
-   
-   .loader-inner {
-    border-top-color: #f338d4;
-    border-bottom-color: #fff;
-    animation-duration: 2.5s;
-   }
-   
-   @keyframes rotate0925 {
-    0% {
-     transform: scale(1) rotate(360deg);
-    }
-   
-    50% {
-     transform: scale(.8) rotate(-360deg);
-    }
-   
-    100% {
-     transform: scale(1) rotate(360deg);
-    }
-   }
-/* end loader */
-
+.results-movies {
+    margin-bottom: 50px;
+}
 .results-movies,
 .results-genres {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-content: center;
     flex-direction: row;
     flex-wrap: wrap;
 }
 .selected-movie {
-    width: 200px;
-    height: 200px;
+    margin: 10px auto;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,32 +73,33 @@ input {
     background-position: center;
 }
 .selected-movie a {
-    height: 100%;
-    width: 100%;
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    /* height: 100%;
+    width: 100%; */
     font-size: 0px;
 }
 .detail-conatiner {
+    max-width: 1100px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
     text-align: justify;
-    height: 100%;
-    padding: 20px;
-    margin: 50px auto;
+    margin: 100px auto;
     justify-items: center;
+    align-items: center;
 }
 .movie-image img {
+    border-radius: 15px;
     max-height: 600px;
-    width: auto;
-    /* width: 100%; */
-    /* height: 100%; */
+    width: 100%;;
 }
 .box-left,
 .box-right {
     height: auto;
     float: left;
-    /* background-color: rgb(245, 241, 241); */
 }
 .box-right {
     padding: 50px;
@@ -124,7 +109,6 @@ input {
 /* rating */
 .title {
     font-size: 2em;
-    /* color: black; */
     font-weight: bold;
 }
 .rating {
@@ -140,14 +124,13 @@ input {
 .rating-title {
     font-size: 1em;
     font-weight: bold;
-    /* color: black; */
     margin: 20px 0 0 0;
 }
 /* awards */
 .movie-awards {
-    font-size: 1.5em;
-    /* color: black; */
-    margin: 0;
+    font-size: 1.1em;
+    /* margin: 0; */
+    font-weight: bold;
 }
 /* suggestions */
 .genres-suggestions {
@@ -163,24 +146,6 @@ input {
     color: white;
     padding: 10px 50px;
     border-radius: 9px;
-    --glow-color: rgb(181, 251, 168);
-    --glow-spread-color: rgba(123, 255, 127, 0.781);
-    --enhanced-glow-color: rgb(231, 206, 255);
-    --btn-color: rgb(11, 123, 5);
-    border: .25em solid var(--glow-color);
-    padding: 1em 3em;
-    color: var(--glow-color);
-    font-size: 15px;
-    font-weight: bold;
-    background-color: var(--btn-color);
-    border-radius: 1em;
-    outline: none;
-    box-shadow: 0 0 1em .25em var(--glow-color),
-           0 0 4em 1em var(--glow-spread-color),
-           inset 0 0 .75em .25em var(--glow-color);
-    text-shadow: 0 0 .5em var(--glow-color);
-    position: relative;
-    transition: all 0.3s;
 }
 
 /* pagination */
@@ -194,10 +159,12 @@ input {
 .next-btn, 
 .prev-btn,
 div#current-page,
-div#total-pages {
+div#total-pages, 
+div#tot-pages, 
+div#cur-page {
     display: inline-block;
 }
- 
+/* buttons for paginations */
 button {
     --glow-color: rgb(217, 176, 255);
     --glow-spread-color: rgba(191, 123, 255, 0.781);

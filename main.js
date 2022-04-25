@@ -12,10 +12,13 @@
 
 "use strict";
 import loadPaging from "./pagination.js";
+import loadPagingSuggestions from "./pagination-suggestions.js";
+import scrollToDetailBox from "./scrolling.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  // const apiKey = "k_pgd93xda"; //second apikey
-  const apiKey = "k_28x30ddn";
+  const apiKey = "k_pgd93xda"; //second apikey
+  // const apiKey = "k_28x30ddn";
+  //const apiKey = "k_n2nfzz4l";
   const insideDetailBox = document.getElementById("clicked-movie-id");
   const inputSearchMovie = document.getElementById("search-movie");
   const searchResultsMovies = document.getElementById("results-movies");
@@ -25,17 +28,24 @@ window.addEventListener("DOMContentLoaded", () => {
   const urlDetailsAPI = `https://imdb-api.com/en/API/Title/${apiKey}`;
   const advancedSearchUrl = `https://imdb-api.com/API/AdvancedSearch/${apiKey}`;
 
+  window.onload = function () {
+    document.getElementById("pagination-results").style.display = "none";
+    document.getElementById("pagination-suggestions").style.display = "none";
+  };
+
   function init() {
     inputSearchMovie.addEventListener("keyup", debounce(getMovies, 300));
     // event listener on click movie id from titles list
-    searchResultsMovies.addEventListener("click", (event) => {
+    searchResultsMovies.addEventListener("click", async (event) => {
       const movieID = event.target.closest("a").id;
-      getDetails(movieID);
+      await getDetails(movieID);
+      scrollToDetailBox();
     });
-    // event listener on click movie id for suggestion movies
-    suggestedResultsList.addEventListener("click", (event) => {
+    // event listener on click movie id for genres movies
+    suggestedResultsList.addEventListener("click", async (event) => {
       const movieID = event.target.closest("a").id;
-      getDetails(movieID);
+      await getDetails(movieID);
+      scrollToDetailBox();
     });
   }
   init();
@@ -61,10 +71,10 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((data) => data.results)
       .then((results) => {
-        console.log(results); // return results in console;
         // add pagintion
+        document.getElementById("pagination-results").style.display = "block";
+        // clearHtml(searchResultsMovies);
         loadPaging(results.length, (pagingOptions) => {
-          // add to DOM
           clearHtml(searchResultsMovies);
           const newArray = pageArraySplit(results, pagingOptions);
           createMoviesDOM(newArray, searchResultsMovies);
@@ -98,6 +108,7 @@ window.addEventListener("DOMContentLoaded", () => {
         createMovieDetailsDom(data);
         const genres = transformGenresToApiParam(data.genreList); // " "
         showSuggestions(genres);
+        // scrollToDetailBox();
       });
     // .catch((error) => new Error("Details not found"));
   }
@@ -212,17 +223,24 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   //add to DOM div after clicked on link form suggested movies
-  // suggestions
+  // suggestions - list of genres
   async function showSuggestions(genres) {
     // transformGenresToApiParam(genres);
     const suggestions = await fetch(`${advancedSearchUrl}/?genres=${genres}`)
       .then((response) => response.json())
       .then((data) => data.results)
-      .then((data) => {
+      .then((results) => {
         // create element in DOM with genres which was selected to suggestions
-        createMoviesDOM(data, suggestedResultsList);
+        document.getElementById("pagination-suggestions").style.display =
+          "block";
+        // createMoviesDOM(data, suggestedResultsList);
+        loadPagingSuggestions(results.length, (pagingOptions) => {
+          clearHtml(suggestedResultsList);
+          const newArray = pageArraySplit(results, pagingOptions);
+          createMoviesDOM(newArray, suggestedResultsList);
+        });
+        // .catch((error) => new Error("Details not found"));
       });
-    // .catch((error) => new Error("Details not found"));
   }
 
   // transform genres to api param

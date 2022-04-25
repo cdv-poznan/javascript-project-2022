@@ -11,46 +11,53 @@
   </head>
 
   <body>
-    <h1 id="appname">vidget</h1>
-    <div class="loader-wrapper">
-      <div class="loader">
-        <div class="loader loader-inner"></div>
-      </div>
-    </div>
+    <h1 id="appname">
+      Find. <br />
+      Watch. <br />
+      Movie.
+    </h1>
 
-    <label for="searchMovie">Write title and find movie</label>
+    <!-- <label for="searchMovie">Write title and find movie</label> -->
     <!-- search movie  -->
     <input
       type="text"
       id="search-movie"
       name="searchTxt"
       placeholder="Write movie title"
-      value=""
     />
+    <!-- value="" -->
     <!-- <button type="button" onclick="findMovie()">Szukaj</button> -->
 
-    <h2>Movies find for you</h2>
     <div id="results-movies" class="results-movies"></div>
 
-    <div class="prev-btn" id="previous"></div>
-    pages
-    <div id="current-page"></div>
-    of
-    <div id="total-pages"></div>
-    <div class="next-btn" id="next"></div>
+    <div id="pagination-results">
+      <button class="prev-btn" id="previous"></button>
+      page
+      <div id="current-page"></div>
+      of
+      <div id="total-pages"></div>
+      <button class="next-btn" id="next"></button>
+    </div>
 
     <div id="clicked-movie-id"></div>
 
-    <h4>
-      <!-- suggestions from genres of movie wchich was clicked -->
-      Suggested films based on categories
-    </h4>
+    <!-- <h4>Suggested films based on categories</h4> -->
     <ul id="genres-list"></ul>
     <!-- suggested movies -->
     <div id="suggested-results" class="results-genres"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <div id="pagination-suggestions">
+      <button class="prev-btn" id="prev-btn"></button>
+      page
+      <div id="cur-page"></div>
+      of
+      <div id="tot-pages"></div>
+      <button class="next-btn" id="next-btn"></button>
+    </div>
+
     <script type="module" src="/main.js"></script>
     <script type="module" src="/pagination.js"></script>
+    <script type="module" src="/scrolling.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
   </body>
 </html>
