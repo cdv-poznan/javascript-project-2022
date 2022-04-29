@@ -8,6 +8,7 @@ const total = document.querySelector('.total');
 
 const infoBtn = document.querySelector('.fa-circle-info');
 const explanation = document.querySelector('.explanation');
+const save = document.querySelector('.fa-floppy-disk');
 const closeModalBtn = document.querySelector('.close');
 
 const colorBtn = document.querySelector('.fa-palette');
@@ -19,6 +20,8 @@ let root = document.documentElement;
 
 const currentDay = document.querySelector('.day');
 const curiosity = document.querySelector('.curiosity');
+
+
 
 const curiosityArr = [
 	'W Singapurze zabronione jest żucie gumy.',
@@ -61,6 +64,7 @@ const calculation = () => {
 			amountSecond.value = (amountFirst.value * rate).toFixed(2);
 			if (amountFirst.value > '0') {
 				total.textContent = `${amountFirst.value} ${currencyOne} to ${amountSecond.value} ${currencyTwo}`;
+				clear()
 			}
 		});
 };
@@ -82,6 +86,10 @@ const showExplanation = () => {
 	explanation.classList.toggle('modal-animation');
 };
 
+const saveConversion = () => {
+	
+}
+
 currencyFirst.addEventListener('change', calculation);
 currencySecond.addEventListener('change', calculation);
 amountFirst.addEventListener('input', calculation);
@@ -89,6 +97,8 @@ changeBtn.addEventListener('click', change);
 
 infoBtn.addEventListener('click', showExplanation);
 closeModalBtn.addEventListener('click', showExplanation);
+saveBtn.addEventListener('click', saveConversion )
+
 window.addEventListener('click', (e) =>
 	e.target === explanation ? showExplanation() : false
 );
@@ -98,7 +108,7 @@ colorBtn.addEventListener('click', () => {
 });
 
 colorOne.addEventListener('click', () => {
-	root.style.setProperty('--first-color', 'rgba(240, 14, 14, 0.562)');
+	root.style.setProperty('--first-color', 'rgba(30, 226, 216, 0.699)');
 });
 
 colorTwo.addEventListener('click', () => {
