@@ -1,0 +1,187 @@
+/* CSS for all */
+body {
+  background-color: #cc8866;
+  margin: 0;
+  padding: 0;
+  font-family: "Share Tech Mono", monospace;
+}
+
+#back {
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:link {
+  text-decoration: underline;
+  transition: 0.8s ease-in-out;
+}
+
+a:hover {
+  color: yellow;
+  text-decoration: underline;
+  font-size: large;
+  transition: 0.8s ease-in-out;
+}
+
+/* CSS for main side */
+#main_page_section1 {
+  text-align: center;
+  min-height: calc(100vh - 60px);
+}
+
+.main_para {
+  text-indent: 30px;
+  text-align: justify;
+  padding: 10px;
+}
+
+#main_div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main_image {
+  max-width: 100%;
+}
+
+.main_page_div {
+  width: 250px;
+  height: auto;
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 15px auto;
+  transition: 0.7s ease-in-out;
+  -webkit-box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+}
+.main_page_div:hover {
+  width: 300px;
+  transition: 0.7s ease-in-out;
+}
+#main_div a {
+  text-decoration: none;
+}
+#main_div a:hover {
+  text-decoration: none;
+  color: black;
+}
+footer {
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid;
+  -webkit-box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+}
+
+#myFooter:hover {
+  text-decoration: none;
+}
+
+#myFooter:link {
+  text-decoration: none;
+}
+
+/*  CSS for index_2_tibia */
+.news-list:nth-child(odd) {
+  background-color: #ca6939;
+  padding: 5px;
+  -webkit-box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+  box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+}
+.news-list:nth-child(even) {
+  background-color: #cc8866;
+}
+#page2_h1 {
+  text-align: center;
+}
+#main_news {
+  text-align: center;
+}
+/* CSS for index_3_tibia */
+#main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.site-list {
+  width: 200px;
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+  padding: 5px;
+  -webkit-box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+}
+
+#page3_h1 {
+  text-align: center;
+}
+
+/* CSS for index_4_tibia */
+.world-list:nth-child(odd) {
+  background-color: #ca6939;
+  padding: 5px;
+  -webkit-box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+  box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+}
+.world-list:nth-child(even) {
+  background-color: #cc8866;
+}
+#page4_h1 {
+  text-align: center;
+}
+#world {
+  text-align: center;
+}
+
+/* CSS or index_5_tibia */
+#monsterBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.monster-list {
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+}
+
+#page5_h1 {
+  text-align: center;
+}
+
+/* CSS for index_6_tibia */
+.spell_list:nth-child(odd) {
+  background-color: #ca6939;
+  padding: 5px;
+  -webkit-box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+  box-shadow: 0px -3px 35px -10px rgba(66, 68, 90, 1);
+}
+.spell_list:nth-child(even) {
+  background-color: #cc8866;
+}
+#page6_h1 {
+  text-align: center;
+}
+#spellBox {
+  text-align: center;
+}
