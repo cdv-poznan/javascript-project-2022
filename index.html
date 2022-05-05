@@ -14,13 +14,13 @@
   <body>
     <div id="container">
       <header class="header">
-        <nav class="nav">
+        <!-- <nav class="nav">
           <span class="title">Wizarding Cards</span>
           <ul>
             <li><a href="#">Read about</a></li>
             <li><a href="#">Check character</a></li>
           </ul>
-        </nav>
+        </nav> -->
         
             <!-- <img class="background__moon" src="/moon.png" alt="">
             <img class="background__sky" src="/floating_cloud.png" alt="">
@@ -30,85 +30,37 @@
             <img src="/stars_gold.png" alt="Gold_stars_IMG">
         </div>
         <div class="header__description">
-          <h1>Explore Wizarding World</h1>
-          <p>and discover wizards cards!</p>
-          <button>Read more!</button>
+          <h1>Explore Wizarding World!</h1>
+          <ul class="nav__links">
+            <li class="nav__item">
+              <a class="nav__link check__character" href="#section--1">Check Character</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link book__of__spells" href="#section--2">Book of Spells</a>
+            </li>
+          </ul>
+          
+          
         </div>
       </header>
 
+
+
       <section class="section" id="section--1">
-        <div class="section__title">
-          <h2>Read about</h2>
-          <h3>
-            Find information about the wizards of Harry Potter
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-            commodi minima voluptas neque illum. Optio, quam laudantium,
-            possimus molestiae voluptatum animi in tenetur sapiente ut veniam
-            eius esse facere quae! Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Voluptates odit nisi nulla error temporibus,
-            maxime atque exercitationem dolorum quaerat illum eum nam debitis
-            necessitatibus eveniet accusantium molestias vel optio dolores.
-          </p>
-        </div>
-        <div class="readabout">
-
-            
-                
-                <img src="/readabout_icon_1.png" alt="" class="readabout__img">
-                  
-                <div class="readabout__readabout">
-                    <h5 class="readabout__header">Przejdź do sekcji "Check Character"</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde alias
-                      sint quos? Accusantium a fugiat porro reiciendis saepe quibusdam
-                      debitis ducimus.
-                    </p>
-                 </div>
-
-              
-                
-                 
-                  
-                  <div class="readabout__readabout">
-                    <h5 class="readabout__header">Wpisz nazwę bohatera który Cię interesuje</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde alias
-                      sint quos? Accusantium a fugiat porro reiciendis saepe quibusdam
-                      debitis ducimus.
-                    </p>
-              </div>
-              <img src="/readabout_icon_2.png" alt="" class="readabout__img">
-
-              
-                 
-                    <img src="/readabout_icon_3.png" alt="" class="readabout__img">
-                  
-                  <div class="readabout__readabout">
-                    <h5 class="readabout__header">Dowiedz się informacji o bohaterzerea</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde alias
-                      sint quos? Accusantium a fugiat porro reiciendis saepe quibusdam
-                      debitis ducimus.
-                    </p>
-                  </div>
-              
-        </div>
-      </section>
-
-      <section class="section" id="section--2">
         <div class="section__container">
             <div class="section__header">
                 <h1> Check Character</h1>
+                <!-- <h2 class="hidden">ukryte</h2> -->
                 <form action="#" class="search__container">
-                    <input type="search" id="site-search" class="input__form" name="q" placeholder="Enter full name of character.." >
+                    <input type="search" id="site-search" class="input__form" name="q" placeholder="Enter name of character.." >
                     <button type="submit" id="btn__form"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
                     <!-- <button>Search</button> -->
                 </form>
             </div>
             <div class="character__data">
-                <!-- <div class="character__information">
+                <!-- 
+                  <img src="/.png" alt="House" class="house__image">
+                  <div class="character__information">
                     <h1>Character information:</h1>
                     <p title="Name">❓</p>
                     <p title="Birth">👶🏻</p>
@@ -130,7 +82,31 @@
         </div>
       </section>
 
-      <footer class="footer"></footer> 
+      <section class="section" id="section--2">
+        <div class="section__title">Book Of Spells</div>
+        
+        <div class="spells__container">
+          
+
+
+
+</div>
+      
+      </section>
+
+      <footer class="footer">
+
+        <p class="footer__copyright">
+          &copy; Copyright by
+          <a
+            class="footer__link twitter-link"
+            target="_blank"
+            href="https://twitter.com/mi_stochaj"
+            >Miłosz Stochaj</a
+          >
+        </p>
+
+      </footer> 
         
 
 

@@ -168,12 +168,10 @@
     
   }
   
-  .header__description p{
-    font-size: 3rem;
-    padding-bottom: 1rem;
-  }
+ 
   
-  .header__description button{
+  .header__description a{
+    margin: 2rem 0 0 0 ;
     font-size: 2rem;
     border-radius: 10%;
     cursor: pointer;
@@ -184,6 +182,7 @@
     padding: 1.5rem 3rem;
     border-radius: 10rem;
     color:black;
+    text-decoration: none;
     /* background-color: #faae33 */
     /* background-color: var(--color-tertiary-darker); */
     /* background-image: linear-gradient(
@@ -201,7 +200,15 @@
     background-image: linear-gradient(to top left, #8700f5 0%, #0bef4c 100%);
     
   }
+
+.check__character{
+  float:left;
+}
   
+.book__of__spells{
+  float: right;
+}
+
   /* Sections */
   
   .section {
@@ -213,7 +220,6 @@
     align-items: center;
     border-radius: 0.5rem;
     transition: transform 1s, opacity 1s;
-    
   }
   
   
@@ -224,12 +230,17 @@
   #section--1{
     padding: 8rem 0;
   }
-  
+
+
   .section__title {
     max-width: 80%;
-    margin: 0 12rem 12rem 12rem;
-    
+    margin: 12rem;
+    font-size: 5rem;
   }
+
+
+/*   
+ 
   
   
   
@@ -288,7 +299,104 @@
   .readabout__readabout p {
     font-size: 2rem;
     text-align: justify;
+  } */
+
+  .spells__information{
+    font-size: 4rem;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem;
+    display: inline-block;
+    width:30%;
+    height: 10rem;
+    /* line-height: 5rem; */
+    text-align: center;
+   overflow: hidden;
+    
+    
   }
+
+  .spells__information p{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+  }
+
+
+
+ .use{
+   font-size: 1.5rem;
+ }
+
+
+  .spells__container :hover{
+    background-color: var(--color-tertiary-brighter);
+    color: white;
+    cursor:pointer
+    
+  }
+
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 40%;
+    min-width: 70%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    border-radius: 20px;
+  }
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+  .modal p{
+    font-size: 4rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn--close-modal {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .hidden__spells{
+    display: none;
+  }
+  
+  
   
   /* Section--2 */
   
@@ -297,7 +405,7 @@
   
   .section__container{
     /* display: inline-block; */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* position: relative; */
     z-index: 100;
     width: 100%;
@@ -364,21 +472,22 @@
     /* border:1px solid rgba(66, 68, 90, 1); */
     font-size: 6rem;
     width: 70%;
-    margin:3rem;
+    margin:10rem;
     border-radius: 20px;
     box-shadow: 0px 0px 30px -7px rgba(66, 68, 90, 1);
-    
   }
   
   
+  
   .character__information{
-    /* display: inline-block; */
-    float: right;
+    display: inline-block;
+    /* float: right; */
     text-align: left;
-    margin: 4rem 20rem 1.5rem 1.5rem;
+    /* margin: 4rem 10rem 1.5rem 1.5rem; */
     /* border: 3px solid #73AD21; */
     padding: 1.5rem;
-    color: var(--color-tertiary)
+    color: var(--color-tertiary);
+    max-width: 50%;
   }
   
   .character__information h1{
@@ -391,14 +500,23 @@
   }
   
   .character__image{
-    float:left;
+   float: left;
     /* margin: 0.1rem; */
-    width:40rem;
-    height: 50rem;
+    width:20rem;
+    height: 20rem;
     background-color: #7561bd;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    /* border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px; */
+    border-radius: 50%;
+    margin: 4rem;
+   
+    /* border: 3px solid yellow; */
+
   }
+
+
+
+  
   
   
   
@@ -441,8 +559,13 @@
     border-radius: 0.5rem;
     transition: transform 1s, opacity 1s;
   }
+
+  .footer__copyright{
+    font-size: 3rem;
+  }
+
+
   
-  
-  
+
   
   
