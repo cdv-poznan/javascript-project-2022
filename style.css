@@ -387,15 +387,9 @@
     background: none;
   }
 
-  .hidden {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .hidden__spells{
-    display: none;
-  }
   
+
+ 
   
   
   /* Section--2 */
@@ -516,7 +510,20 @@
 
 
 
-  
+  .show__more{
+    font-size: 3rem;
+    padding: 1rem;
+    margin: 4rem;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
+
+
+  .show__more:hover{
+    background-color: var(--color-tertiary-brighter);
+    color: var(--color-primary);
+    cursor: pointer;
+  }
   
   
   
@@ -565,7 +572,12 @@
   }
 
 
-  
+/* Others */
+
+
+  .hidden {
+    display: none;
+  }
 
   
   
