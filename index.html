@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wizarding Cards</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <script
       src="https://kit.fontawesome.com/098c030963.js"
       crossorigin="anonymous"
@@ -14,63 +17,69 @@
   <body>
     <div id="container">
       <header class="header">
-        <!-- <nav class="nav">
-          <span class="title">Wizarding Cards</span>
-          <ul>
-            <li><a href="#">Read about</a></li>
-            <li><a href="#">Check character</a></li>
-          </ul>
-        </nav> -->
-        
-            <!-- <img class="background__moon" src="/moon.png" alt="">
-            <img class="background__sky" src="/floating_cloud.png" alt="">
-            <img class="hogwart__castle" src="/hogwart_castle_2.png" alt=""> -->
-        <div class="frontsite__img">
-            <img src="/Dumbledore.png" alt="Dumbledore_IMG">
-            <img src="/stars_gold.png" alt="Gold_stars_IMG">
-        </div>
-        <div class="header__description">
+        <video
+          class="background__front"
+          src="/background__front.mp4"
+          autoplay
+          loop
+          muted
+        >
+          <p>Sorry, no video</p>
+        </video>
+
+        <div class="header__description nav">
           <h1>Explore Wizarding World!</h1>
           <ul class="nav__links">
             <li class="nav__item">
-              <a class="nav__link check__character" href="#section--1">Check Character</a>
+              <a class="nav__link check__character" href="#section--1"
+                >Check Character</a
+              >
             </li>
             <li class="nav__item">
-              <a class="nav__link book__of__spells" href="#section--2">Book of Spells</a>
+              <a class="nav__link book__of__spells" href="#section--2"
+                >Book of Spells</a
+              >
             </li>
           </ul>
-          
-          
         </div>
       </header>
 
-
-
       <section class="section" id="section--1">
         <div class="section__container">
-            <div class="section__header">
-                <h1> Check Character</h1>
-                <!-- <h2 class="hidden">ukryte</h2> -->
-                <form action="#" class="search__container">
-                    <input type="search" id="site-search" class="input__form" name="q" placeholder="Enter name of character.." >
-                    <button type="submit" id="btn__form"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
-                    <!-- <button>Search</button> -->
-                </form>
-            </div>
-            <div class="character__data"></div>
+          <div class="section__header">
+            <h1>Check Character</h1>
+            <!-- <h2 class="hidden">ukryte</h2> -->
+            <form action="#" class="search__container">
+              <input
+                type="search"
+                id="site-search"
+                class="input__form"
+                name="q"
+                placeholder="Enter name of character.."
+              />
+              <button type="submit" id="btn__form">
+                <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+              </button>
+              <!-- <button>Search</button> -->
+            </form>
+          </div>
+          <div class="character__data"></div>
         </div>
       </section>
 
       <section class="section" id="section--2">
         <div class="section__title">Book Of Spells</div>
-        
+
         <div class="spells__container--1"></div>
         <div class="spells__container--2 hidden"></div>
         <button class="show__more">Show more</button>
-      
       </section>
 
       <footer class="footer">
+        <!-- <div class="frontsite__img">
+            <img src="/Dumbledore.png" alt="Dumbledore_IMG">
+            <img src="/stars_gold.png" alt="Gold_stars_IMG">
+        </div> -->
 
         <p class="footer__copyright">
           &copy; Copyright by
@@ -81,11 +90,7 @@
             >Miłosz Stochaj</a
           >
         </p>
-
-      </footer> 
-        
-
-
+      </footer>
     </div>
 
     <script src="main.js"></script>

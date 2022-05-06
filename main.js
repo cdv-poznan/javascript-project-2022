@@ -7,7 +7,7 @@ const secondSpellsInformationContainer = document.querySelector(
 const characterInformationContainer =
   document.querySelector(".character__data");
 const searchContainer = document.querySelector(".search__container");
-const showMoreBtn = document.querySelector('.show__more');
+const showMoreBtn = document.querySelector(".show__more");
 
 // Page navigation
 
@@ -59,30 +59,23 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 });
 
-
-
-
 // Show more spells button
 
-const showLess = function(){
-    secondSpellsInformationContainer.classList.add('hidden')
-        document.querySelector('.show__more').textContent = 'Show more'
-}
+const showLess = function () {
+  secondSpellsInformationContainer.classList.add("hidden");
+  document.querySelector(".show__more").textContent = "Show more";
+};
 
-const showMore = function(){
-    secondSpellsInformationContainer.classList.remove('hidden')
-    document.querySelector('.show__more').textContent = 'Show less'
+const showMore = function () {
+  secondSpellsInformationContainer.classList.remove("hidden");
+  document.querySelector(".show__more").textContent = "Show less";
 
-    showMoreBtn.addEventListener('click', showLess);
-}
+  showMoreBtn.addEventListener("click", showLess);
+};
 
-showMoreBtn.addEventListener('click', showMore);
-
-
-
+showMoreBtn.addEventListener("click", showMore);
 
 // showMoreBtn.addEventListener('click', function(){
-   
 
 //     secondSpellsInformationContainer.classList.remove('hidden')
 //     document.querySelector('.show__more').textContent = 'Show less'
@@ -92,8 +85,6 @@ showMoreBtn.addEventListener('click', showMore);
 //         document.querySelector('.show__more').textContent = 'Show more'
 //     })
 // });
-
-
 
 // Get information about Character
 
