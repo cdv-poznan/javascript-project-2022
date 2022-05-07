@@ -8,11 +8,19 @@
 
 
 #Div-to-search {
-    padding: 40px 150px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 60px;
     min-width: 200px;
+    max-width: 400px;
 }
 #Text-to-search {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
+    text-align: center;
     height: 50px;
     box-sizing: border-box;
     border: 1px solid #e0e0e0;
@@ -47,6 +55,7 @@
 }
 
 .border{
+    background-color: #edffff;
     height: 400px;
     margin: 20px;
     padding: 10px;

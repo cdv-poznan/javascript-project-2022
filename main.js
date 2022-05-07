@@ -14,6 +14,7 @@ async function bookSearchByTitle() {
         document.getElementById("logo").style.marginTop = "20px";
         document.getElementById("logo").style.height = "100px";
         document.getElementById("logo").style.position = "absolute";
+        document.getElementById("Div-to-search").style.padding = "40px 150px";
         const text = TextToSearch.value;
         const query = getBookByTitleQuery(text);
         const url = `https://openlibrary.org/search.json${query}`;
