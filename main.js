@@ -19,37 +19,50 @@ async function bookSearchByTitle() {
         const url = `https://openlibrary.org/search.json${query}`;
         const response = await fetch(url);
         const {docs} = await response.json();
-        console.log(response);
-
-        const children = document.getElementById('Results').children;
-        for (i=0; i<children.length; i++) {
-            document.getElementById('Results').removeChild(children[i]);
-        }       
+        
+        document.getElementById('Results').innerHTML="";
 
         for (let i=0; i<docs.length; i++ ) {
             const object = docs[i];
-            const {key, title, cover_edition_key} = object;
+            const {key, title, cover_edition_key, author_name, subject_key, first_publish_year, number_of_pages_median} = object;
             let border = document.createElement('div');
             let element = document.createElement('div');
+            let elementAuthor = document.createElement('div');
+            let elementPublication = document.createElement('div');
+            let elementPages = document.createElement('div');
+
             let elementImg = document.createElement('img');
             let elementButton = document.createElement('button');
             let elementLink = document.createComment('a');
             let url = 'https://openlibrary.org'+ key;
             let urlCover = 'https://covers.openlibrary.org/b/olid/'+ cover_edition_key + "-M.jpg";
-            // elementImg.src(urlCover);
             elementImg.setAttribute("src", urlCover);
-            // elementLink.setAttribute("href", url);
-            element.innerText = title + " " + url + " " + urlCover;
+            
+            element.innerText = title,
+            elementAuthor.innerText = author_name;
+            elementPublication.innerText = "First publication: " + first_publish_year + " yr";
+            elementPages.innerText = "Pages: " + number_of_pages_median;
             border.classList.add('border');
             element.classList.add('text');
+            elementAuthor.classList.add('textAuthor');
+            elementPublication.classList.add('textPublication');
+            elementPages.classList.add('textPages');
             elementImg.classList.add('img');
             elementButton.classList.add('button');
-            elementButton.innerText='czytaj więcej';
+            elementButton.innerText='read more';
             document.getElementById('Results').appendChild(border);
             border.appendChild(element);
+            border.appendChild(elementAuthor);
+            border.appendChild(elementPublication);
+            border.appendChild(elementPages);
             border.appendChild(elementImg);
             border.appendChild(elementButton);
-            // document.getElementById('Results').appendChild(elementLink);
+            border.appendChild(elementLink);
+
+            elementButton.onclick = function() {
+                const win = window.open(url, '_blank');
+                win.focus();
+            };
         }
     })
 }
