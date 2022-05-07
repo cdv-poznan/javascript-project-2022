@@ -13,7 +13,7 @@
     margin-right: auto;
     padding: 40px 60px;
     min-width: 200px;
-    max-width: 400px;
+    max-width: 1000px;
 }
 #Text-to-search {
     display:block;
@@ -53,6 +53,16 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+@media only screen and (max-width: 600px) {
+    #Results {
+      width: 80vw;
+      min-width: 350px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 
 .border{
     background-color: #edffff;
