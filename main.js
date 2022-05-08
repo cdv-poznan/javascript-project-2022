@@ -21,10 +21,16 @@ async function bookSearchByTitle() {
         const query = getBookByTitleQuery(text);
         const url = `https://openlibrary.org/search.json${query}`;
         const response = await fetch(url);
-        const {docs} = await response.json();
+        const {docs, numFound} = await response.json();
+        
         
         document.getElementById('Results').innerHTML="";
 
+        let NumberofResults = document.createElement('p');
+        NumberofResults.classList.add('Number');
+        NumberofResults.innerText="Number of Results = " + numFound;
+        document.getElementById("Results").appendChild(NumberofResults);
+        
         for (let i=0; i<docs.length; i++ ) {
             const object = docs[i];
             const {key, title, cover_edition_key, author_name, subject_key, first_publish_year, number_of_pages_median} = object;

@@ -61,6 +61,7 @@ textarea:focus {
 
 #Search-div {
     text-align: center;
+    margin-left: 90px;
 }
 
 #Search {
@@ -85,7 +86,7 @@ textarea:focus {
     margin-right: auto;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     #Results {
       width: 380px;
       display: block;
@@ -93,7 +94,19 @@ textarea:focus {
       margin-right: auto;
       padding: 0px;
     }
+    #Search-div {
+        margin-left: 0px;
+    }
+
   }
+
+.Number {
+    font-family: LibreFranklin;
+    color: #003B9D;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
 
 .border{
     background-color: #C5CAE9;
