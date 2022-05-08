@@ -14,7 +14,9 @@ async function bookSearchByTitle() {
         document.getElementById("logo").style.marginTop = "20px";
         document.getElementById("logo").style.height = "100px";
         document.getElementById("logo").style.position = "absolute";
-        document.getElementById("Div-to-search").style.padding = "40px 150px";
+        document.getElementById("signature").style.padding = "18px 0px 0px 0px";
+        document.getElementById("Search").style.margin = "25px 200px 50px 200px";
+        document.getElementById("Div-to-search").style.padding = "20px 50px 0px 150px";
         const text = TextToSearch.value;
         const query = getBookByTitleQuery(text);
         const url = `https://openlibrary.org/search.json${query}`;
@@ -50,7 +52,7 @@ async function bookSearchByTitle() {
             elementPages.classList.add('textPages');
             elementImg.classList.add('img');
             elementButton.classList.add('button');
-            elementButton.innerText='read more';
+            elementButton.innerText='Read more';
             document.getElementById('Results').appendChild(border);
             border.appendChild(element);
             border.appendChild(elementAuthor);
