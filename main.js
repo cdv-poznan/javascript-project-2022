@@ -28,7 +28,7 @@ async function bookSearchByTitle() {
 
         let NumberofResults = document.createElement('p');
         NumberofResults.classList.add('Number');
-        NumberofResults.innerText="Number of Results = " + numFound;
+        NumberofResults.innerText="Number of Results for " + TextToSearch.value + " = " + numFound;
         document.getElementById("Results").appendChild(NumberofResults);
         
         for (let i=0; i<docs.length; i++ ) {
