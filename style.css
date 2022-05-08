@@ -1,0 +1,205 @@
+@font-face
+
+{
+
+font-family: LibreFranklin;
+
+src:url(LibreFranklin-VariableFont_wght.ttf);
+
+}
+
+
+#logo {
+    display:block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+}
+
+
+#Div-to-search {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 60px 0px 60px;
+    min-width: 200px;
+    max-width: 1000px;
+}
+#Text-to-search {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #edffff;
+    font-size: 20px;
+    font-weight: bold;
+    color: #003B9D;
+    resize: none;
+    font-family: LibreFranklin;
+    padding: 10px;
+}
+
+textarea:focus {
+    outline: none !important;
+    border-color: #003B9D !important;
+}
+
+#signature {
+    font-family: LibreFranklin;
+    font-size: 12px;
+    color: #000051;
+    font-weight: bold;
+    margin: 0px;
+    padding-top: 5px;
+}
+
+#Search-div {
+    text-align: center;
+    margin-left: 90px;
+}
+
+#Search {
+    background-color: #000051;
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 7px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    font-family: LibreFranklin;
+}
+#Results {
+    height: auto;
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    #Results {
+      width: 360px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0px;
+    }
+    #Search-div {
+        margin-left: 0px;
+    }
+
+  }
+
+.Number {
+    font-family: LibreFranklin;
+    color: #003B9D;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.border{
+    background-color: #C5CAE9;
+    height: 350px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px; 
+}
+
+.text {
+    font-family: LibreFranklin;
+    float: right;
+    height: auto;
+    width: 50%;
+    word-wrap: break-word;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 900 ;
+    color: #003B9D;
+}
+
+.textAuthor {
+    font-family: LibreFranklin;
+    float: right;
+    height: auto;
+    width: 50%;
+    word-wrap: break-word;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #003B9D;
+}
+
+
+.textPublication {
+    font-family: LibreFranklin;
+    float: right;
+    height: auto;
+    width: 50%;
+    word-wrap: break-word;
+    margin: 10px;
+    font-size: 14px;
+    color: #003B9D;
+    
+}
+
+.textPages {
+    font-family: LibreFranklin;
+    float: right;
+    height: auto;
+    width: 50%;
+    word-wrap: break-word;
+    margin: 10px;
+    font-size: 14px;
+    color: #003B9D;
+    
+}
+
+.img {
+    padding: 14px;
+    vertical-align: top;
+    width: 30%;
+    max-height: 250px;
+    overflow:auto;
+}
+
+.button {
+    float: right;
+    margin: 30px;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background-color:#000051;
+	border-radius:7px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: LibreFranklin;
+	font-size:15px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+    border: #000051;
+    
+}
+.button:hover {
+	background-color:#000051;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url("background.jpg");
+    background-size:100%;
+}
