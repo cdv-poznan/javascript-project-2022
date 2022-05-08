@@ -113,7 +113,6 @@ textarea:focus {
     height: 370px;
     margin: 20px;
     padding: 10px;
-    border: C5CAE9 solid;
     border-radius: 10px; 
 }
 
@@ -202,5 +201,5 @@ body {
     margin: 0px;
     padding: 0px;
     background-image: url("background.jpg");
-    background-size: 100%;
+    background-size:100%;
 }
