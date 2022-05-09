@@ -22,6 +22,9 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
   }
 });
 
+
+// Get information about spells
+
 window.addEventListener("DOMContentLoaded", (event) => {
   fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/spells`)
     .then((response) => response.json())
@@ -75,16 +78,7 @@ const showMore = function () {
 
 showMoreBtn.addEventListener("click", showMore);
 
-// showMoreBtn.addEventListener('click', function(){
 
-//     secondSpellsInformationContainer.classList.remove('hidden')
-//     document.querySelector('.show__more').textContent = 'Show less'
-
-//     showMoreBtn.addEventListener('click', function(){
-//         secondSpellsInformationContainer.classList.add('hidden')
-//         document.querySelector('.show__more').textContent = 'Show more'
-//     })
-// });
 
 // Get information about Character
 
@@ -102,10 +96,10 @@ const getInformationNick = function (characterNick) {
         <img class="character__image" src="${nickDataResult.image}" alt="No_data">
         <div class="character__information">
         <h1>Character information:</h1>
-        <p title="Name">❓ ${nickDataResult.character}</p>
-        <p title="House">❓ ${nickDataResult.hogwartsHouse}</p>
-        <p title="Child">❓ ${nickDataResult.child}</p>
-        <p title="Actor">❓ ${nickDataResult.interpretedBy}</p>
+        <p title="Name">Name: ${nickDataResult.character}</p>
+        <p title="House">House: ${nickDataResult.hogwartsHouse}</p>
+        <p title="Child">Child: ${nickDataResult.child}</p>
+        <p title="Actor">Actor: ${nickDataResult.interpretedBy}</p>
         
         </div>
         `;
