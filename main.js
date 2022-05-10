@@ -2,30 +2,44 @@ async function initGeoWeather() {
   const geoDiv = document.getElementById('geo');
   const weatherDiv = document.getElementById('weather');
 
-  /* Code	Description
-    0	Clear sky
-    1, 2, 3	Mainly clear, partly cloudy, and overcast
-    45, 48	Fog and depositing rime fog
-    51, 53, 55	Drizzle: Light, moderate, and dense intensity
-    56, 57	Freezing Drizzle: Light and dense intensity
-    61, 63, 65	Rain: Slight, moderate and heavy intensity
-    66, 67	Freezing Rain: Light and heavy intensity
-    71, 73, 75	Snow fall: Slight, moderate, and heavy intensity
-    77	Snow grains
-    80, 81, 82	Rain showers: Slight, moderate, and violent
-    85, 86	Snow showers slight and heavy
-    95 *	Thunderstorm: Slight or moderate
-    96, 99 *	Thunderstorm with slight and heavy hail */
-  const m = new Map();
-  m.set(0, 'Clear sky');
-  m.set(1, 'Mainly clear');
-  m.set(2, 'Partly cloudy');
-  m.set(3, 'Overcast');
-  m.set(45, 'Fog');
-  m.set(48, 'Depositing rime fog');
+  /* Code 	Description
+0 	Clear sky
+1, 2, 3 	Mainly clear, partly cloudy, and overcast
+45, 48 	Fog and depositing rime fog
+51, 53, 55 	Drizzle: Light, moderate, and dense intensity
+56, 57 	Freezing Drizzle: Light and dense intensity
+61, 63, 65 	Rain: Slight, moderate and heavy intensity
+66, 67 	Freezing Rain: Light and heavy intensity
+71, 73, 75 	Snow fall: Slight, moderate, and heavy intensity
+77 	Snow grains
+80, 81, 82 	Rain showers: Slight, moderate, and violent
+85, 86 	Snow showers slight and heavy
+95 * 	Thunderstorm: Slight or moderate
+96, 99 * 	Thunderstorm with slight and heavy hail */
+  const description = new Map();
+  description.set(0, 'Clear sky');
+  description.set(1, 'Mainly clear');
+  description.set(2, 'Partly cloudy');
+  description.set(3, 'Overcast');
+  description.set(45, 'Fog');
+  description.set(48, 'Snowy');
+
+  const icon = new Map();
+  icon.set(0, 'images/sunny.svg');
+  icon.set(1, 'images/sunny-cloudy.svg');
+  icon.set(2, 'images/cloudy-sunny.svg');
+  icon.set(3, 'images/cloudy.svg');
+  icon.set(45, 'images/fog.svg');
+  icon.set(48, 'images/snowy.svg');
+  icon.set(1000, 'images/default.svg');
 
   function getWeatherDescription(code) {
-    return m.get(code);
+    return description.get(code);
+  }
+
+  function getWeatherIcon(code) {
+    iconPath = icon.get(code);
+    return "<img src=${iconpath} height=150px>";
   }
 
   function showError() {
@@ -62,6 +76,11 @@ async function initGeoWeather() {
       descriptionDiv.classList.add('weather-description');
       descriptionDiv.innerText = getWeatherDescription(weathercode);
       weatherDiv.appendChild(descriptionDiv);
+
+      const iconDiv = document.createElement('div');
+      iconDiv.classList.add('weather-icon');
+      iconDiv.innerText = getWeatherIcon(weathercode);
+      weatherDiv.appendChild(iconDiv);
     } catch (error) {
       showError();
     }
