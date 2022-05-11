@@ -1,5 +1,5 @@
 async function initGeoWeather() {
-  const geoDiv = document.getElementById('geo');
+  const geolocalizationDiv = document.getElementById('geolocalization');
   const weatherDiv = document.getElementById('weather');
 
   /* Code 	Description
@@ -37,9 +37,9 @@ async function initGeoWeather() {
     return description.get(code);
   }
 
-  function getWeatherIcon(code) {
+  function getWeatherIconPath(code) {
     iconPath = icon.get(code);
-    return "<img src=${iconpath} height=150px>";
+    return iconPath;
   }
 
   function showError() {
@@ -62,24 +62,50 @@ async function initGeoWeather() {
       }
 
       const {current_weather} = await res.json();
-      const {temperature, windspeed, winddirection, weathercode} =
+      const {time, temperature, windspeed, winddirection, weathercode} =
         current_weather;
 
       document.getElementById('weather-loader').remove();
 
-      const tempDiv = document.createElement('div');
-      tempDiv.classList.add('temp');
-      tempDiv.innerText = `${temperature} °C`;
-      weatherDiv.appendChild(tempDiv);
+      // time parameters
+      const timeDiv = document.createElement('div');
+      timeDiv.classList.add('time');
+      timeDiv.innerText = `Unix Time: ${time} s`;
+      geolocalizationDiv.appendChild(timeDiv);
 
-      const descriptionDiv = document.createElement('div');
-      descriptionDiv.classList.add('weather-description');
-      descriptionDiv.innerText = getWeatherDescription(weathercode);
-      weatherDiv.appendChild(descriptionDiv);
+      // temperature parameters
+      const temperatureDiv = document.createElement('div');
+      temperatureDiv.classList.add('temperature');
+      temperatureDiv.innerText = `Temperature: ${temperature} °C`;
+      weatherDiv.appendChild(temperatureDiv);
+
+      // wind parameters
+      const windspeedDiv = document.createElement('div');
+      windspeedDiv.classList.add('wind-speed');
+      windspeedDiv.innerText = `Wind Speed: ${windspeed} km/h`;
+      weatherDiv.appendChild(windspeedDiv);
+
+      const winddirectionDiv = document.createElement('div');
+      winddirectionDiv.classList.add('wind-direction');
+      winddirectionDiv.innerText = `Wind Direction: ${winddirection} °`;
+      weatherDiv.appendChild(winddirectionDiv);
+
+      const weathercodeDiv = document.createElement('div');
+      weathercodeDiv.classList.add('weather-code');
+      weathercodeDiv.innerText = `Weather Code: ${weathercode} WMO`;
+      weatherDiv.appendChild(weathercodeDiv);
+
+      const weatherDescriptionDiv = document.createElement('div');
+      weatherDescriptionDiv.classList.add('weather-description');
+      weatherDescriptionDiv.innerText = 'Weather Description: ' + getWeatherDescription(weathercode);
+      weatherDiv.appendChild(weatherDescriptionDiv);
 
       const iconDiv = document.createElement('div');
+      const iconImg = document.createElement('img');
       iconDiv.classList.add('weather-icon');
-      iconDiv.innerText = getWeatherIcon(weathercode);
+      iconImg.classList.add('weather-image');
+      iconImg.src = getWeatherIconPath(weathercode);
+      iconDiv.appendChild(iconImg);
       weatherDiv.appendChild(iconDiv);
     } catch (error) {
       showError();
@@ -88,10 +114,9 @@ async function initGeoWeather() {
 
   navigator.geolocation.getCurrentPosition(async position => {
     const {latitude, longitude} = position.coords;
-
     const div = document.createElement('div');
-    div.innerText = `Latitude: ${latitude} Longitude: ${longitude}`;
-    geoDiv.appendChild(div);
+    div.innerText = `Latitude: ${latitude} \n Longitude: ${longitude}`;
+    geolocalizationDiv.appendChild(div);
 
     getWeather(latitude, longitude);
   });
