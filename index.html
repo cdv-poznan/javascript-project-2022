@@ -6,29 +6,36 @@
     <meta name="keywords" content="HTML, CSS, JavaScript" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Emilia" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/loader.css" />
     <title>movie app</title>
   </head>
 
   <body>
     <h1 id="appname">
       Find. <br />
-      Watch. <br />
-      Movie.
+      Movie. <br />
+      Watch.
     </h1>
 
-    <!-- <label for="searchMovie">Write title and find movie</label> -->
-    <!-- search movie  -->
+    <!-- input for search movie  -->
     <input
       type="text"
       id="search-movie"
       name="searchTxt"
       placeholder="Write movie title"
     />
-    <!-- value="" -->
-    <!-- <button type="button" onclick="findMovie()">Szukaj</button> -->
-
-    <div id="results-movies" class="results-movies"></div>
+    <!-- search results movies -->
+    <div id="movies">
+      <div class="loader-container">
+        <div class="loader">Loading...</div>
+      </div>
+      <div id="results-movies" class="results-movies"></div>
+    </div>
 
     <div id="pagination-results">
       <button class="prev-btn" id="previous"></button>
@@ -44,7 +51,12 @@
     <!-- <h4>Suggested films based on categories</h4> -->
     <ul id="genres-list"></ul>
     <!-- suggested movies -->
-    <div id="suggested-results" class="results-genres"></div>
+    <div id="suggested-movies">
+      <div class="loader-container">
+        <div class="loader">Loading...</div>
+      </div>
+      <div id="suggested-results" class="results-genres"></div>
+    </div>
 
     <div id="pagination-suggestions">
       <button class="prev-btn" id="prev-btn"></button>
@@ -58,6 +70,5 @@
     <script type="module" src="/main.js"></script>
     <script type="module" src="/pagination.js"></script>
     <script type="module" src="/scrolling.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
   </body>
 </html>

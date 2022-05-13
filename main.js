@@ -1,15 +1,3 @@
-// imdb API
-// przykładowy link
-// "https://imdb-api.com/en/API/Title/k_1234567/..."
-
-// - znaleźć film - wpisanie w input tytułu filmu, odczytywanie value - search + debounce (poczekać np. 300ms)
-// - przycisk szukaj wyzwala akcję szukania w api -> async f() fetch
-// - szukanie w movie
-// - wyświetlenie nazwy img i linku do filmu / ów
-
-// - za pomocą ID filmu znajdujacego się w repsonse dodanie dodatkowych informacji oraz linku do tych informacji
-// - wyświetlenie informacjami filmu - lub wyświetlenie ich poniżej bez zmiany url
-
 "use strict";
 import loadPaging from "./pagination.js";
 import loadPagingSuggestions from "./pagination-suggestions.js";
@@ -18,11 +6,14 @@ import scrollToDetailBox from "./scrolling.js";
 window.addEventListener("DOMContentLoaded", () => {
   const apiKey = "k_pgd93xda"; //second apikey
   // const apiKey = "k_28x30ddn";
-  //const apiKey = "k_n2nfzz4l";
+  // const apiKey = "k_n2nfzz4l";
   const insideDetailBox = document.getElementById("clicked-movie-id");
   const inputSearchMovie = document.getElementById("search-movie");
+  const searchResultsMoviesContainer = document.getElementById("movies");
   const searchResultsMovies = document.getElementById("results-movies");
   const genresList = document.getElementById("genres-list");
+  const suggestedResultsListContainer =
+    document.getElementById("suggested-movies");
   const suggestedResultsList = document.getElementById("suggested-results");
   const urlAPI = `https://imdb-api.com/en/API/SearchMovie/${apiKey}`;
   const urlDetailsAPI = `https://imdb-api.com/en/API/Title/${apiKey}`;
@@ -64,16 +55,28 @@ window.addEventListener("DOMContentLoaded", () => {
     target.innerHTML = "";
   }
 
+  //show loader
+  function showLoader(target) {
+    const loader = target.getElementsByClassName("loader-container");
+    loader[0].classList.add("visible");
+  }
+  // hide loader
+  function hideLoader(target) {
+    const loader = target.getElementsByClassName("loader-container");
+    loader[0].classList.remove("visible");
+  }
+
   // search results
   async function getMovies(movie) {
+    showLoader(searchResultsMoviesContainer);
     const movieValue = inputSearchMovie.value;
     const results = await fetch(`${urlAPI}/${movieValue}`)
       .then((response) => response.json())
       .then((data) => data.results)
       .then((results) => {
-        // add pagintion
+        hideLoader(searchResultsMoviesContainer);
         document.getElementById("pagination-results").style.display = "block";
-        // clearHtml(searchResultsMovies);
+        // add pagintion
         loadPaging(results.length, (pagingOptions) => {
           clearHtml(searchResultsMovies);
           const newArray = pageArraySplit(results, pagingOptions);
@@ -88,36 +91,38 @@ window.addEventListener("DOMContentLoaded", () => {
     for (const movie of movies) {
       const movieElement = document.createElement("div");
       movieElement.classList.add("selected-movie");
-      // movieElement.innerHTML = `<a id="${movie.id}" href="${urlAPI}${movie.id}">${movie.title}</a>`;
+      movieElement.setAttribute("id", "click-movie");
       movieElement.innerHTML = `<a id="${movie.id}">${movie.title}</a>`;
-      // movieElement.innerHTML = `<img src="${movie.image}" alt="${movie.title}">`;
       movieElement.style.backgroundImage = `url(${movie.image})`;
-      // movieElement.classList.add("single-movie");
+      movieElement.style.backgroundSize = "cover";
       htmlTarget.appendChild(movieElement);
+      // movie title
+      const movieElementTitle = document.createElement("p");
+      movieElementTitle.classList.add("results-movies-title");
+      movieElementTitle.setAttribute("id", "click-movie");
+      movieElementTitle.innerHTML = `<a id="${movie.id}">${movie.title}</a>`;
+      movieElement.appendChild(movieElementTitle);
     }
   }
 
-  // get id from selected movie link and create div with details in DOM
+  // get id from selected movie link and create div with details
   async function getDetails(movieId) {
     const details = await fetch(`${urlDetailsAPI}/${movieId}`)
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
-        // add to DOM div after clicked on link
         clearHtml(insideDetailBox);
         createMovieDetailsDom(data);
-        const genres = transformGenresToApiParam(data.genreList); // " "
-        showSuggestions(genres);
-        // scrollToDetailBox();
+        if (data.genreList) {
+          const genres = transformGenresToApiParam(data.genreList); // " "
+          showSuggestions(genres);
+        }
       });
     // .catch((error) => new Error("Details not found"));
   }
 
-  // create selected from API details of movie in DOM element
+  // create selected from API details
   function createMovieDetailsDom(data) {
-    // const insideDetailBox = document.getElementById("clicked-movie-id");
     insideDetailBox.classList.add("detail-conatiner");
-    // insideDetailBox.innerHTML = "";
     //image
     if (data.image) {
       const detailBoxImage = document.createElement("div");
@@ -182,7 +187,7 @@ window.addEventListener("DOMContentLoaded", () => {
       detailBoxLanguages.classList.add("movie-languages");
       detailBoxRight.appendChild(detailBoxLanguages);
     }
-    //stars - create ul
+    //stars
     if (data.starList) {
       createStars(data.starList, detailBoxRight);
     }
@@ -209,7 +214,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // list with stars from movie - create list in DOM
+  // list with movie's stars
   function createStars(stars, box) {
     const detailBoxStars = document.createElement("ul");
     detailBoxStars.classList.add("stars");
@@ -222,18 +227,16 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //add to DOM div after clicked on link form suggested movies
-  // suggestions - list of genres
+  //suggested movies
   async function showSuggestions(genres) {
-    // transformGenresToApiParam(genres);
+    showLoader(suggestedResultsListContainer);
     const suggestions = await fetch(`${advancedSearchUrl}/?genres=${genres}`)
       .then((response) => response.json())
       .then((data) => data.results)
       .then((results) => {
-        // create element in DOM with genres which was selected to suggestions
+        hideLoader(suggestedResultsListContainer);
         document.getElementById("pagination-suggestions").style.display =
           "block";
-        // createMoviesDOM(data, suggestedResultsList);
         loadPagingSuggestions(results.length, (pagingOptions) => {
           clearHtml(suggestedResultsList);
           const newArray = pageArraySplit(results, pagingOptions);
@@ -248,7 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const forSuggestionsGenres = genres.map((genre) => {
       return genre.value;
     });
-    return forSuggestionsGenres.join().toLowerCase(); // "genre1,genre2,genre3"
+    return forSuggestionsGenres.join().toLowerCase();
   }
 
   // create div with genres in DOM
@@ -256,17 +259,13 @@ window.addEventListener("DOMContentLoaded", () => {
     const genresElement = document.getElementById("genres-list");
     genresElement.classList.add("genres-suggestions");
     genresElement.innerHTML = "";
-    // genresElement.classList.add("genres");
-    // genresElement.innerHTML = `<h2>Suggestes movies from Genres:</h2>`;
     for (const genre of genres) {
       const genreElement = document.createElement("li");
       genreElement.classList.add("single-genre");
       genreElement.innerHTML = `${genre.value}`;
       genresElement.appendChild(genreElement);
     }
-    // genresList.appendChild(genresElement);
   }
-
   // pagination for search results
   function pageArraySplit(array, pagingOptions) {
     const currentPageNumber = pagingOptions.currentPageNumber;
@@ -276,4 +275,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
     return array.slice(startingIndex, endingIndex);
   }
+  //
 });

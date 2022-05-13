@@ -4,7 +4,6 @@ body {
     color: white;
     text-align: center;
     margin: 0 auto;
-    /* vertical-align: middle; */
     height: 100vh;
     width: 100vw;
 }
@@ -26,7 +25,6 @@ h1 {
     background-image: linear-gradient(0deg, rgba(255, 0, 150, 0.15), rgba(255, 0, 150, 0.15)), url(/cinema.jpg);
     background-size: cover;
 }
-/* input */
 label  {
     font-size: 1.5em;
     color: black;
@@ -47,10 +45,7 @@ input {
 input:focus {
     outline: none;
 }
-/* end input */
-.results-movies {
-    margin-bottom: 50px;
-}
+/* results */
 .results-movies,
 .results-genres {
     display: flex;
@@ -59,26 +54,32 @@ input:focus {
     align-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 100px;
 }
 .selected-movie {
+    max-width: 250px;
     margin: 10px auto;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     align-content: center;
-    flex-direction: row;
+    flex-direction: column;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
-.selected-movie a {
-    width: 150px;
-    height: 200px;
-    border-radius: 10px;
-    /* height: 100%;
-    width: 100%; */
+.selected-movie > a {
     font-size: 0px;
+}
+.selected-movie a {
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+}
+p.results-movies-title {
+    position: relative;
+    bottom: -50px;
 }
 .detail-conatiner {
     max-width: 1100px;
@@ -110,6 +111,13 @@ input:focus {
 .title {
     font-size: 2em;
     font-weight: bold;
+}
+.plot, 
+.year, 
+.genres, 
+.movie-languages, 
+.stars {
+    font-size: 1.2em;
 }
 .rating {
     font-size: 2em;
