@@ -34,10 +34,8 @@ body {
 	text-align: center;
 	top: 0;
 	height: 15%;
-	width:700px;
 	max-width: 100%;
 	margin: 20px;
-	/* padding: 5px; */
 	font-size: 22px;
 	letter-spacing: 2px;
 	color: rgb(255, 255, 255); 
@@ -200,26 +198,12 @@ body {
 	overflow: hidden;
 	margin: 20px;
 	padding: 40px;
-	/* padding-top: 20px; */
 	max-width: 500px;
 	width: 100%;
 	text-align: center;
 }
 
 .modal {
-	/* position: relative; */
-	/* display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center; */
-
-	/* top: 50%; 
-	left: 50%; */
-	/* transform: translate(-50%, -50%); */
-	/* width: 500px;
-	max-width: 100%; */
-	/* padding: 10px 20px; */
 	border-radius: 15px;
 	background-color: rgb(21, 56, 116);
 	color: #fff;
@@ -349,7 +333,72 @@ footer {
 	color: blue;
 }
 
-@media (max-width:500px) {
+@media (max-width:920px)  and (orientation: landscape) {
+	.news {
+		font-size: 16px;
+		padding-bottom: 5px;
+	}
+	.wrapper {
+		max-width: 70%;
+		padding: 5px;
+	}
+	.wrapper h1 {
+		font-size: 26px;
+	}
+	.converter-body input {
+		width: 80%;
+	}
+	.converter-body input, .converter-body select {
+		margin-top: 3px;
+	}
+	.rate-info, .total {
+		padding-top: 3px;
+	}
+	.info {
+		top: -8px;
+		font-size: 18px;
+	}
+	.explanation {
+		max-width: 80%;
+	}
+	.modal h3 {
+		font-size: 14px;
+	}
+	.modal p {
+		font-size: 12px;
+	}
+	.modal .close {
+		margin: 10px auto;
+		padding: 10px 20px;
+		font-size: 8px;
+	}
+	.colors {
+		width: 30px;
+		height: 80px;
+	}
+	.color {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+@media (max-width:600px) and (orientation: landscape) {
+	.wrapper {
+		max-width: 70%;
+	}
+	.info {
+		font-size: 18px;
+		top:-8x;
+	}
+	.news {
+		font-size: 14px;
+	}
+	.converter-body input, .converter-body select {
+		margin-top: 1px;
+	}
+}
+
+@media (max-width:500px)  {
 	.wrapper h1 {
 		font-size: 26px;
 	}
@@ -367,16 +416,47 @@ footer {
 		width: 25px;
 		height: 25px;
 	}
-	/* .converter-body input {
-		font-size: 16px;
-	} */
 }
 
-@media (max-width:430px) {
+@media (max-width:430px)   {
+	.converter-body{
+		margin-top: 10px;
+	}
 	.converter-body input {
 		width: 138%;
 	}
 	.news {
-		font-size: 14px;
+		font-size: 18px;
 	}
 }
+
+@media (max-width:320px)  {
+	.news{
+		padding-top: 25px;
+		font-size: 16px;
+	}
+	.wrapper h1 {
+		font-size: 24px;
+	}
+	.info {
+		width: 30px;
+		font-size: 16px;
+	}
+	.converter-body input {
+		width: 110%;
+		font-size: 12px;	
+	}
+	.converter-body input, .converter-body select {
+		margin-top: 5px;
+	}
+	.changing {
+		margin-left: 10px;
+		margin-right: 10px;
+		width: 50px;
+		font-size: 14px;
+	}
+	.rate-info, .total {
+		font-size: 14px;	
+	}
+}
+

@@ -30,7 +30,6 @@ const curiosityArr = [
 	'Żeby wejść na wieżę Eiffla trzeba pokonać 1710 stopni ?!',
 	'W naszej galaktyce jest 100 miliardów gwiazd ?!',
 	'Chińczycy używają ponad 80 miliardów pałeczek w ciągu roku ?!',
-	'Aż pięć planet jesteśmy gotowi zobaczyć gołym okiem. Są to: Wenus, Merkury, Mars, Jowisz i Saturn ?!',
 	'Kiedyś litera Z została usunięta z alfabetu na aż 200 lat ?!',
 	'Za niegrzeczne uważa się pisanie czerwonym tuszem w języku portugalskim ?!',
 	'Kopenhaga jest najbardziej przyjaznym rowerom miastem na świecie ?!',
