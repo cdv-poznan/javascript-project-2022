@@ -325,6 +325,28 @@ body {
 /* -----max-width: 767px-------*/
 
 @media all and (max-width: 767px) {
+  .spells__information {
+    font-size: 5rem;
+    width: 80%;
+    height: 15rem;
+  }
+}
+
+/* -----max-width: 992px-------*/
+@media all and (max-width: 992px) {
+  .links ul li {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .links ul li:nth-child(1) {
+    float: none;
+  }
+
+  .links ul li:nth-child(2) {
+    float: none;
+  }
+
   .header__description {
     max-width: 100%;
   }
@@ -340,12 +362,6 @@ body {
   .search__container {
     margin: 0 0 5rem 0;
     padding: 0;
-  }
-
-  .spells__information {
-    font-size: 5rem;
-    width: 80%;
-    height: 15rem;
   }
 
   .character__data {
@@ -366,21 +382,5 @@ body {
   .character__image {
     float: none;
     text-align: center;
-  }
-}
-
-/* -----max-width: 992px-------*/
-@media all and (max-width: 992px) {
-  .links ul li {
-    max-width: 100%;
-    justify-content: center;
-  }
-
-  .links ul li:nth-child(1) {
-    float: none;
-  }
-
-  .links ul li:nth-child(2) {
-    float: none;
   }
 }
