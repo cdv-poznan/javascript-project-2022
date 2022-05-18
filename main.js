@@ -22,7 +22,6 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
   }
 });
 
-
 // Get information about spells
 
 window.addEventListener("DOMContentLoaded", (event) => {
@@ -78,8 +77,6 @@ const showMore = function () {
 
 showMoreBtn.addEventListener("click", showMore);
 
-
-
 // Get information about Character
 
 const getInformationNick = function (characterNick) {
@@ -92,13 +89,17 @@ const getInformationNick = function (characterNick) {
 
       console.log(nickDataResult);
 
+      if (nickDataResult.child.length === 0) {
+        nickDataResult.child = "NO DATA";
+      }
+
       const html = `
         <img class="character__image" src="${nickDataResult.image}" alt="No_data">
         <div class="character__information">
         <h1>Character information:</h1>
         <p title="Name">Name: ${nickDataResult.character}</p>
         <p title="House">House: ${nickDataResult.hogwartsHouse}</p>
-        <p title="Child">Child: ${nickDataResult.child}</p>
+        <p class="Child" title="Child">Child: ${nickDataResult.child}</p>
         <p title="Actor">Actor: ${nickDataResult.interpretedBy}</p>
         
         </div>
