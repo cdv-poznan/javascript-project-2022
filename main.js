@@ -6,8 +6,12 @@ const secondSpellsInformationContainer = document.querySelector(
 );
 const characterInformationContainer =
   document.querySelector(".character__data");
+const nickNameInformationContainer = document.querySelector(".nick__name");
 const searchContainer = document.querySelector(".search__container");
 const showMoreBtn = document.querySelector(".show__more");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".btn--close-modal");
 
 // Page navigation
 
@@ -30,7 +34,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     .then((data) => {
       for (let i = 0; i < 72; i++) {
         const spellDataResult = data[i];
-        console.log(spellDataResult);
 
         if (i < 12) {
           const firstHtmlSpells = `
@@ -77,6 +80,57 @@ const showMore = function () {
 
 showMoreBtn.addEventListener("click", showMore);
 
+
+// Modal Window
+
+// const openModal = function (e) {
+//     e.preventDefault();
+//     modal.classList.remove('hidden');
+//     overlay.classList.remove('hidden');
+//   };
+  
+  const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+    nickNameInformationContainer.textContent = "";
+  };
+  
+  
+  
+  btnCloseModal.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  
+  document.addEventListener('keydown', function (e) {
+    if (e.key  && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+
+// Modal Window - nick character help
+const nickCharacterHelp = function () {
+    
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+      
+
+    fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/characters`)
+      .then((response) => response.json())
+      .then((data) => {
+        for (let i = 0; i < 23; i++){
+            const nickCharacterHelpData = data[i]
+        const nickHtml = `
+        <p>${nickCharacterHelpData.nickname},</p>
+        `
+        
+        nickNameInformationContainer.insertAdjacentHTML("beforeend",nickHtml)
+        }
+        });
+      
+}
+
+
+
+
 // Get information about Character
 
 const getInformationNick = function (characterNick) {
@@ -87,13 +141,15 @@ const getInformationNick = function (characterNick) {
         ({ nickname }) => nickname === `${characterNick}`
       );
 
-      console.log(nickDataResult);
+      if (nickDataResult === undefined) {
+        // alert("blad");
+        nickCharacterHelp()
+      } else {
+        if (nickDataResult.child.length === 0) {
+          nickDataResult.child = "NO DATA";
+        }
 
-      if (nickDataResult.child.length === 0) {
-        nickDataResult.child = "NO DATA";
-      }
-
-      const html = `
+        const html = `
         <img class="character__image" src="${nickDataResult.image}" alt="No_data">
         <div class="character__information">
         <h1>Character information:</h1>
@@ -105,10 +161,15 @@ const getInformationNick = function (characterNick) {
         </div>
         `;
 
-      characterInformationContainer.insertAdjacentHTML("beforeend", html);
+        characterInformationContainer.insertAdjacentHTML("beforeend", html);
+      }
     });
 };
+
+
 getInformationNick("Harry");
+
+
 
 // Capitalize The First Letter Of Each Word in input__form
 

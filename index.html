@@ -28,46 +28,46 @@
         </video>
 
         <div class="header__description nav">
-          <h1>Explore <br> Wizarding <br> World!</h1>
+          <h1>
+            Explore <br />
+            Wizarding <br />
+            World!
+          </h1>
           <div class="links">
             <ul class="nav__links">
               <li class="nav__item">
                 <a class="nav__link check__character" href="#section--1"
-                  >Check Character</a>
+                  >Check Character</a
+                >
               </li>
-            <li class="nav__item">
-              <a class="nav__link book__of__spells" href="#section--2"
+              <li class="nav__item">
+                <a class="nav__link book__of__spells" href="#section--2"
                   >Book of Spells</a
                 >
               </li>
             </ul>
           </div>
-         
         </div>
-
-      
       </header>
-
-      
 
       <section class="section" id="section--1">
         <div class="section__container">
           <div class="section__title">Check Character</div>
-            <!-- <h2 class="hidden">ukryte</h2> -->
-            <form action="#" class="search__container">
-              <input
-                type="search"
-                id="site-search"
-                class="input__form"
-                name="q"
-                placeholder="Enter name of character.."
-              />
-              <button type="submit" id="btn__form">
-                <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
-              </button>
-              <!-- <button>Search</button> -->
-            </form>
-          
+          <!-- <h2 class="hidden">ukryte</h2> -->
+          <form action="#" class="search__container">
+            <input
+              type="search"
+              id="site-search"
+              class="input__form"
+              name="q"
+              placeholder="Enter name of character.."
+            />
+            <button type="submit" id="btn__form">
+              <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+            </button>
+            <!-- <button>Search</button> -->
+          </form>
+
           <div class="character__data"></div>
         </div>
       </section>
@@ -82,35 +82,41 @@
 
       <footer class="footer">
         <div class="footer__img">
-            <img src="/Dumbledore.png" alt="Dumbledore_IMG">
-            <img src="/stars_gold.png" alt="Gold_stars_IMG">
+          <img src="/Dumbledore.png" alt="Dumbledore_IMG" />
+          <img src="/stars_gold.png" alt="Gold_stars_IMG" />
         </div>
 
         <p class="footer__copyright">
           &copy; Copyright by
-          <a
-            target="_blank"
-            href="https://github.com/MiloszStochaj"
+          <a target="_blank" href="https://github.com/MiloszStochaj"
             >Miłosz Stochaj</a
           >
         </p>
 
-        
         <div class="links__icons">
-          <a href="https://twitter.com/mi_stochaj"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://github.com/MiloszStochaj"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/mi%C5%82osz-stochaj-931296125/"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://twitter.com/mi_stochaj"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="https://github.com/MiloszStochaj"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/mi%C5%82osz-stochaj-931296125/"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
         </div>
       </footer>
-
-    
-
 
       <div class="return__button nav__links">
         <a href="#top"><i class="fa-solid fa-chevron-up nav__link"></i></a>
       </div>
     </div>
-   
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2>Oops, invalid name. Try one of the following:</h2>
+      <div class="nick__name"></div>
+    </div>
+    <div class="overlay hidden"></div>
 
     <script src="main.js"></script>
   </body>
