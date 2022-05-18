@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Adam Matusiak">
+	<meta name="keywords" content="Exchange Rate Converter, curious facts">
+	<meta name="description"
+		content="The page contains currency convert and curious facts from the world.">
+
+	<title>Currency Exchange Rate</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Sansita:ital@1&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css" />
+	
+		<script src="https://kit.fontawesome.com/e4b4fec820.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+ 
+	<div class="news">
+		<div>Witaj! Dziś jest <span class="day"></span>.</div>
+		<div>Czy wiesz, że...</div> 
+		<div class="curiosity"></div>
+	</div>
+
+			<div class="wrapper">
+			<h1>Exchange Rate Converter</h1>
+			<div class="info">
+				<i class="fa-solid fa-palette"></i>
+				<i class="fa-solid fa-circle-info"></i>
+			</div>
+			<div class="colors">
+				<div class="first color"></div>
+				<div class="second color"></div>
+				<div class="third color"></div>
+			</div>
+			
+			<div class="converter-body">
+				<div class="left">
+					<input type="number" class="base-amount" placeholder="Wpisz wartość" min="0">
+					<select class ="new-select" id="currency-one">
+						<option value="EUR" selected>EUR</option>
+						<option value="USD">USD</option>
+						<option value="GBP">GBP</option>
+						<option value="CHF">CHF</option>
+						<option value="JPY">JPY</option>
+						<option value="PLN">PLN</option>
+					</select>
+				</div>
+
+				<button class="changing">
+					<i class="fa-solid fa-arrow-right-arrow-left"></i>
+				</button>
+
+				<div class="right">
+					<input type="number" class="converted-amount" min="0" disabled>
+					<select id="currency-two">
+						<option value="PLN" selected>PLN</option>
+						<option value="EUR">EUR</option>
+						<option value="USD">USD</option>
+						<option value="GBP">GBP</option>
+						<option value="CHF">CHF</option>
+						<option value="JPY">JPY</option>
+					</select>
+				</div>
+			</div>
+
+			<p class="rate-info"></p>
+			<p class="total"></p>
+		</div>
+		
+	<div class="explanation">
+		<div class="modal">
+			<h3>Instrukcja:</h3>
+			<p>1. Wybierz z menu rozwijanego z lewej strony walutę którą chcesz kupić.</p>
+			<p>2. Wybierz z menu rozwijanego z prawej strony walutę którą chcesz wymienić.</p>
+			<p>3. Przyciskiem <i class="fa-solid fa-arrow-right-arrow-left"></i> możesz zamienić wybrane wcześniej waluty.</p>
+			<p>Przyciskiem <i class="fa-solid fa-palette"></i> wybierz kolorystykę.</p>
+			<p class="wishes">Życzymy samych udanych transakcji !</p>
+			<button class="close">Zamknij</button>
+		</div>
+	</div>
+
+	<footer>
+		<p>&copy; Converter Sp. z o.o.
+			<span class="icon-box">
+				<a href="#"><i class="fa-brands fa-facebook"></i></a>
+				<a href="#"><i class="fa-brands fa-twitter"></i></a>
+				<a href="#"><i class="fa-brands fa-instagram"></i></a>
+				<a href="#"><i class="fa-brands fa-linkedin"></i></a>
+			</span>
+		</p>
+	</footer>
+
+	<script src="main.js"></script>
+</body>
+
+</html>
