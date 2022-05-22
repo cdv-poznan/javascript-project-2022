@@ -4,9 +4,9 @@ import loadPagingSuggestions from "./pagination-suggestions.js";
 import scrollToDetailBox from "./scrolling.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  const apiKey = "k_pgd93xda"; //second apikey
-  // const apiKey = "k_28x30ddn";
-  // const apiKey = "k_n2nfzz4l";
+  // const apiKey = "k_pgd93xda"; // first api key
+  const apiKey = "k_28x30ddn";
+  // const apiKey = "k_n2nfzz4l"; // second api key
   const insideDetailBox = document.getElementById("clicked-movie-id");
   const inputSearchMovie = document.getElementById("search-movie");
   const searchResultsMoviesContainer = document.getElementById("movies");
@@ -75,7 +75,7 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((data) => data.results)
       .then((results) => {
         hideLoader(searchResultsMoviesContainer);
-        document.getElementById("pagination-results").style.display = "block";
+        document.getElementById("pagination-results").style.display = "flex";
         // add pagintion
         loadPaging(results.length, (pagingOptions) => {
           clearHtml(searchResultsMovies);
@@ -236,7 +236,7 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((results) => {
         hideLoader(suggestedResultsListContainer);
         document.getElementById("pagination-suggestions").style.display =
-          "block";
+          "flex";
         loadPagingSuggestions(results.length, (pagingOptions) => {
           clearHtml(suggestedResultsList);
           const newArray = pageArraySplit(results, pagingOptions);
@@ -259,6 +259,9 @@ window.addEventListener("DOMContentLoaded", () => {
     const genresElement = document.getElementById("genres-list");
     genresElement.classList.add("genres-suggestions");
     genresElement.innerHTML = "";
+    const suggestionsHeader = document.createElement("h2");
+    suggestionsHeader.innerHTML = `Other suggested movies`;
+    genresElement.appendChild(suggestionsHeader);
     for (const genre of genres) {
       const genreElement = document.createElement("li");
       genreElement.classList.add("single-genre");

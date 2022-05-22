@@ -18,8 +18,8 @@
   <body>
     <h1 id="appname">
       Find. <br />
-      Movie. <br />
-      Watch.
+      Your. <br />
+      Movie.
     </h1>
 
     <!-- input for search movie  -->
@@ -27,7 +27,7 @@
       type="text"
       id="search-movie"
       name="searchTxt"
-      placeholder="Write movie title"
+      placeholder="movie title"
     />
     <!-- search results movies -->
     <div id="movies">
@@ -37,18 +37,17 @@
       <div id="results-movies" class="results-movies"></div>
     </div>
 
-    <div id="pagination-results">
-      <button class="prev-btn" id="previous"></button>
+    <div id="pagination-results" class="pagination">
+      <button class="prev-btn" id="previous"><span>&#8592;</span></button>
       page
-      <div id="current-page"></div>
+      <div id="current-page" class="bold"></div>
       of
-      <div id="total-pages"></div>
-      <button class="next-btn" id="next"></button>
+      <div id="total-pages" class="bold"></div>
+      <button class="next-btn" id="next"><span>&#8594;</span></button>
     </div>
 
     <div id="clicked-movie-id"></div>
 
-    <!-- <h4>Suggested films based on categories</h4> -->
     <ul id="genres-list"></ul>
     <!-- suggested movies -->
     <div id="suggested-movies">
@@ -58,13 +57,13 @@
       <div id="suggested-results" class="results-genres"></div>
     </div>
 
-    <div id="pagination-suggestions">
-      <button class="prev-btn" id="prev-btn"></button>
+    <div id="pagination-suggestions" class="pagination">
+      <button class="prev-btn" id="prev-bt"><span>&#8592;</span></button>
       page
-      <div id="cur-page"></div>
+      <div id="cur-page" class="bold"></div>
       of
-      <div id="tot-pages"></div>
-      <button class="next-btn" id="next-btn"></button>
+      <div id="tot-pages" class="bold"></div>
+      <button class="next-btn" id="next-bt"><span>&#8594;</span></button>
     </div>
 
     <script type="module" src="/main.js"></script>

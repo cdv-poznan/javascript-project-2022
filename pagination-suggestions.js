@@ -1,6 +1,6 @@
 "use strict";
-const prevBtn = document.getElementById("prev-btn");
-const nextBtn = document.getElementById("next-btn");
+const prevBtn = document.getElementById("prev-bt");
+const nextBtn = document.getElementById("next-bt");
 const curPage = document.getElementById("cur-page");
 const totPages = document.getElementById("tot-pages");
 const PER_PAGE = 5;
