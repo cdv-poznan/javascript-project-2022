@@ -1,0 +1,14 @@
+.body {
+    box-sizing: border-box;
+}
+#nav {
+top: 0;
+left: 0;
+width: 100%;
+background-color: rgba(166, 166, 173, 0.205);
+display: flex;
+justify-content: space-around;
+}
+canvas {
+    border: 2px solid black;
+}
