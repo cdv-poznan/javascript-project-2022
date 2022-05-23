@@ -116,8 +116,8 @@ window.addEventListener("DOMContentLoaded", () => {
           const genres = transformGenresToApiParam(data.genreList); // " "
           showSuggestions(genres);
         }
-      });
-    // .catch((error) => new Error("Details not found"));
+      })
+      .catch((error) => new Error("Details not found"));
   }
 
   // create selected from API details
@@ -242,8 +242,8 @@ window.addEventListener("DOMContentLoaded", () => {
           const newArray = pageArraySplit(results, pagingOptions);
           createMoviesDOM(newArray, suggestedResultsList);
         });
-        // .catch((error) => new Error("Details not found"));
-      });
+      })
+      .catch((error) => new Error("Suggestions not found"));
   }
 
   // transform genres to api param
@@ -278,5 +278,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
     return array.slice(startingIndex, endingIndex);
   }
-  //
 });
