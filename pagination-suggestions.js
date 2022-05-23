@@ -3,7 +3,9 @@ const prevBtn = document.getElementById("prev-bt");
 const nextBtn = document.getElementById("next-bt");
 const curPage = document.getElementById("cur-page");
 const totPages = document.getElementById("tot-pages");
-const PER_PAGE = 5;
+
+let width = document.body.clientWidth;
+let PER_PAGE = width > 767 ? 5 : 1;
 
 export default function loadPagingSuggestions(totalItems, callback) {
   let currentPageNumber = 1;

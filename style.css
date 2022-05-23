@@ -252,6 +252,9 @@ button:active {
   h1 {
     font-size: 70px;
   }
+  .selected-movie a {
+    height: 300px;
+  }
   .single-genre {
     padding: 10px;
   }
