@@ -23,7 +23,7 @@ h1 {
       rgba(255, 0, 150, 0.15),
       rgba(255, 0, 150, 0.15)
     ),
-    url(/cinema.jpg);
+    url(cinema.jpg);
   background-size: cover;
 }
 .bold {
