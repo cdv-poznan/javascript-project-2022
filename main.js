@@ -65,28 +65,33 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
   const colorButton = document.getElementById("color-button");
-  colorButton.addEventListener("click", getColors);
+  colorButton.addEventListener("click", () => {
+    getColors();
+    
+  });
+
   function getColors() {
-    let oldColors = document.getElementsByClassName('new-colors');
-    for  (var i = (oldColors.length - 1) ; i >= 0; i--) {
-    oldColors[i].parentNode.removeChild(oldColors[i])
-    };
-    getApiResponse(api).then((colors) => addColorStyle(colors.hex));
-    getApiResponse(api).then((colors) => addColorStyle(colors.hex));
-    getApiResponse(api).then((colors) => addColorStyle(colors.hex));
-  };
-{/* <span class="material-symbols-outlined">
-circle
-</span> */}
-  function addColorStyle(hex) {
+    let oldColors = document.getElementsByClassName("material-symbols-rounded");
+    for (var i = oldColors.length - 1; i >= 0; i--) {
+      oldColors[i].parentNode.removeChild(oldColors[i]);
+    }
+    getApiResponse(api).then((colors) => addColorStyle(colors.hex, "color1"));
+    getApiResponse(api).then((colors) => addColorStyle(colors.hex, "color2"));
+    getApiResponse(api).then((colors) => addColorStyle(colors.hex, "color3"));
+  }
+
+  function addColorStyle(hex, i) {
     const colors = document.getElementById("generated-colors");
     const colorsElement = document.createElement("span");
     colorsElement.style.color = hex;
-    colorsElement.classList = 'new-colors'
-    colorsElement.innerText = "Color";
+    colorsElement.classList = "material-symbols-rounded";
+    colorsElement.id = i;
+    colorsElement.innerText = "circle";
+    colorsElement.addEventListener('click', ()=> {
+        // console.log('clicked');
+        ctx.strokeStyle = `${hex}`;
+    })
     colors.append(colorsElement);
-  }
+}
 
-  // //whole canvas
-  // ctx.fillStyle = 'white';
 });
