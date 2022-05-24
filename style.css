@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: blueviolet;
+    font-family: Arial;
+    margin: 0;
+  }
