@@ -9,6 +9,7 @@ const characterInformationContainer =
 const nickNameInformationContainer = document.querySelector(".nick__name");
 const searchContainer = document.querySelector(".search__container");
 const showMoreBtn = document.querySelector(".show__more");
+const showLessBtn = document.querySelector(".show__less");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");
@@ -66,19 +67,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 // Show more spells button
 
-const showLess = function () {
-  secondSpellsInformationContainer.classList.add("hidden");
-  document.querySelector(".show__more").textContent = "Show more";
-};
 
-const showMore = function () {
-  secondSpellsInformationContainer.classList.remove("hidden");
-  document.querySelector(".show__more").textContent = "Show less";
+const showMore = function (){
+    secondSpellsInformationContainer.classList.remove("hidden");
+    showMoreBtn.classList.add("hidden")
+    showLessBtn.classList.remove("hidden")
+}
 
-  showMoreBtn.addEventListener("click", showLess);
-};
+const  showLess = function(){
+    secondSpellsInformationContainer.classList.add("hidden");
+    showMoreBtn.classList.remove("hidden")
+    showLessBtn.classList.add("hidden")
+    
+}
 
-showMoreBtn.addEventListener("click", showMore);
+showMoreBtn.addEventListener('click', showMore)
+showLessBtn.addEventListener('click', showLess)
 
 
 // Modal Window
@@ -140,6 +144,7 @@ const getInformationNick = function (characterNick) {
       const nickDataResult = data.find(
         ({ nickname }) => nickname === `${characterNick}`
       );
+      
 
       if (nickDataResult === undefined) {
         // alert("blad");

@@ -217,7 +217,7 @@ body {
   margin: 4rem;
 }
 
-.show__more {
+.show__btn {
   font-size: 3rem;
   padding: 1rem;
   margin: 4rem;
@@ -225,11 +225,12 @@ body {
   border-radius: 20px;
 }
 
-.show__more:hover {
+.show__btn:hover {
   background-color: var(--color-tertiary);
   color: var(--color-primary);
   cursor: pointer;
 }
+
 
 /* Footer */
 
