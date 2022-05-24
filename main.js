@@ -22,11 +22,24 @@ const finishPosition = function () {
     painting = false;
     ctx.beginPath();
 };
-function draw (mousePosition) {
+
+// Canvas position
+function getMousePos(canvas, e) {
+    var rect = canvas.getBoundingClientRect();
+    // console.log(rect);
+    return {
+        x: (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+        y: (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+    };
+}
+
+
+function draw (e) {
     if (!painting) return;
     ctx.lineWidth = 10;
     ctx.lineCap = "round";
-    ctx.lineTo(mousePosition.clientX, mousePosition.clientY);
+    var mousePos = getMousePos(canvas, e);
+    ctx.lineTo(mousePos.x, mousePos.y);
     ctx.stroke();
     // ctx.beginPath();
     // ctx.moveTo(mousePosition.clientX, mousePosition.clientY);
@@ -43,30 +56,9 @@ const clearBttn = document.getElementById("clear-button");
 clearBttn.addEventListener("click", function() { ctx.clearRect(0, 0, canvas.width, canvas.height) })
 
 
-/*
-ctx.lineWidth = 10;
-//whole canvas
-ctx.fillStyle = 'white';
-ctx.fillRect(0,0, canvas.width, canvas.height);
 
-// Wall
-ctx.strokeRect(75, 120, 150, 110);
-
-ctx.fillStyle = 'black';
-// Door
-ctx.fillRect(130, 170, 40, 60);
-
-// Roof
-ctx.beginPath();
-ctx.moveTo(50, 120);
-ctx.lineTo(150, 30);
-ctx.lineTo(250, 120);
-ctx.closePath();
-ctx.stroke();
-
-// clear rectangles:
-// ctx.clearRect(0,0,canvas.width, canvas.height);
-*/
+// //whole canvas
+// ctx.fillStyle = 'white';
 
 
 })
