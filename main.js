@@ -1,8 +1,8 @@
 fetch("https://reqres.in/api/users/")
-  .then((response) => response.json())
-  .then((json) => {
+  .then(response => response.json())
+  .then(json => {
     console.log(json.data);
-    const html = json.data.map((user) => {
+    const html = json.data.map(user => {
       return `
         <div class="contact">
                 <img class="image" src="${user.avatar}">
