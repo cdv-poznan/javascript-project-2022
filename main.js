@@ -30,7 +30,8 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 // Get information about spells
 
 window.addEventListener("DOMContentLoaded", (event) => {
-  fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/spells`)
+  //   fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/spells`)
+  fetch(`https://harry-potter-api-english-production.up.railway.app/spells`)
     .then((response) => response.json())
     .then((data) => {
       for (let i = 0; i < 72; i++) {
@@ -67,88 +68,72 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 // Show more spells button
 
+const showMore = function () {
+  secondSpellsInformationContainer.classList.remove("hidden");
+  showMoreBtn.classList.add("hidden");
+  showLessBtn.classList.remove("hidden");
+};
 
-const showMore = function (){
-    secondSpellsInformationContainer.classList.remove("hidden");
-    showMoreBtn.classList.add("hidden")
-    showLessBtn.classList.remove("hidden")
-}
+const showLess = function () {
+  secondSpellsInformationContainer.classList.add("hidden");
+  showMoreBtn.classList.remove("hidden");
+  showLessBtn.classList.add("hidden");
+};
 
-const  showLess = function(){
-    secondSpellsInformationContainer.classList.add("hidden");
-    showMoreBtn.classList.remove("hidden")
-    showLessBtn.classList.add("hidden")
-    
-}
-
-showMoreBtn.addEventListener('click', showMore)
-showLessBtn.addEventListener('click', showLess)
-
+showMoreBtn.addEventListener("click", showMore);
+showLessBtn.addEventListener("click", showLess);
 
 // Modal Window
 
-// const openModal = function (e) {
-//     e.preventDefault();
-//     modal.classList.remove('hidden');
-//     overlay.classList.remove('hidden');
-//   };
-  
-  const closeModal = function () {
-    modal.classList.add('hidden');
-    overlay.classList.add('hidden');
-    nickNameInformationContainer.textContent = "";
-  };
-  
-  
-  
-  btnCloseModal.addEventListener('click', closeModal);
-  overlay.addEventListener('click', closeModal);
-  
-  document.addEventListener('keydown', function (e) {
-    if (e.key  && !modal.classList.contains('hidden')) {
-      closeModal();
-    }
-  });
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+  nickNameInformationContainer.textContent = "";
+};
+
+btnCloseModal.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
 
 // Modal Window - nick character help
 const nickCharacterHelp = function () {
-    
-    modal.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-      
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
 
-    fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/characters`)
-      .then((response) => response.json())
-      .then((data) => {
-        for (let i = 0; i < 23; i++){
-            const nickCharacterHelpData = data[i]
+  // fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/characters`)
+  fetch(`https://harry-potter-api-english-production.up.railway.app/characters`)
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < 23; i++) {
+        const nickCharacterHelpData = data[i];
         const nickHtml = `
         <p>${nickCharacterHelpData.nickname},</p>
-        `
-        
-        nickNameInformationContainer.insertAdjacentHTML("beforeend",nickHtml)
-        }
-        });
-      
-}
+        `;
 
-
-
+        nickNameInformationContainer.insertAdjacentHTML("beforeend", nickHtml);
+      }
+    });
+};
 
 // Get information about Character
 
 const getInformationNick = function (characterNick) {
-  fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/characters`)
+  //   fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/characters`)
+  fetch(`https://harry-potter-api-english-production.up.railway.app/characters`)
     .then((response) => response.json())
     .then((data) => {
       const nickDataResult = data.find(
         ({ nickname }) => nickname === `${characterNick}`
       );
-      
 
       if (nickDataResult === undefined) {
         // alert("blad");
-        nickCharacterHelp()
+        nickCharacterHelp();
       } else {
         if (nickDataResult.child.length === 0) {
           nickDataResult.child = "NO DATA";
@@ -171,10 +156,7 @@ const getInformationNick = function (characterNick) {
     });
 };
 
-
 getInformationNick("Harry");
-
-
 
 // Capitalize The First Letter Of Each Word in input__form
 

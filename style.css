@@ -231,7 +231,6 @@ body {
   cursor: pointer;
 }
 
-
 /* Footer */
 
 .footer {
@@ -337,13 +336,12 @@ body {
   text-align: justify;
 }
 
-.modal h2{
+.modal h2 {
   font-size: 3rem;
   padding: 2rem;
 }
 
-
-.modal p{
+.modal p {
   font-size: 2rem;
   padding: 0.5rem;
   display: inline-block;
@@ -373,8 +371,6 @@ body {
   z-index: 100;
   transition: all 0.5s;
 }
-
-
 
 /* Responsive - settings */
 
