@@ -15,5 +15,5 @@ fetch("https://reqres.in/api/users/")
          </div>
         `;
     });
-    document.querySelector('.list').innerHTML = html.join('');
+    document.querySelector('.contact-list').innerHTML = html.join('');
   });
