@@ -6,12 +6,15 @@ fetch("https://reqres.in/api/users/")
       return `
         <div class="contact">
                 <img class="image" src="${user.avatar}">
-            <div class="name">
-                <span class="id">${user.id}</span>
-                <span class="firstName">${user.first_name}</span>
-                <span class="lastName">${user.last_name}</span>
-            </div>
-            <p class="email">${user.email}</p>
+            <div class="first-last-container">
+                <span class="material-symbols-outlined icons-color">account_circle</span>
+                <span class="first-name">${user.first_name}</span>
+                <span class="last-name">${user.last_name}</span>
+            </div> 
+            <p class="email-container">
+                <span class="material-symbols-outlined icons-color">mail</span> 
+                <span class="email">${user.email}</span>
+            </p>
          </div>
         `;
     });

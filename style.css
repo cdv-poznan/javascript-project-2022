@@ -8,7 +8,7 @@
     font-family: Arial;
   }
 
-  .container {
+  .main-container {
     max-width: 80%;
     margin: 20px auto;
   }
@@ -30,7 +30,7 @@
   }
 
   .contact {
-      margin: 70px;
+      margin: 50px;
       padding: 10px;
       width: 250px;
       text-align: center;
@@ -45,8 +45,33 @@
     box-shadow: 0px 0px 6px 2px #000;
 }
 
-  .name {
-      margin: 10px;
+  .first-last-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+  }
+
+  .first-name {
+    margin-left: 10px;
+  }
+
+  .last-name {
+    margin-left: 5px;
+  }
+
+  .email-container {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+  }
+
+  .email {
+    margin-left: 10px;
+  }
+
+  .icons-color {
+    color: #000000;
   }
 
   .footer-desc {
@@ -54,6 +79,13 @@
     justify-content: center;
   }
 
+  @media screen and (max-width: 900px) {
+
+    .main-container {
+      max-width: 100%;
+    }
+  
+  }
 
 
 
