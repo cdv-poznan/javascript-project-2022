@@ -178,5 +178,4 @@ searchContainer.addEventListener("submit", function (e) {
     document.querySelector(".input__form").value
   );
   getInformationNick(characterNameFromUser);
-  console.log(characterNameFromUser);
 });
