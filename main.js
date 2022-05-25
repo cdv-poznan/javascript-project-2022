@@ -4,8 +4,8 @@ import loadPagingSuggestions from "./pagination-suggestions.js";
 import scrollToDetailBox from "./scrolling.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  // const apiKey = "k_pgd93xda"; // first api key
-  const apiKey = "k_28x30ddn";
+  const apiKey = "k_pgd93xda"; // first api key
+  // const apiKey = "k_28x30ddn"; // third api key
   // const apiKey = "k_n2nfzz4l"; // second api key
   const insideDetailBox = document.getElementById("clicked-movie-id");
   const inputSearchMovie = document.getElementById("search-movie");

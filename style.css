@@ -285,8 +285,8 @@ button:active {
     float: none;
   }
   .movie-image img {
-    max-height: 400px;
-    width: auto;
+    max-height: 380px;
+    max-width: 100%;
   }
   .plot,
   .year,
