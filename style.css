@@ -38,6 +38,8 @@ body {
 }
 canvas {
   border: 2px solid #CD81D4;
+  justify-content: center;
+  align-content: center;
 }
 a {
   text-decoration: none;
@@ -60,4 +62,10 @@ a:hover {
   background-color: #fae20b;
   color: white;
   border-radius: 50%;
+}
+
+.saved-image {
+  display: none;
+  height: 35vh;
+  align-items: center;
 }

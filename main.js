@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Resizing
   canvas.height = window.innerHeight / 1.5;
-  canvas.width = window.innerWidth;
+  canvas.width = window.innerWidth / 2;
   window.addEventListener("resize", () => {
     canvas.height = window.innerHeight / 1.5;
-    canvas.width = window.innerWidth;
+    canvas.width = window.innerWidth / 2;
   });
 
   // Canvas position
@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-
   // Variables
   let painting = false;
 
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     painting = false;
     ctx.beginPath();
   };
-
 
   function draw(e) {
     if (!painting) return;
@@ -58,11 +56,29 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.addEventListener("mousedown", startPosition);
   canvas.addEventListener("mouseup", finishPosition);
   canvas.addEventListener("mousemove", draw);
-  // Clearing canvas
+  // Clearing canvas and adding previous project
+
+  const displayImage = document.getElementById("previous-project-display");
   const clearBttn = document.getElementById("clear-button");
-  clearBttn.addEventListener("click", function () {
+
+  clearBttn.addEventListener("click", () => {
+    const addImg = document.createElement("img");
+    addImg.classList.add("saved-image");
+    addImg.src = imgLink();
+    addImg.alt = "Previous project";
+    addImg.style.alignContent = "center";
+    displayImage.append(addImg);
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
+
+
+  $(document).ready(() => {
+    $("#previous-project").click(() => {
+      $(".saved-image").css("display", "flex");
+    });
+  });
+
   // ------------------------CANVAS-END-----------------------------------------
 
   function getApiResponse(url) {
@@ -100,7 +116,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addColorStyle(hex, i) {
-    /*    ------------------- XML file --------------------------
+    const colors = document.getElementById("generated-colors");
+    const colorsElement = document.createElement("span");
+    colorsElement.style.color = hex;
+    colorsElement.classList = "material-symbols-rounded";
+    colorsElement.id = i;
+    colorsElement.innerText = "circle";
+    colorsElement.addEventListener("click", () => {
+      // console.log('clicked');
+      ctx.strokeStyle = `${hex}`;
+    });
+    colors.append(colorsElement);
+  }
+
+  /*    ------------------- XML file --------------------------
 //  when first colors API doesn't work
 
     var url = "http://colormind.io/api/";
@@ -129,18 +158,6 @@ http.send(JSON.stringify(data));
 
 ------------------------ XML fetch end -------------------------
 */
-    const colors = document.getElementById("generated-colors");
-    const colorsElement = document.createElement("span");
-    colorsElement.style.color = hex;
-    colorsElement.classList = "material-symbols-rounded";
-    colorsElement.id = i;
-    colorsElement.innerText = "circle";
-    colorsElement.addEventListener("click", () => {
-      // console.log('clicked');
-      ctx.strokeStyle = `${hex}`;
-    });
-    colors.append(colorsElement);
-  }
 
   // ------------------------emojis-----------------
   const apiKey = "b2d5f5b8a462e384858bbfeaf3f0bf1b84fcd82e";
@@ -166,16 +183,20 @@ http.send(JSON.stringify(data));
       const emojisElement = document.createElement("span");
       emojisElement.innerText = this.character;
       emojisElement.addEventListener("click", () => {
-        ctx.font = '15vh verdana';
+        ctx.font = "15vh verdana";
         // use these alignment properties for "better" positioning
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         painting = false;
         // draw the emoji
-        canvas.addEventListener('click', (e) =>{
-        var mousePos = getMousePos(canvas, e);
-        ctx.fillText(this.character, mousePos.x, mousePos.y);
-      }, {once: true})
+        canvas.addEventListener(
+          "click",
+          (e) => {
+            var mousePos = getMousePos(canvas, e);
+            ctx.fillText(this.character, mousePos.x, mousePos.y);
+          },
+          { once: true }
+        );
       });
       emojis.append(emojisElement);
     }
@@ -203,6 +224,16 @@ http.send(JSON.stringify(data));
   // let emojis = [];
   // getApiResponse(emojiList).then(value => console.log(value, typeof value));
   // getApiResponse(emojiList).then(value => (value.map (element => emojis.push(element.character))));
+
+  // ------- Save image--------------
+  function imgLink() {
+    const link = canvas.toDataURL("image/png");
+    save.href = link;
+    save.download = "IMAGE.jpeg";
+    return link;
+  }
+  const save = document.getElementById("save-button");
+  save.addEventListener("click", imgLink);
 
   // end of DOMContentLoaded
 });
