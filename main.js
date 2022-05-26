@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const api = "https://x-colors.herokuapp.com/api/random";
 
+$(document).ready(function(){
+  $('#new-image').click(function() {
+    $('#header').slideToggle()
+  })
+});
+
+
+
+
   // -------------------------CANVAS-----------------------
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
@@ -55,14 +64,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // ------------------------CANVAS-END-----------------------------------------
 
-  // Generating colors
-  function getApiResponse(url) {
-    const colorsRequest = fetch(url);
-    return colorsRequest
-      .then((response) => response.json())
-      .catch((error) => {
-        alert("Error - data can't be loaded");
+ function getApiResponse(url) {
+    const apiRequest = fetch(url);
+    return apiResponse = apiRequest
+    .then((response) => response.json())
+    .catch((error) => {
+      alert(
+        `Error - data can't be loaded from:
+        ${url}`);
       });
+
+
+  // Generating colors
   }
   const colorButton = document.getElementById("color-button");
   colorButton.addEventListener("click", () => {
@@ -81,6 +94,35 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addColorStyle(hex, i) {
+/*    ------------------- XML file --------------------------
+//  when first colors API doesn't work
+
+    var url = "http://colormind.io/api/";
+var data = {
+	model : "default",
+	input : [[44,43,44],[90,83,82],"N","N","N"]
+}
+
+var http = new XMLHttpRequest();
+
+var threeColors = [];
+http.onreadystatechange = function() {
+	if(http.readyState == 4 && http.status == 200) {
+		var palette = JSON.parse(http.responseText).result;
+    for (let i = 1; i< palette.length-1; i++) {
+      threeColors.push(palette[i])
+    }
+	}
+}
+// tablica z tablicą z trzema kolorami
+console.log(threeColors);
+http.open("POST", url, true);
+http.send(JSON.stringify(data));
+
+// colorsElement.style.color= (155, 102, 102);  --> rgb
+
+------------------------ XML fetch end -------------------------
+*/
     const colors = document.getElementById("generated-colors");
     const colorsElement = document.createElement("span");
     colorsElement.style.color = hex;
@@ -94,4 +136,64 @@ document.addEventListener("DOMContentLoaded", () => {
     colors.append(colorsElement);
 }
 
+// ------------------------emojis-----------------
+const apiKey = 'b2d5f5b8a462e384858bbfeaf3f0bf1b84fcd82e';
+const emojiList = `https://emoji-api.com/emojis?access_key=${apiKey}`;
+
+class Emoji {
+constructor(group, character, id) {
+  this.id = id;
+  this.group = group;
+  this.character = character;
+};
+renderGroup(){
+  const group = document.getElementById("generated-emojis");
+  const groupElement = document.createElement("span");
+  groupElement.innerText = this.group;
+  groupElement.addEventListener('click', () => {
+    console.log('clicked group')
+  })
+  group.append(groupElement);
+};
+renderEmoji(){
+  const emojis = document.getElementById("generated-emojis");
+  const emojisElement = document.createElement("span");
+  emojisElement.innerText = this.character;
+  emojisElement.addEventListener('click', () => {
+    console.log('clicked emoji')
+  })
+  emojis.append(emojisElement);
+};
+}
+
+const emojiButton = document.getElementById("emojis-button");
+emojiButton.addEventListener("click", async () => {
+  const emojiJson = await getApiResponse(emojiList);
+  let counter = 0
+  
+  for (let i = counter ; i< counter + 10; i++) {
+    const emoji = new Emoji(emojiJson[i].group , emojiJson[i].character, i);
+    emoji.renderEmoji();
+    const nextButton = document.getElementById('next');
+    nextButton.addEventListener('click', () => {
+      counter += 1;
+      
+    });
+    const previousButton = document.getElementById('previous');
+    previousButton.addEventListener('click', () => {
+      counter -= 1;
+      
+    });
+  };
 });
+
+// let emojis = [];
+// getApiResponse(emojiList).then(value => console.log(value, typeof value));
+// getApiResponse(emojiList).then(value => (value.map (element => emojis.push(element.character))));
+
+
+// end of DOMContentLoaded
+});
+
+
+
