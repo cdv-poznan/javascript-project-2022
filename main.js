@@ -2,6 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const api = "https://x-colors.herokuapp.com/api/random";
   const localApi = "http://localhost:5000/api/random";
 
+  // -------DOM  Elements ---------------
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("next");
+  const genEmojis = document.getElementById("generated-emojis");
+
+
+
   $(document).ready(function () {
     $("#new-image").click(function () {
       $("#header").slideToggle().css("display", "flex");
@@ -48,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var mousePos = getMousePos(canvas, e);
     ctx.lineTo(mousePos.x, mousePos.y);
     ctx.stroke();
+    ctx.save();
     // ctx.beginPath();
     // ctx.moveTo(mousePosition.clientX, mousePosition.clientY);
   }
@@ -61,6 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayImage = document.getElementById("previous-project-display");
   const clearBttn = document.getElementById("clear-button");
 
+  document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.key === "z") {
+      ctx.restore();
+  // change settings to previous from the stack
+    }
+  });
+
   clearBttn.addEventListener("click", () => {
     const addImg = document.createElement("img");
     addImg.classList.add("saved-image");
@@ -71,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
-
 
   $(document).ready(() => {
     $("#previous-project").click(() => {
@@ -168,18 +182,17 @@ http.send(JSON.stringify(data));
       this.id = id;
       this.group = group;
       this.character = character;
-    }
+    };
+    emojis = document.getElementById("generated-emojis");
     renderGroup() {
-      const group = document.getElementById("generated-emojis");
       const groupElement = document.createElement("span");
       groupElement.innerText = this.group;
       groupElement.addEventListener("click", () => {
         console.log("clicked group");
       });
-      group.append(groupElement);
+      this.emojis.append(groupElement);
     }
     renderEmoji() {
-      const emojis = document.getElementById("generated-emojis");
       const emojisElement = document.createElement("span");
       emojisElement.innerText = this.character;
       emojisElement.addEventListener("click", () => {
@@ -198,29 +211,41 @@ http.send(JSON.stringify(data));
           { once: true }
         );
       });
-      emojis.append(emojisElement);
+      this.emojis.append(emojisElement);
     }
   }
 
   const emojiButton = document.getElementById("emojis-button");
   emojiButton.addEventListener("click", async () => {
     const emojiJson = await getApiResponse(emojiList);
-    let counter = 0;
+    var counter = 0;
 
-    for (let i = counter; i < counter + 10; i++) {
+    function changeEmojis() {
+      for (let i = counter; i < counter + 10; i++) {
       const emoji = new Emoji(emojiJson[i].group, emojiJson[i].character, i);
       emoji.renderEmoji();
-      const nextButton = document.getElementById("next");
-      nextButton.addEventListener("click", () => {
-        counter += 1;
-      });
-      const previousButton = document.getElementById("previous");
-      previousButton.addEventListener("click", () => {
-        counter -= 1;
-      });
-    }
-  });
-
+    }}
+    function delateEmojis(){
+      while (genEmojis.firstChild) {
+        genEmojis.removeChild(genEmojis.lastChild);
+      }
+    };
+    delateEmojis();
+    changeEmojis();
+    
+    nextButton.addEventListener("click", () => {
+      delateEmojis();
+        counter += 10;
+        changeEmojis();
+    });
+    
+    previousButton.addEventListener("click", () => {
+      delateEmojis();
+        counter -= 10;
+      changeEmojis();
+    });
+    });
+  
   // let emojis = [];
   // getApiResponse(emojiList).then(value => console.log(value, typeof value));
   // getApiResponse(emojiList).then(value => (value.map (element => emojis.push(element.character))));

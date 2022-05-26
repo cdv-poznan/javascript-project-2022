@@ -63,7 +63,9 @@ a:hover {
   color: white;
   border-radius: 50%;
 }
-
+#emojis-button {
+  display: block;
+}
 .saved-image {
   display: none;
   height: 35vh;
