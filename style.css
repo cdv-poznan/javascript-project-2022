@@ -12,9 +12,9 @@ header {
     color: rgb(253, 244, 244);
     display: flex;
     border: 1px solid #6b6027;
-    /* Параметры границы */
+    
     background: #5b5958;
-    /* Цвет фона */
+   
     border-bottom-width: 4px;
 }
 
@@ -74,15 +74,29 @@ header {
 
 }
 
-
-
-
-p {
+footer {
+    border: 1px solid #4d4624;
+    
+  
+    border-top-width: 9px;
+    border-bottom: 1px;
+    margin-top: 18%;
+    background: #5b5958;
+   
+    font-family: 'Dancing Script', cursive;
+    color: #FDF4F4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #6b6027;
+  }
+  
+  p {
     font-family: 'Dancing Script', cursive;
     font-size: 100%;
     color: #FDF4F4;
     text-shadow: 4px 1px 14px rgb(97, 110, 136);
-}
+  }
 
 .styleButton {
     width: 248px;
