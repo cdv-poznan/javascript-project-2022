@@ -7,16 +7,34 @@
 body {
   box-sizing: border-box;
 }
-#header {
-  display: none;
-}
 #nav {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(166, 166, 173, 0.205);
+  height: 8vh;
+  background-color: #E0E0E0;
+  align-items: center;
   display: flex;
   justify-content: space-around;
+  text-transform: uppercase;
+}
+#header {
+  display: none;
+  height: 12vh;
+  background-color: #E0E0E0;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.left {
+  width: 52rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.right {
+  width: 52rem;
+  font-size: 2rem;
 }
 canvas {
   border: 2px solid #CD81D4;
