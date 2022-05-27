@@ -82,12 +82,7 @@ header {
     justify-content: center;
     align-items: center;
 }
-form{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    
-}
+
 
 .randomFood {
     width: 1000px;
@@ -97,9 +92,11 @@ form{
     position: relative;
 }
 
-.foodSuggest{display: flex;
+.foodSuggest{
+    display: flex;
+   justify-content: center; 
     position: relative;
-    width: auto;
+    width: 333.33px;
 }
 .buttons1 {
     position: absolute;
@@ -181,11 +178,11 @@ a:link {
     display: inline-block;
     border: 2px solid rgba(216, 221, 231, 0.1);
     border-radius: 92px 93px 93px 92px;
-    background-color: rgba(216, 221, 231, 0.3);
+    background-color: rgba(216, 221, 231, 0.6);
     color: #02201c;
     position: absolute;
-    top: 83%;
-    left: 8%;
+    top: 80%;
+    left: 9px;
 }
 
 .titleRecipe2 {
@@ -197,10 +194,11 @@ a:link {
     color: #02201c;
     border: 2px solid rgba(216, 221, 231, 0.1);
     border-radius: 92px 93px 93px 92px;
-    background-color: rgba(216, 221, 231, 0.3);
+    background-color: rgba(216, 221, 231, 0.6);
     position: absolute;
-    top: 83%;
-    left:8%;
+    top: 80%;
+    left: 9px;
+    
 }
 
 .titleRecipe3 {
@@ -212,15 +210,16 @@ a:link {
     color: #02201c;
     border: 2px solid rgba(216, 221, 231, 0.1);
     border-radius: 92px 93px 93px 92px;
-    background-color: rgba(216, 221, 231, 0.3);
+    background-color: rgba(216, 221, 231, 0.6);
     position: absolute;
-    top: 83%;
-    left:8%;
+    top: 80%;
+    left:9px;
 }
 
 .imgFood {
     position: relative;
     text-align: center;
+    justify-content: center;
 
 }
 img{
@@ -267,18 +266,25 @@ height: 13px;
 
 
 
-@media (max-width:978px ) {.randomFood{
-    display:flow-root;
-  
-
-}
+@media (max-width:978px ) {
+    .randomFood{
+    display:block;
+    width: 334px;}
+    
 }
 img{
     width:300px;
      height:400px;
 }
 @media (max-width: 799px) {.topButtons{
-    display: block;
+    display: block;}
+    .randomFood{
+        width: 334px;
+    }
+}
 
+main{
+    display: flex;
+    justify-content: center;
 }
-}
+
