@@ -2,22 +2,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const api = "https://x-colors.herokuapp.com/api/random";
   const localApi = "http://localhost:5000/api/random";
 
-  // -------DOM  Elements ---------------
-  const previousButton = document.getElementById("previous");
-  const nextButton = document.getElementById("next");
-  const genEmojis = document.getElementById("generated-emojis");
+  // DOM  Elements
+  const $previousButton = document.getElementById("previous");
+  const $previousNav = document.getElementById("previous-project")
+  const $previousSection = document.getElementById("previous-project-display")
+  const $nextButton = document.getElementById("next");
+  const $genEmojis = document.getElementById("generated-emojis");
+  const save = document.getElementById("save-button");
+  const $displayImage = document.getElementById("previous-project-display");
+  const $clearBttn = document.getElementById("clear-button");
+  const $colorButton = document.getElementById("color-button");
+  const $emojiButton = document.getElementById("emojis-button");
+  const colors = document.getElementById("generated-colors");
 
-
-
-  $(document).ready(function () {
-    $("#new-image").click(function () {
-      $("#header").slideToggle().css("display", "flex");
-    });
-  });
 
   // -------------------------CANVAS-----------------------
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
+  const $canvas = document.getElementById("canvas");
+  const ctx = $canvas.getContext("2d");
 
   // Resizing
   canvas.height = window.innerHeight / 1.5;
@@ -30,16 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Canvas position
   function getMousePos(canvas, e) {
     var rect = canvas.getBoundingClientRect();
-    // console.log(rect);
     return {
       x: ((e.clientX - rect.left) / (rect.right - rect.left)) * canvas.width,
       y: ((e.clientY - rect.top) / (rect.bottom - rect.top)) * canvas.height,
     };
   }
 
-  // Variables
+  // PAINTING
+  
   let painting = false;
-
   const startPosition = function () {
     painting = true;
   };
@@ -64,34 +64,30 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.addEventListener("mousedown", startPosition);
   canvas.addEventListener("mouseup", finishPosition);
   canvas.addEventListener("mousemove", draw);
+
+
   // Clearing canvas and adding previous project
 
-  const displayImage = document.getElementById("previous-project-display");
-  const clearBttn = document.getElementById("clear-button");
+  // document.addEventListener("keydown", (e) => {
+  //   if (e.ctrlKey && e.key === "z") {
+  //     ctx.restore();
+  // // change settings to previous from the stack
+  //   }
+  // });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.ctrlKey && e.key === "z") {
-      ctx.restore();
-  // change settings to previous from the stack
-    }
-  });
-
-  clearBttn.addEventListener("click", () => {
+  $clearBttn.addEventListener("click", () => {
     const addImg = document.createElement("img");
     addImg.classList.add("saved-image");
     addImg.src = imgLink();
     addImg.alt = "Previous project";
     addImg.style.alignContent = "center";
-    displayImage.append(addImg);
-
+    $displayImage.append(addImg);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
 
-  $(document).ready(() => {
-    $("#previous-project").click(() => {
-      $(".saved-image").css("display", "flex");
+  $previousNav.addEventListener('click', () => {
+    $previousSection.style.display = "flex";
     });
-  });
 
   // ------------------------CANVAS-END-----------------------------------------
 
@@ -105,14 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ${url}`
         );
       }));
-
+    }
+    
     // Generating colors
-  }
-  const colorButton = document.getElementById("color-button");
-  colorButton.addEventListener("click", () => {
-    getColors();
-  });
-
+    
   function getColors() {
     let oldColors = document.getElementsByClassName("material-symbols-rounded");
     for (var i = oldColors.length - 1; i >= 0; i--) {
@@ -130,18 +122,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addColorStyle(hex, i) {
-    const colors = document.getElementById("generated-colors");
     const colorsElement = document.createElement("span");
     colorsElement.style.color = hex;
     colorsElement.classList = "material-symbols-rounded";
     colorsElement.id = i;
     colorsElement.innerText = "circle";
-    colorsElement.addEventListener("click", () => {
-      // console.log('clicked');
-      ctx.strokeStyle = `${hex}`;
-    });
+    colorsElement.addEventListener("click", () =>  ctx.strokeStyle = `${hex}`);
     colors.append(colorsElement);
   }
+
+  $colorButton.addEventListener("click", () => getColors());
 
   /*    ------------------- XML file --------------------------
 //  when first colors API doesn't work
@@ -215,49 +205,42 @@ http.send(JSON.stringify(data));
     }
   }
 
-  const emojiButton = document.getElementById("emojis-button");
-  emojiButton.addEventListener("click", async () => {
+  
+  $emojiButton.addEventListener("click", async () => {
     const emojiJson = await getApiResponse(emojiList);
     var counter = 0;
-
     function changeEmojis() {
       for (let i = counter; i < counter + 10; i++) {
       const emoji = new Emoji(emojiJson[i].group, emojiJson[i].character, i);
       emoji.renderEmoji();
     }}
     function delateEmojis(){
-      while (genEmojis.firstChild) {
-        genEmojis.removeChild(genEmojis.lastChild);
+      while ($genEmojis.firstChild) {
+        $genEmojis.removeChild($genEmojis.lastChild);
       }
     };
     delateEmojis();
     changeEmojis();
-    
-    nextButton.addEventListener("click", () => {
+    $nextButton.addEventListener("click", () => {
       delateEmojis();
         counter += 10;
         changeEmojis();
     });
-    
-    previousButton.addEventListener("click", () => {
+    $previousButton.addEventListener("click", () => {
       delateEmojis();
         counter -= 10;
       changeEmojis();
     });
     });
   
-  // let emojis = [];
-  // getApiResponse(emojiList).then(value => console.log(value, typeof value));
-  // getApiResponse(emojiList).then(value => (value.map (element => emojis.push(element.character))));
-
-  // ------- Save image--------------
+  // Save image
   function imgLink() {
     const link = canvas.toDataURL("image/png");
     save.href = link;
     save.download = "IMAGE.jpeg";
     return link;
   }
-  const save = document.getElementById("save-button");
+
   save.addEventListener("click", imgLink);
 
   // end of DOMContentLoaded

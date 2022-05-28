@@ -7,6 +7,7 @@
 body {
   box-sizing: border-box;
 }
+
 #nav {
   top: 0;
   left: 0;
@@ -19,7 +20,7 @@ body {
   text-transform: uppercase;
 }
 #header {
-  display: none;
+  display: flex;
   height: 12vh;
   background-color: #E0E0E0;
   align-items: center;
@@ -38,6 +39,7 @@ body {
 }
 canvas {
   border: 2px solid #CD81D4;
+  display: flex;
   justify-content: center;
   align-content: center;
 }
@@ -57,6 +59,9 @@ a:hover {
   color: rgb(255, 255, 255);
   border-radius: 50%;
 }
+#previous-project-display {
+  display: none;
+}
 
 #next {
   background-color: #fae20b;
@@ -67,7 +72,6 @@ a:hover {
   display: block;
 }
 .saved-image {
-  display: none;
   height: 35vh;
   align-items: center;
 }
