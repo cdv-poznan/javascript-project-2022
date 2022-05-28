@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MK JS Project</title>
+    <title>Find my podcast</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="center" id="search">
+        <form>
+            <label for="artist">Artist name: </label>
+            <input type="text" id="artist" name="artist"><br>
+            <label for="song">Song title: </label>
+            <input type="text" id="song" name="song">
+        </form>
+    </div>
     
+    <div class="center" id="search">
+        <button id="Search">Find</button>
+    </div>
+
+    <div class="center" id="lyrics">
+        <div id="LyricsContent">Lyrics</div>
+    </div>
+
+
+    <script src="main.js"></script>
+    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
 </body>
 </html>
