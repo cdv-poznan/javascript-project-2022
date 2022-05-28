@@ -4,28 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find my podcast</title>
+    <title>Lyrics</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="center" id="search">
-        <form>
-            <label for="artist">Artist name: </label>
-            <input type="text" id="artist" name="artist"><br>
-            <label for="song">Song title: </label>
-            <input type="text" id="song" name="song">
-        </form>
-    </div>
+    <header class="header">
+        <div class="center-allign">
+            <h3>Want to sing but don't know the lyrics by heart?</h2>
+            <h6>Let's search for it!</h4>
+        </div>
+    </header>
+    <section class="main-section">
+        <article class="search">
+            <div class="input-title" id="artist-name-tite">
+                <div class="center" id="search">
+                    <form>
+                        <label for="artist">Who's the artist?</label><br>
+                        <input type="text" id="artist" name="artist"><br>
+                        <label for="song">What's the title?</label><br>
+                        <input type="text" id="song" name="song">
+                    </form>
+                </div>
+                <div class="center" id="search">
+                    <button id="Search">Find</button>
+                </div>
+            </div>
+        </article>
+        <article class="lyrics">
+            <div class="center" id="lyrics">
+                <div id="LyricsContent">Lyrics</div>
+            </div>
+        </article>
+    </section>
+    <footer class="footer">
+        <p>JS Project 2022</p>
+        <p>by Maciej Kołodziński</p>
+    </footer>
     
-    <div class="center" id="search">
-        <button id="Search">Find</button>
-    </div>
-
-    <div class="center" id="lyrics">
-        <div id="LyricsContent">Lyrics</div>
-    </div>
-
-
     <script src="main.js"></script>
     <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
 </body>
