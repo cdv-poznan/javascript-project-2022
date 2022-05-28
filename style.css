@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Jost:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Jost:ital,wght@1,100&family=Prata&display=swap');
+
 * {
     margin: 0;
     box-sizing: border-box;;
@@ -8,13 +12,24 @@ html, body {
 }
 
 header {
-    background-color: rgb(52, 95, 145);
+    background-color: rgba(52, 95, 145, 0.75);
     color: white;
     margin: auto;
     height: 20%;
     width: 100%;
     text-align: center;
     padding: 30px;
+}
+
+#title {
+    font-family: 'Caveat', cursive;
+    font-size: 275%;
+}
+
+#subtitle {
+    font-family: 'Caveat';
+    font-family: 'Jost', sans-serif;
+    font-size: 150%;
 }
 
 section {
@@ -24,16 +39,28 @@ section {
 }
 
 .search {
-    height: 100%;
+    margin: auto;
+    height: 50%;
     width: 25%;
     padding: 10px;
-    background-color: lightgrey;
+    text-align: center;
+    font-family: 'Caveat', bold;
+    font-family: 'Jost', sans-serif;
+    font-size: 150%;
+}
+
+
+label, input {
+    padding: 20px;
+    margin: 20px;
 }
 
 .lyrics {
     height: 100%;
     width: 75%;
-    padding: 10px;
+    padding: 30px;
+    overflow: auto;
+    font-family: 'Prata', serif;
 }
 
 footer {
