@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Special+Elite&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: 'Special Elite', cursive;
+  
+  background-color: #8573f8;
 }
 
 body {
@@ -12,17 +17,28 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 8vh;
-  background-color: #E0E0E0;
-  align-items: center;
+  height: 10vh;
+  min-height: 50px;
+  background-color: #eda900;
+  align-items: flex-end;
   display: flex;
   justify-content: space-around;
   text-transform: uppercase;
 }
+#nav p {
+min-height: 48px;
+margin-top: 2px;
+background-color: #8573f8;
+padding: 3vh;
+border-top-right-radius: 20px;
+border-top-left-radius: 20px;
+color: #f4da79;
+}
+
 #header {
   display: flex;
   height: 12vh;
-  background-color: #E0E0E0;
+  background-color:#8573f8;
   align-items: center;
   justify-content: space-around;
 }
@@ -35,13 +51,23 @@ body {
 }
 .right {
   width: 52rem;
-  font-size: 2rem;
+  font-size: 3rem;
+}
+
+.btn{
+  background-color: #0019d988;
+  color: ghostwhite;
+  border: 2px #0019d988;
+  padding: 10px;
+  
 }
 canvas {
   border: 2px solid #CD81D4;
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: ghostwhite;
 }
 a {
   text-decoration: none;
@@ -55,7 +81,7 @@ a:hover {
 }
 
 #previous {
-  background-color: #a82323;
+  background-color: #001ad9;
   color: rgb(255, 255, 255);
   border-radius: 50%;
 }
@@ -64,9 +90,12 @@ a:hover {
 }
 
 #next {
-  background-color: #fae20b;
+  background-color: #001ad9;
   color: white;
   border-radius: 50%;
+}
+#generated-emojis {
+  height: 10vh
 }
 #emojis-button {
   display: block;
