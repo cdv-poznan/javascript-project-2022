@@ -1,19 +1,18 @@
-document.querySelector('video').playbackRate = 0.75;
+document.querySelector("video").playbackRate = 0.75;
 
-
-$('#about-aurora-link').click(function () {
-  $('#about-aurora, #aurora-map, #aurora-gallery').fadeOut();
-  $('#about-aurora').fadeIn();
+$("#about-aurora-link").click(function () {
+  $("#about-aurora, #aurora-map, #aurora-gallery").fadeOut();
+  $("#about-aurora").fadeIn();
 });
 
-$('#aurora-map-link').click(function () {
-  $('#about-aurora, #aurora-map, #aurora-gallery').fadeOut();
-  $('#aurora-map').fadeIn();
+$("#aurora-map-link").click(function () {
+  $("#about-aurora, #aurora-map, #aurora-gallery").fadeOut();
+  $("#aurora-map").fadeIn();
 });
 
-$('#aurora-gallery-link').click(function () {
-  $('#about-aurora, #aurora-map, #aurora-gallery').fadeOut();
-  $('#aurora-gallery').fadeIn();
+$("#aurora-gallery-link").click(function () {
+  $("#about-aurora, #aurora-map, #aurora-gallery").fadeOut();
+  $("#aurora-gallery").fadeIn();
 });
 
 function initMap() {
@@ -24,7 +23,8 @@ function initMap() {
   });
   // Create the initial InfoWindow.
   let infoWindow = new google.maps.InfoWindow({
-    content: "<strong>Click on map to check actual Kp index in that place!</strong>",
+    content:
+      "<strong>Click on map to check actual Kp index in that place!</strong>",
     position: myLatlng,
   });
   let infoWindow2 = new google.maps.InfoWindow({});
@@ -57,7 +57,9 @@ function initMap() {
     }
 
     getApiResponse(apiURLlink).then((auroraData) => {
-      infoWindow.setContent("<strong>ACTUAL KP: " + auroraData.ace.kp + "</strong>");
+      infoWindow.setContent(
+        "<strong>ACTUAL KP: " + auroraData.ace.kp + "</strong>"
+      );
       infoWindow2.close();
       infoWindow2 = new google.maps.InfoWindow({
         position: {
