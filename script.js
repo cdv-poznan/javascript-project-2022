@@ -1,3 +1,21 @@
+document.querySelector('video').playbackRate = 0.75;
+
+
+$('#about-aurora-link').click(function () {
+  $('#about-aurora, #aurora-map, #aurora-gallery').fadeOut();
+  $('#about-aurora').fadeIn();
+});
+
+$('#aurora-map-link').click(function () {
+  $('#about-aurora, #aurora-map, #aurora-gallery').fadeOut();
+  $('#aurora-map').fadeIn();
+});
+
+$('#aurora-gallery-link').click(function () {
+  $('#about-aurora, #aurora-map, #aurora-gallery').fadeOut();
+  $('#aurora-gallery').fadeIn();
+});
+
 function initMap() {
   const myLatlng = { lat: 52.41573519438039, lng: 16.93194798098 };
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -6,7 +24,7 @@ function initMap() {
   });
   // Create the initial InfoWindow.
   let infoWindow = new google.maps.InfoWindow({
-    content: "Hello in Aurora project!",
+    content: "<strong>Click on map to check actual Kp index in that place!</strong>",
     position: myLatlng,
   });
   let infoWindow2 = new google.maps.InfoWindow({});
@@ -21,7 +39,7 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow({
       position: mapsMouseEvent.latLng,
     });
-    infoWindow.setContent("loading...");
+    infoWindow.setContent("<strong>loading...</strong>");
     infoWindow.open(map);
 
     // API URL AURORA
@@ -39,7 +57,7 @@ function initMap() {
     }
 
     getApiResponse(apiURLlink).then((auroraData) => {
-      infoWindow.setContent("ACTUAL KP: " + auroraData.ace.kp);
+      infoWindow.setContent("<strong>ACTUAL KP: " + auroraData.ace.kp + "</strong>");
       infoWindow2.close();
       infoWindow2 = new google.maps.InfoWindow({
         position: {
@@ -49,9 +67,9 @@ function initMap() {
       });
 
       infoWindow2.setContent(
-        "The bigest probability of Aurora is here: " +
+        "<strong>The bigest probability of Aurora is here: " +
           auroraData.probability.highest.value +
-          "%"
+          "%</strong>"
       );
       infoWindow2.open(map);
 

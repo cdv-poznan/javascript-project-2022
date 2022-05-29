@@ -1,60 +1,81 @@
-  html,body {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  html,
+  body {
     height: 100%;
     margin: 0;
     padding: 0;
     background-color: #002171;
+    font-family: 'Montserrat', sans-serif;
   }
 
-    #map {
-      position: absolute;
-      top: 0px;
-      bottom:0px;
-      left: 0px;
-      right:0px;
-
-  }
-
-  .navigation{
-    position: absolute;
+  .AuroraMovie {
+    position: fixed;
     top: 0;
-    left:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    object-fit: cover;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 60px;
+    left: 0;
     width: 100%;
-    background-color: #002171;
-    display:flex;
-    margin:  60px 0 40px 0;
-    padding:10px 0;
+    background-color: #00217180;
+    display: flex;
+    padding: 10px 0;
     justify-content: space-around;
     z-index: 10;
     text-align: center;
-    opacity: 0.5;
-    
-}
+  }
 
-a {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-   text-decoration: none;
-   font-weight: bold;
-   color: #6ff9ff;
-   font-size: 28px;
-}
+  .navigation a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #6ff9ff80;
+    font-size: 28px;
+    cursor: pointer;
+  }
 
-.aurora{
-    position: relative;
-}
+  .box {
+    background-color: #00217180;
+    padding: 10px;
+    color: #6ff9ff;
+    -webkit-box-shadow: 0px 0px 24px 0px rgba(0, 33, 113, 1);
+    -moz-box-shadow: 0px 0px 24px 0px rgba(0, 33, 113, 1);
+    box-shadow: 0px 0px 24px 0px rgba(0, 33, 113, 1);
+  }
 
-.AuroraMovie{
-    height: 100vh;
-    width: 100%;
-    object-fit:cover;
-    filter:brightness(0.6)
-}
-
-.AuroraTitle {
+  #about-aurora, #aurora-map, #aurora-gallery {
     position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    color:honeydew;
-    font-size: 144px;
-    font-family: 'Fruktur', cursive;
-}
+    top: 150px;
+    left: 100px;
+    right: 100px;
+    display: none;
+  }
+
+  #about-aurora {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #about-aurora .box {
+    width: 40%;
+  }
+
+  #aurora-map {
+    color: #002171;
+  }
+
+  #aurora-gallery {
+    display: none;
+  }
+
+  #map {
+    height: 400px;
+  }
+
+
+
