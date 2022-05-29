@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>AURORA MAP</title>
+  </head>
+  <body>
+    <nav class="navigation">
+      <a id="about-aurora-link">ABOUT AURORA</a>
+      <a id="aurora-map-link">AURORA MAP</a>
+      <a id="aurora-gallery-link">AURORA GALLERY</a>
+    </nav>
+    <header class="aurora">
+      <!--  <video src="Movie1.mp4" control> -->
+      <video class="AuroraMovie" src="AuroraMovie.mp4" autoplay loop muted>
+        <p>sorry, no video</p>
+      </video>
+    </header>
+
+    <div id="about-aurora">
+      <div class="box">
+        <h3>Aurora</h3>
+
+        <p>
+          An <strong>aurora</strong>, also known as the
+          <strong>polar lights</strong> or <strong>aurora polaris</strong>, is a
+          natural light display in Earth's sky, predominantly seen in
+          high-latitude regions (around the Arctic and Antarctic).
+        </p>
+        <p>
+          Auroras display dynamic patterns of brilliant lights that appear as
+          curtains, rays, spirals, or dynamic flickers covering the entire sky.
+        </p>
+        <p>
+          Auroras are the result of disturbances in the magnetosphere caused by
+          the solar wind. Major disturbances result from enhancements in the
+          speed of the solar wind from coronal holes and coronal mass ejections.
+          These disturbances alter the trajectories of charged particles in the
+          magnetospheric plasma. These particles, mainly electrons and protons,
+          precipitate into the upper atmosphere (thermosphere/exosphere). The
+          resulting ionization and excitation of atmospheric constituents emit
+          light of varying colour and complexity. The form of the aurora,
+          occurring within bands around both polar regions, is also dependent on
+          the amount of acceleration imparted to the precipitating particles.
+        </p>
+      </div>
+      <div class="box">
+        <h3>K<sub>p</sub>-index</h3>
+
+        <p>
+          The official planetary <strong>K<sub>p</sub>-index</strong> is derived
+          by calculating a weighted average of K-indices from a network of 13
+          geomagnetic observatories at mid-latitude locations. Since these
+          observatories do not report their data in real-time, various
+          operations centers around the globe estimate the index based on data
+          available from their local network of observatories. The
+          K<sub>p</sub>-index was introduced by Bartels in 1939.
+        </p>
+        <ul>
+          <li>0 - 1: quiet</li>
+          <li>2 - 3: unsettled</li>
+          <li>4: active</li>
+          <li>5: minor geomagnetic storm</li>
+          <li>6: moderate geomagnetic storm</li>
+          <li>7: strong geomagnetic storm</li>
+          <li>8: severe geomagnetic storm</li>
+          <li>9: extreme geomagnetic storm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="aurora-map" class="box">
+      <div id="map"></div>
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1MJLtZVpzhnM8xLSlKSWW90DqehAhnAI&callback=initMap&v=weekly"
+        async
+      ></script>
+    </div>
+
+    <div id="aurora-gallery" class="box">
+      <div class="gallery">
+        <article class="gallerypicture">
+          <img src="zdjecia/aurora-borealis-744351_960_720.webp" alt="Aurora" />
+        </article>
+        <article class="gallerypicture">
+          <img src="zdjecia/aurora-g537af5b0e_1920.jpg" alt="Aurora" />
+        </article>
+        <article class="gallerypicture">
+          <img src="zdjecia/aurora-g74f410e95_1920.jpg" alt="Aurora" />
+        </article>
+        <article class="gallerypicture">
+          <img src="zdjecia/nature-gd8b0ff76e_1920.jpg" alt="Aurora" />
+        </article>
+        <article class="gallerypicture">
+          <img src="zdjecia/northern-lights-g10bf04e4b_1920.jpg" alt="Aurora" />
+        </article>
+        <article class="gallerypicture">
+          <img src="zdjecia/northern-lights-gc31bdc65b_1920.jpg" alt="Aurora" />
+        </article>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
