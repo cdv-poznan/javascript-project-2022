@@ -1,0 +1,66 @@
+#logout {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+}
+
+#toggle_screen {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+
+}
+
+.logo {
+    height: 10rem;
+
+}
+
+main {
+    text-align: center;
+    max-width: 100rem;
+    margin: auto;
+
+}
+
+.single_section {
+    background-color: rgba(0, 0, 0, 0.59);
+    display: flex;
+    flex-direction: column;
+    color: ghostwhite;
+    padding: 2rem;
+    margin-bottom: 3rem;
+
+}
+
+#map {
+    height: 30rem;
+    max-width: 50rem;
+    width: 100%;
+    margin: auto;
+}
+
+#new_picture {
+    height: 10rem;
+    width: 10rem;
+    margin: auto;
+    border-radius: 2rem;
+}
+
+#generate_id {
+    margin: auto;
+}
+
+.task:hover {
+    text-decoration: line-through;
+    cursor: pointer;
+  }
+
+#task_list li {
+    list-style: none;
+}
+
+.input_container label {
+    margin-top: 2.5rem;
+}
