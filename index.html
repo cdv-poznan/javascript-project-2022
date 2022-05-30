@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog project</title>
+    <link rel="stylesheet" href="./styles/style.css"/>
+</head>
+<body>
+    <section id="top_section">
+        <div id="top">
+            <h1>GENERIC<span class="serif">lifestyle</span>BLOG</h1>
+            <p>by a CDV student</p>
+        </div>
+        <div>
+            <ul id="main_menu">
+                <li class="menu_item"><a href='#'>Home</a></li>
+                <li class="menu_item"><a href='#'>Archive</a></li>
+                <li class="menu_item"><a href='#'>About</a></li>
+                <li class="menu_item"><a href='#'>Log in</a></li>
+            </ul>
+        </div>
+        <div class="login_popup">
+            <form action="" class="login_form">
+              <h4>Log in</h4>          
+              <label for="name">Username</label>
+              <input type="text" name="name" required> 
+              <label for="password">Password</label>
+              <input type="password" name="passsword" required>
+              <button type="submit" class="btn">Login</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+    </section>
+    <section id="main_section">
+        <div class="section" id="posts">
+            <div class="post_header">
+                <p class="date">May 30, 2022</p>
+                <h2 class="post_title"><a href="#">Generic upbeat post title</a></h2>
+            </div>
+            <div class="content">
+                <img class="post_img main_img" alt="Lifestyle main photo" src="">
+                <img class="post_img another_img" alt="Lifestyle secondary photo" src="">
+                <img class="post_img another_img" alt="Lifestyle secondary photo" src="">
+                <p class="post_paragraph">x</p>
+                <p class="post_paragraph">x</p>
+                <p class="post_paragraph">x</p>
+                <p class="post_paragraph">x</p>
+            </div>
+            <div class="post_footnote">
+                <a href="#comments">View comments</a>
+                <ul id="social_links">
+                    <li class="sm_icon"><a href="#">FB</a></li>
+                    <li class="sm_icon"><a href="#">instagram</a></li>
+                    <li class="sm_icon"><a href="#">pinterest</a></li>
+                </ul>
+            </div>
+            <div class="see_more">
+                <h3 class="see_more_title">See more</h3>
+                <img class="more_posts_img" alt="Check out another post" src="">
+                <img class="more_posts_img" alt="Check out another post" src="">
+                <img class="more_posts_img" alt="Check out another post" src="">
+                <img class="more_posts_img" alt="Check out another post" src="">
+            </div>
+        </div>
+        <div class="comments_section hidden">
+            <h3>Comments</h3>
+            <div class="new_comment">
+                <h4>Add a new comment</h4>
+                <form id="comment_form" action="" method="post">
+                    <p>
+                       <label>Name:<input type="text" name="new_comment_author" id="new_comment_author" required></label>
+                    </p>
+                    <textarea name="new_comment_body" id="new_comment_body"></textarea>
+                    </p>
+                    <p>
+                        <input name="new_comment_submit" type="submit" id="new_comment_submit" value="Submit">
+                    </p>
+                </form>
+            </div>
+            <div class="comment">
+                <div class="comment_avatar">
+
+                </div>
+                <div class="comment_author">
+
+                </div>
+                <div class="comment_body">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="footnote">
+        <div>
+            <p>Project created during frontend developer studies @Collegium Da Vinci </p>
+            <img src="./assets/favicon.ico"/>
+        </div>
+    </section>
+
+    <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Meie+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    background-image: url(/assets/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: ghostwhite;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(45, 45, 45);
+}
+
+/* #top {
+    position: absolute;
+    z-index: 10;
+} */
+
+h1 {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 70px;
+}
+
+.serif {
+    font-family: 'Meie Script', cursive;
+}
