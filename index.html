@@ -2,13 +2,88 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortune Teller - learn your future</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <!-- main start -->
+  <div id="main">
+    <h1 style="font-size: 40px; margin: 15px 0;">Fortune Teller</h1>
+    <h3>Learn about your future</h3>
+  </div>
+  <!-- main end -->
+  <!-- live 10 years start -->
+  <div class="container-up color1">
+    <h2>Where will you live in 10 years?</h2>
+  </div>
+  <div class="container">
+    <p>After all, you're the one deciding your fate. I will let you choose the continent:</p>
+    <!-- drop-down list start-->
+    <div class="continentselect">
+      <select id="continents" name="continents">
+        <option value="europe">Europe</option>
+        <option value="north-america">North America</option>
+        <option value="south-america">South America</option>
+        <option value="africa">Africa</option>
+        <option value="asia">Asia</option>
+        <option value="australia">Australia / Oceania</option>
+      </select>
+    </div>
+    <!-- drop-down list end -->
+    <p id="city"></p>
+    <p id="temperature"></p>
+    <p id="opinion"></p>
+    <div class="card-footer">
+      <button class="color1" onclick="getCity();">Learn the truth...</button>
+    </div>
+  </div>
+  <!-- live 10 years end -->
+  <!-- words to live by start -->
+  <div class="container-up color2">
+    <h2>Words to live by</h2>
+  </div>
+  <div class="container">
+    <blockquote>
+      <p id="quote">Discover your inspiring life motto</p>
+      <cite id="cite"></cite>
+    </blockquote>
+    <div class="card-footer">
+      <button class="color2 quote" onclick="getQuote();">Find out your fortune</button>
+    </div>
+  </div>
+  <!-- words to live by end -->
+  <!-- future dog start -->
+  <div class="container-up color3">
+    <h2>Your future pet</h2>
+  </div>
+  <div class="container">
+    <div id="randomImageContainer"></div>
+    <p id="dogInfo" class="h5">Will there be a French bulldog in your life? :)</p>
+    <div class="card-footer">
+      <button class="color3 random" onclick="getDog();">Find out!</button>
+    </div>
+  </div>
+  <!-- future dog end -->
+  <!-- lottery start -->
+  <div class="container-up color4">
+    <h2>Lottery numbers</h2>
+  </div>
+  <div class="container">
+    <p>Quick answer to the most important question</p>
+    <h5>Your lucky numbers are:</h5>
+    <div id="luckynumbers"></div>
+    <div class="card-footer">
+      <button class="color4" onclick="lotteryNumbers(49, 6);">Learn the truth...</button>
+    </div>
+  </div>
+  <!-- lottery end -->
 
 </body>
 
