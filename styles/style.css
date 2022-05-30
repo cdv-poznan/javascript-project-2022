@@ -6,6 +6,7 @@ html {
     font-size: 1.5vw;
     font-family: 'Roboto', sans-serif;
     color: rgb(45, 45, 45);
+    box-sizing: border-box;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 2rem;
+    margin: 0;
 }
 
 #heading {
@@ -79,7 +81,12 @@ h1 {
 #main_section {
     position: relative;
     padding: 3rem;
-    margin: 4rem 0;
+    margin: 4rem 4rem;
+}
+
+.post_header {
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .date {
@@ -90,4 +97,48 @@ h1 {
 .post_title a{
     text-decoration: none;
     color: inherit;
+}
+
+.post_imgs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 25vw);
+    grid-gap: 1rem;
+}
+
+.post_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post_text {
+    padding: 2rem 0;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 0.9em;
+}
+
+.main_img {
+    /* max-width: 500px; */
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+/* .another_img {
+    max-width: 500px;
+} */
+
+
+.see_more_gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 25vw);
+    grid-gap: 1rem;
+}
+
+.more_posts_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
