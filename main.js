@@ -1,8 +1,13 @@
+const $generateButton = document.getElementById("generate_opinion");
+
+
+// reqres api 
+
 fetch('https://reqres.in/api/users')
 .then(response => response.json())
 .then(json => {
     console.log(json.data);
-    const markup = json.data.map( el =>{
+    const teamContainer= json.data.map( el =>{
         return `
         <div>
         <div class="card bg-light text-success">
@@ -23,5 +28,36 @@ fetch('https://reqres.in/api/users')
         </div>
     `})
 
-    document.querySelector('.team-container').innerHTML = markup;
+    document.querySelector('.team-container').innerHTML = teamContainer;
 })
+
+
+// map 
+
+var map = L.map('map').setView([40.712, -74.227],5);
+
+L.tileLayer('https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=IfxVdhkwsAqYS8TOgkw8', {
+    attribution:'<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+}).addTo(map); 
+
+
+//event listener
+
+$generateButton.addEventListener("click", () =>{
+    fetch('https://randomuser.me/api/')
+    .then((res) => res.json())
+    .then((res) => {
+        console.log(res);
+        const NewName = res.results[0].name.first + '  ' + res.results[0].name.last;
+        const email = res.results[0].email;
+        const avatar =res.results[0].picture.medium;
+    document.getElementById("new_email").innerText = email;
+    document.getElementById("new_name").innerText = NewName;
+    document.getElementById("new_picture").src = avatar;
+    document.getElementById("text_opinion").classList.remove("not_visible")
+});
+});
+
+
+
+// $loginError.classList.remove("not_visible")}
