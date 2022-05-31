@@ -1,8 +1,8 @@
-/* Aplikacja pobiera dane o połozeniu uzytkownika, a następnie pobiera z API airly dane o jakości powietrza z najblizej połozonego czujnika.
-Kolor tła pod komunikatem odpowiada poziomowi zanieczyszczenia w momencie pomiaru. Aplikacja informuje czy stan powietrza pozwala na bezpieczne przebywanie na zewnątrz.
-Do poprawnego działania aplikacji wymagane jest zgoda uzytkownika na udostępnianie lokalizacji w przeglądarce lub w sytemie operacyjnym */
+/* // Aplikacja pobiera dane o połozeniu uzytkownika, a następnie pobiera z API airly dane o jakości powietrza z najblizej połozonego czujnika.
+Kolor tła pod komunikatem odpowiada poziomowi zanieczyszczenia w momencie pomiaru. Aplikacja informuje czy stan powietrza pozwala na bezpieczne przebywanie na zewnątrz. */
 
 document.addEventListener('DOMContentLoaded', () => {});
+
 // Loader włączony/wyłączony po załadowaniu zawartości
 
 /* window.onload = function hideLoader() {
@@ -18,6 +18,8 @@ document.onreadystatechange = function () {
     document.querySelector('.message-box').style.visibility = 'visible';
   }
 };
+
+
 
 // Sprawadzanie połozenia uzytkownika
 
@@ -82,4 +84,30 @@ function getLocation() {
 
 getLocation();
 
+// Mapka
+const map = L.map('map').locate({ setView: true, maxZoom: 15 });
+L.tileLayer('https://api.maptiler.com/maps/pastel/{z}/{x}/{y}@2x.png?key=apCEDcsbMJIqLY2XlzKP', {
+  attribution:
+    '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+}).addTo(map);
+
+function onLocationFound(e) {
+  let radius = e.accuracy;
+
+  L.marker(e.latlng).addTo(map)
+      .bindPopup("Znajdujesz się w promieniu " + radius + " metrów od tego punktu.").openPopup();
+
+  L.circle(e.latlng, radius).addTo(map);
+}
+
+map.on('locationfound', onLocationFound);
+
+function onLocationError(e) {
+  alert(e.message);
+}
+
+map.on('błąd geolokalizacji', onLocationError);
+
+
 // Dokumentacja API dostępna na https://developer.airly.org/pl/docs#introduction
+
