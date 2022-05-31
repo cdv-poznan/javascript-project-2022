@@ -59,8 +59,8 @@ header {
 .topButtons {
     margin-top: 25px;
     margin-bottom: 50px;
-    grid-template-columns: 1fr 1fr 1fr;
-    display: grid;
+    display: flex;
+    justify-content: center;
     text-align: center;
     position: relative;
 }
@@ -147,8 +147,7 @@ footer {
     font-family: 'Dancing Script', cursive;
     font-size: 18px;
     font-weight: bold;
-    padding: 13px 32px;
-    text-decoration: none;
+       text-decoration: none;
     text-shadow: 0px 1px 0px #5b8a3c;
     outline: none;
     padding: 10px;
@@ -160,10 +159,10 @@ footer {
     background-color: #72b352;
 }
 
-styleButton:active {
-    position: absolute;
-    top: 1px;
-}
+.styleButton:active {
+   /* position: absolute; 
+    top: 1px;*/
+} 
 
 a:link {
     color: green;
@@ -224,6 +223,7 @@ a:link {
 }
 img{
     border: 1px solid rgba(67, 61, 35, 0.2);
+    object-fit: cover;
 }
 
 button{

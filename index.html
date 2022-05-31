@@ -19,18 +19,12 @@
             <h1 class="title"><i class="fa-solid fa-plate-wheat"></i> Losuj Obiadek</h>
         </header>
         <section class="topButtons">
-            <div class="data">
-                <form>
-                    <input class="styleButton" type="date" name="calendar">
-                </form>
-            </div>
-            <div class="email">
-                <form>
-                    <input class="styleButton" type="email" name="login" placeholder='Podaj email'>
-                </form>
-            </div>
+           
+                
+
+            
             <div class="losuj">
-                <button class="styleButton"> Losuj
+                <button  class="styleButton" id="random_button"> Losuj
                     <i class="fa-solid fa-plate-wheat"></i></button>
 
             </div>
@@ -39,35 +33,32 @@
 
             <article class="randomFood">
                 <section class="foodSuggest">
-                    <div class="imgFood"> <img src="obrazki/1.jpg" alt="Wylosowany obiadek" width="300 " height="400px">
+                    <div class="imgFood"> <img src="obrazki/1.jpg" alt="Wylosowany obiadek" class="img_random" id="Img1">
                         <div class="titleRecipe1">
-                            <h3 przepis>Nazwa przepisu</h3>
+                            <p><span class="new_title">lorem</span></p>
                         </div>
                     </div>
 
                     <article class="buttons1">
                         <div class="detailsButton">
-                            <button>
-                                <a href="https://miroslawzelent.pl/kurs-html/hiperlacza-linki-w-html/#" target="_self">
+                            <button >
+                                <a href="https://miroslawzelent.pl/kurs-html/hiperlacza-linki-w-html/#" target="_self"id="strSource">
                                     <i class="fa-solid fa-bars"></i>
                                 </a>
                             </button>
                         </div>
                         <div class="youtubeButton">
                             <button>
+                                <link rel="stylesheet" href="" id="Youtube_link">
                                 <i class="fa-brands fa-youtube"></i ></button>
                         </div>
-                        <div class="mailButton">
-                            <button>
-                                <i class="fa-solid fa-envelope"></i>
-                            </button>
-                        </div>
+                       
                     </article>
                 </section>
                 <section class="foodSuggest">
-                    <div class="imgFood"> <img src="obrazki/2.jpg" alt="Wylosowany obiadek" width="300 " height="400px">
+                    <div class="imgFood"> <img src="obrazki/2.jpg" alt="Wylosowany obiadek" class="img_random">
                         <div class="titleRecipe2">
-                            <h3>Lorem ipsum dolor sit amet </h3>
+                            <p><span class="new_title">lorem</span></p>
                         </div>
                     </div>
                     <article class="buttons2">
@@ -82,18 +73,14 @@
                             <button>
                                 <i class="fa-brands fa-youtube"></i></button>
                         </div>
-                        <div class="mailButton">
-                            <button>
-                                <i class="fa-solid fa-envelope"></i>
-                            </button>
-                        </div>
+                        
                     </article>
                 </section>
                 <section class="foodSuggest">
                     <div class="imgFood">
-                        <img src="obrazki/3.jpg" alt="Wylosowany obiadek" width="300 " height="400px">
+                        <img src="obrazki/3.jpg" alt="Wylosowany" class='img_random'>
                         <div class="titleRecipe3">
-                            <h3>Nazwa przepisu</h3>
+                            <p><span class="new_title">lorem</span></p>
                         </div>
                     </div>
                     <article class="buttons3">
@@ -108,11 +95,7 @@
                             <button>
                                 <i class="fa-brands fa-youtube"></i></button>
                         </div>
-                        <div class="mailButton">
-                            <button>
-                                <i class="fa-solid fa-envelope"></i>
-                            </button>
-                        </div>
+                        
                     </article>
                 </section>
 
@@ -125,6 +108,7 @@
             <p>Mój proekt!</p>
         </footer>
     </article>
+    <script src="main.js"></script>
 </body>
 
 </html>
