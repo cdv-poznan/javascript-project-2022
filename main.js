@@ -1,4 +1,13 @@
 const $generateButton = document.getElementById("generate_opinion");
+const $BMIButton = document.getElementById("bmi_button")
+
+
+//bmi button 
+
+
+$BMIButton.addEventListener("click", () =>{
+    location.replace('https://bmi-online.pl/');
+});
 
 
 // reqres api 
@@ -60,4 +69,3 @@ $generateButton.addEventListener("click", () =>{
 
 
 
-// $loginError.classList.remove("not_visible")}

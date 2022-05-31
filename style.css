@@ -44,3 +44,15 @@ body::before{
     padding: 10px;
 
 }
+.opinions_card{
+    padding: 20px;
+
+}
+/* .bmi-picture{
+    height: 200px;
+    width: 200px;
+} */
+.warn_info{
+    font-size: xx-small;
+    color: sienna;
+}

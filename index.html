@@ -53,7 +53,7 @@
                 <div>
                         <h1> Become a <span class="text-warning">better version</span> of yourself!</h1>
                         <p class="lead my-4"> Focus on loosing weight without loosing your joy of life!</p>
-                        <button class="btn btn-center btn-warning btn-lg"> Start Diet</button>
+                        <button class="btn btn-center btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#enroll"> Start Diet</button>
                     </div>
                     <img id="image" class="img-fluid d-none d-sm-block" src="Fitz - Standing.png" alt="drawing of a man">
     </section>
@@ -75,11 +75,17 @@
         <div class="d-sm-flex align-items-center justify-content-between">
             <div>
                     <h1> <span class="text-warning"> BMI </span> CALCULATOR </h1>
-                    <p class="lead my-4"> here should be bmi api </p>
+                    <p class="lead my-4">  Calculate your BMI before you sign in!</p>
                     <div class="bmi-container"></div>
-                    <button class="btn btn-center btn-warning btn-lg"> count caloriess</button>
-                </div>
-                <img id="image" class="img-fluid d-none d-sm-block" src="Stuck at Home - Stats and Graphs.png" alt="drawing of a man">
+                    <button id="bmi_button"class="btn btn-center btn-warning btn-lg"> count caloriess</button>
+                   
+                      <p class="warn_info"> After clicking that button you will be redirected to kalkulator-bmi.pl </p>
+              
+                  </div>
+                  <div>
+                    <img id="image" class="img-fluid d-none d-sm-block bmi-picture" src="Stuck at Home - Stats and Graphs.png" alt="drawing of a man">
+
+                  </div>
 </section>
 
 <!-- TEAM  -->
@@ -91,7 +97,7 @@
         Meet our the team of certificated dieteticians that will help you loose weight!
        </p>
        <div>
-           <div id="teamCards" class="team-container">   
+           <div class="team-container">   
            </div>
            </div>
        </div>
@@ -178,7 +184,7 @@
   
   <h2>Check some opinions about us!</h2>
   
-  <div class="people-data text-center">
+  <div class="people-data text-center card bg-light text-success opinions_card">
 
     <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png
     " id="new_picture"/>
@@ -199,8 +205,8 @@
               </div>
                 
           </p>
-          <button class="generate_button" id="generate_opinion">Check opinions</button>
-      </div>
+        </div>
+        <button class="generate_button" id="generate_opinion">Check opinions</button>
 
 </section>
 
@@ -240,6 +246,58 @@
            </div>
                 </div>
 </section>
+
+<!-- modal -->
+<div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Information Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p clas="lead"> Fill the data below so we can come back to you with first draft of your diet!</p>
+        <form>
+          <div class="mb-2">
+            <label for="first-name" class="col-form-label">
+              First name:
+              <input type="text" class="form-control" id="first-name">
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="last-name" class="col-form-label">
+             Last name:
+              <input type="text" class="form-control" id="last-name">
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="weight" class="col-form-label">
+              Weight:
+              <input type="text" class="form-control" id="weight">
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="Height" class="col-form-label">
+              Height
+              <input type="text" class="form-control" id="Height">
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="intolarance" class="col-form-label">
+              Food Intolarance:
+              <input type="text" class="form-control" id="intolarance">
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"> Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- footer  -->
 <footer class="p-5 bg-success text-white text-center position-relative">
   <div class="container">
