@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog project</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Blog project - CDV</title>
     <link rel="stylesheet" href="./styles/style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <section id="top_section">
@@ -20,9 +21,9 @@
               <label for="name">Username</label>
               <input type="text" name="name" required> 
               <label for="password">Password</label>
-              <input type="password" name="passsword" required>
-              <button type="submit" class="button">Login</button>
-              <button type="button" class="button cancel" id="login_cancel" onclick="closeForm()">Close</button>
+              <input type="password" name="password" required>
+              <button type="button" class="button">Login</button>
+              <button type="button" class="button cancel" id="login_cancel">Close</button>
             </form>
           </div>
         <nav>
@@ -41,7 +42,7 @@
         <div class="section" id="posts">
             <div class="post_header">
                 <p class="date">May 30, 2022</p>
-                <h2 class="post_title"><a href="#">Generic upbeat post title</a></h2>
+                <h2 class="post_title"><a href="#">Upbeat post title</a></h2>
             </div>
             <div class="content">
                 <div class="post_imgs">
@@ -62,36 +63,77 @@
                  </div>
             </div>
             <div class="post_footnote">
-                <a href="#comments">View comments</a>
+                <a id="view_comments" href="#comments">View comments</a>
             </div>
         </div>
-        <div class="comments_section hidden">
-            <h3>Comments</h3>
+        <div class="comments_section" id="hidden_section">
             <div class="new_comment">
-                <h4>Add a new comment</h4>
+                <p>Add a new comment</p>
                 <form id="comment_form" action="" method="post">
                     <p>
-                        <label>Name:<input type="text" name="new_comment_author" id="new_comment_author" required></label>
+                        <label>Name<br><input type="text" name="new_comment_author" id="new_comment_author" required></label>
                     </p>
-                    <textarea name="new_comment_body" id="new_comment_body"></textarea>
-                </p>
-                <p>
-                        <input name="new_comment_submit" type="submit" id="new_comment_submit" value="Submit">
+                    <label>Comment<br></label><textarea name="new_comment_body" id="new_comment_body"></textarea>
+                    <p class="submit_button">
+                        <br><input name="new_comment_submit" type="button" id="new_comment_submit" value="Submit">
                     </p>
                 </form>
             </div>
-            <div class="comment">
-                <div class="comment_avatar">
-                    
+            <div class="posted_comments">
+                <div class="comment">
+                    <div class="comment_avatar_container">
+                        <img class="avatar" id="avatar_a" src="https://randomuser.me/api/portraits/women/90.jpg"/>
+                    </div>
+                    <div class="comment_author_container">
+                        <p class="comment_author"><span class="author_name" id="comment_author_a">Author</span>, age: <span class="author_age" id="author_age_a">33</span></p>
+                    </div>
+                    <div class="comment_body_container">
+                        <p class="comment_body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est, unde esse. Molestiae necessitatibus consequuntur id optio eius? Vel recusandae suscipit, qui molestiae ad, quas est ut nihil perspiciatis officiis similique?</p>
+                    </div>
                 </div>
-                <div class="comment_author">
-                    
+                
+                <div class="comment">
+                    <div class="comment_avatar_container">
+                        <img class="avatar" id="avatar_b" src="https://randomuser.me/api/portraits/women/90.jpg"/>
+                    </div>
+                    <div class="comment_author_container">
+                        <p class="comment_author"><span class="author_name" id="comment_author_b">Author</span>, age: <span class="author_age" id="author_age_b">33</span></p>
+                    </div>
+                    <div class="comment_body_container">
+                        <p class="comment_body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur corporis repellendus tempora deleniti sint sunt quo minima saepe quia similique? Vitae asperiores quisquam delectus, odio illum repellendus debitis autem tenetur?</p>
+                    </div>
                 </div>
-                <div class="comment_body">
-                    
+                
+                <div class="comment">
+                    <div class="comment_avatar_container">
+                        <img class="avatar" id="avatar_c" src="https://randomuser.me/api/portraits/women/90.jpg"/>
+                    </div>
+                    <div class="comment_author_container">
+                        <p class="comment_author"><span class="author_name" id="comment_author_c">Author</span>, age: <span class="author_age" id="author_age_c">33</span></p>
+                    </div>
+                    <div class="comment_body_container">
+                        <p class="comment_body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium facilis adipisci, ab illo commodi labore velit debitis voluptate esse ratione distinctio ipsam quisquam vero, quos consequatur dicta quis voluptatibus sint.</p>
+                    </div>
                 </div>
+                
+                <div class="comment">
+                    <div class="comment_avatar_container">
+                        <img class="avatar" id="avatar_d" src="https://randomuser.me/api/portraits/women/90.jpg"/>
+                    </div>
+                    <div class="comment_author_container">
+                        <p class="comment_author"><span class="author_name" id="comment_author_d">Author</span>, age: <span class="author_age" id="author_age_d">33</span></p>
+                    </div>
+                    <div class="comment_body_container">
+                        <p class="comment_body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nostrum rerum facere laboriosam ex iusto, est architecto, exercitationem molestias dignissimos, accusamus vero fugit temporibus earum cupiditate iure veniam eveniet minus.</p>
+                    </div>
+                </div>
+                
+
+                
+                
             </div>
         </div>
+        <!-- end of comment section -->
         <div class="see_more">
             <h3 class="see_more_title">See more</h3>
             <div class="see_more_gallery">
@@ -104,8 +146,8 @@
     </section>
     <section id="footnote">
         <div>
-            <p>Project created during frontend developer studies @Collegium Da Vinci </p>
-            <img src="./assets/favicon.ico"/>
+            <p>Project created during frontend developer studies @Collegium Da Vinci <img src="./assets/favicon.ico"/></p>
+            
         </div>
     </section>
 
