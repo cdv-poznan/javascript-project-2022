@@ -21,7 +21,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 2rem;
+    padding: 2rem 2rem 0.5rem 2rem;
     margin: 0;
 }
 
@@ -46,32 +46,46 @@ h1 {
     font-family: 'Meie Script', cursive;
 }
 
-#main.menu {
+nav {
     width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    margin: 0;
+    text-align: center;
+    padding-top: 4rem;
 }
 
-.menu_item {
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: ;
+}
+
+#main_menu li {
     list-style-type: none;
-    display: block;
+    margin: 0;
+    padding: 0 2rem;
 }
 
-.menu_item a {
+#main_menu li a {
     text-decoration: none;
     text-transform: uppercase;
     text-decoration: none;
-    color: rgb(232, 232, 232);
+    color: #e8e8e8;
     letter-spacing: 2px;
-    display: block;
-    padding: 3rem;
-    float: left;
 }
 
-.menu_item a:hover {
-    color: rgb(133, 190, 206);
+#main_menu li a:hover {
+    color: #85bfcf;
+}
+
+
+.sm_icon {
+    max-width: 1.2rem;
+    max-height: 1.2rem;
+}
+
+#main_menu li a:hover img {
+    filter: brightness(0) saturate(100%) invert(75%) sepia(43%) saturate(286%) hue-rotate(146deg) brightness(92%) contrast(82%);
 }
 
 #login_popup {
@@ -120,15 +134,9 @@ h1 {
 }
 
 .main_img {
-    /* max-width: 500px; */
     grid-row-start: 1;
     grid-row-end: 3;
 }
-
-/* .another_img {
-    max-width: 500px;
-} */
-
 
 .see_more_gallery {
     display: grid;
