@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DOM  Elements
   const $previousButton = document.getElementById("previous");
-  const $previousTab = document.getElementById("previous-project")
-  const $previousSection = document.getElementById("previous-project-display")
+  const $previousTab = document.getElementById("previous-project-btn")
+  const $aboutMeTab = document.getElementById('me-btn');
+  const $drawTab = document.getElementById('new-image-btn');
+  const $previousSection = document.getElementById("previous-project-display");
   const $nextButton = document.getElementById("next");
   const $genEmojis = document.getElementById("generated-emojis");
   const save = document.getElementById("save-button");
@@ -13,9 +15,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const $colorButton = document.getElementById("color-button");
   const $emojiButton = document.getElementById("emojis-button");
   const colors = document.getElementById("generated-colors");
-  const $tab = document.querySelectorAll('#nav button');
+  
 
+  function openPage(pageName,elmnt) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("page-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = '#8573f8';
+  }
 
+  $drawTab.addEventListener('click', function() {openPage('draw-page',this)});
+  $previousTab.addEventListener('click', function() {openPage('previous-projects-page',this)});
+  $aboutMeTab.addEventListener('click', function() {openPage('about-me-page',this)});
+  $drawTab.click();
 
   // -------------------------CANVAS-----------------------
   const $canvas = document.getElementById("canvas");
@@ -131,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     colorsElement.classList = "material-symbols-rounded";
     colorsElement.id = i;
     colorsElement.innerText = "circle";
+    colorsElement.title = 'Click to choose'
     colorsElement.addEventListener("click", () =>  ctx.strokeStyle = `${hex}`);
     colors.append(colorsElement);
   }
@@ -189,8 +209,9 @@ http.send(JSON.stringify(data));
     renderEmoji() {
       const emojisElement = document.createElement("span");
       emojisElement.innerText = this.character;
+      emojisElement.title = 'Click to choose'
       emojisElement.addEventListener("click", () => {
-        ctx.font = "15vh verdana";
+        ctx.font = "12vh verdana";
         // use these alignment properties for "better" positioning
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
@@ -246,7 +267,7 @@ http.send(JSON.stringify(data));
   }
 
   save.addEventListener("click", imgLink);
-
+  $emojiButton.click();
   
 
   // end of DOMContentLoaded

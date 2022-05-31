@@ -19,23 +19,23 @@
       <!-- <a href='https://pl.freepik.com/wektory/streszczenie'>Streszczenie plik wektorowy utworzone przez vectorjuice - pl.freepik.com</a> -->
     </button>
       <button
-        id="new-image"
+        id="new-image-btn"
         class="tablink"
-        onclick="openPage('draw-page', this, '#8573f8')"
+     
       >
         Draw new image!
       </button>
       <button
-        id="previous-project"
+        id="previous-project-btn"
         class="tablink"
-        onclick="openPage('previous-projects-page', this, '#8573f8')"
+      
       >
         Previous projects
       </button>
       <button
-        id="me"
+        id="me-btn"
         class="tablink"
-        onclick="openPage('about-me-page', this, '#8573f8')"
+     
       >
         About me
       </button>
@@ -48,16 +48,16 @@
             <button id="color-button" class="btn">Generate next colors</button>
           </div>
           <div class="emojis">
-            <a id="previous" class="e-btn">&#8249;</a>
+            <a id="previous" class="e-btn" title="Previous emojis">&#8249;</a>
             <span id="generated-emojis"></span>
-            <a id="next" class="e-btn">&#8250;</a>
-            <button id="emojis-button" class="btn">Reset emojis</button>
+            <a id="next" class="e-btn" title="Next emojis">&#8250;</a>
+            <button id="emojis-button" class="btn" title="Back to first emojis">Reset emojis</button>
           </div>
         </section>
         <canvas id="canvas" width="300" height="350" class="single-section">The canva is error</canvas>
         <section id="buttons" class="single-section right">
-          <button id="clear-button" class="btn">Clear</button>
-          <a id="save-button" class="btn">Save</a>
+          <button id="clear-button" class="btn" title="Deleted projects show up in previous projects section">Clear canvas</button>
+          <a id="save-button" class="btn">Save as png</a>
         </section>
       </container>
       <container id="previous-projects-page" class="page-content">
@@ -78,23 +78,5 @@
 
 
     <script src="main.js"></script>
-    <script>
-      function openPage(pageName,elmnt,color) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("page-content");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].style.backgroundColor = "";
-        }
-        document.getElementById(pageName).style.display = "block";
-        elmnt.style.backgroundColor = color;
-      }
-      
-      // Get the element with id="defaultOpen" and click on it
-      document.getElementById("new-image").click();
-      </script>
   </body>
 </html>
