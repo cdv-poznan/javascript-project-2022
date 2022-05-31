@@ -1,0 +1,58 @@
+body::before{
+    display: block;
+    content: '';
+    height: 60px;
+}
+
+#new_picture{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    border-radius: 50px;
+}
+#opinions {
+    margin: auto;
+}
+
+.not_visible {
+    visibility: hidden;
+}
+
+.generate_button {
+
+    background-color: rgb(245, 245, 245);
+    border: 2px solid rgba(85, 107, 47, 0.678);
+    padding: 10px 20px;
+    color: green;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+#map {
+    height: 250px;
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    border: purple;
+}
+
+#contact {
+    padding: 20px;
+
+}
+.list-contact {
+    padding: 10px;
+
+}
+.opinions_card{
+    padding: 20px;
+
+}
+/* .bmi-picture{
+    height: 200px;
+    width: 200px;
+} */
+.warn_info{
+    font-size: xx-small;
+    color: sienna;
+}

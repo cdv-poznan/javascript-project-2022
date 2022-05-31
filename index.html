@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Javascript Project - 2022 </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+
+</head>
+<body>
+    <!-- navigation -->
+   <nav class="navbar navbar-expand-lg bg-success navbar-dark py-3 fixed-top">
+       <div class="container ">
+           <a href="#" class="navbar-brand"> WeDiet.Co</a>
+        <div class="collapse navbar-collapse" id="navi"></div>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a href="#info" class="nav-link">About
+                </a>
+            </li>
+            <li class="navbar-nav ms-auto" >
+                <a href="#BMI" class="nav-link">BMI
+                </a>
+            </li>
+            <li class="navbar-nav ms-auto" >
+                <a href="#team" class="nav-link">Our team
+                </a>
+            </li>
+            <li class="navbar-nav ms-auto" >
+              <a href="#faq" class="nav-link">FAQ
+              </a>
+
+              <li class="nav-item">
+                  <a href="#opinions" class="nav-link">Opinions
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#contact" class="nav-link">Contact
+                  </a>
+              </li>
+            </li>
+        </ul>
+        </div>
+   </nav>
+<!-- header -->
+    <section class="bg-light text-success py-5 text-center text-sm-start">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div>
+                        <h1> Become a <span class="text-warning">better version</span> of yourself!</h1>
+                        <p class="lead my-4"> Focus on loosing weight without loosing your joy of life!</p>
+                        <button class="btn btn-center btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#enroll"> Start Diet</button>
+                    </div>
+                    <img id="image" class="img-fluid d-none d-sm-block" src="Fitz - Standing.png" alt="drawing of a man">
+    </section>
+   
+<!-- ABOUT  -->
+<section id="info" class="bg-success text-light p-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <img id="image" class="img-fluid d-none d-sm-block" src="Humaaans - 3 Characters.png" alt="Picture of people">
+            <div class="p-4 text-justify">
+                    <h1> About Us</h1>
+                    <p class="lead my-4"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil libero repudiandae quae voluptates reprehenderit! Vitae asperiores quisquam odit! Veniam corrupti laborum soluta iusto molestias, provident praesentium perferendis natus et. Labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim odit quae necessitatibus deleniti corporis hic, reprehenderit vel cupiditate officia eaque tenetur beatae officiis inventore adipisci veritatis minima dicta blanditiis perspiciatis. </p>
+                
+                </div>
+</section>
+<!-- BMI CALCULATOR -->
+<section id="BMI" class="bg-light text-success py-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <div>
+                    <h1> <span class="text-warning"> BMI </span> CALCULATOR </h1>
+                    <p class="lead my-4">  Calculate your BMI before you sign in!</p>
+                    <div class="bmi-container"></div>
+                    <button id="bmi_button"class="btn btn-center btn-warning btn-lg"> count caloriess</button>
+                   
+                      <p class="warn_info"> After clicking that button you will be redirected to kalkulator-bmi.pl </p>
+              
+                  </div>
+                  <div>
+                    <img id="image" class="img-fluid d-none d-sm-block bmi-picture" src="Stuck at Home - Stats and Graphs.png" alt="drawing of a man">
+
+                  </div>
+</section>
+
+<!-- TEAM  -->
+
+<section id="team" class="bg-success text-light p-5 text-center text-sm-start">
+    <div class="container">
+       <h2 class="text-center">OUR TEAM</h2>
+       <p class="lead text-center text-white mb-5">
+        Meet our the team of certificated dieteticians that will help you loose weight!
+       </p>
+       <div>
+           <div class="team-container">   
+           </div>
+           </div>
+       </div>
+                </div>
+</section>
+<!-- FAQ -->
+
+<section id="faq" class="bg-light text-successs p-5">
+  <div class="container">
+      <h2 class="text-center text-success mb-4"> Frequently Asked Questions</h2>
+      <div class="accordion accordion-flush" id="faq">
+          <!-- faq 1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush">
+            <button class="accordion-button collapsed text-success" type="button" data-bs-toggle="collapse" data-bs-target="#faq-one" >
+              What is the price of your diet plan?
+            </button>
+          </h2>
+          <div id="faq-one" class="accordion-collapse collapse text-success" data-bs-parent="#faq">
+            <div class="accordion-body"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. In magni recusandae aspernatur sunt incidunt, quia molestiae enim deserunt repellendus ut repellat totam, suscipit eaque distinctio eius. Eius explicabo voluptatem architecto.
+            Atque earum, beatae, hic quas tenetur a omnis dolores possimus adipisci quod at. Nam cumque, ratione ex illo neque voluptatem numquam magnam harum nobis, ducimus molestiae totam, deleniti tempora. Perspiciatis!
+            Suscipit ea ut animi minus quam doloribus? Eligendi cumque eveniet, quasi id voluptatibus quod laudantium qui beatae corrupti, sed architecto aliquid unde? Ullam ea eum ducimus sunt at a veritatis?</div>
+          </div>
+        </div>
+        <!-- faq 2 -->
+        <div class="accordion-item text-success">
+          <h2 class="accordion-header" id="flush">
+            <button class="accordion-button collapsed text-success" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" >
+             How much it takes to see the difference?
+            </button>
+          </h2>
+          <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptatum exercitationem beatae excepturi, nobis numquam libero quisquam error assumenda sit corporis. Iusto soluta reprehenderit placeat magni officia sit ea quae!
+            Ratione nesciunt officiis veniam! Deleniti aperiam repudiandae atque architecto, excepturi, tempora mollitia cum ipsum facilis minima quod placeat vitae eligendi vel quis voluptatum laudantium obcaecati eaque. Ullam minima necessitatibus harum!
+            Sunt, enim? Voluptatum, fugit dolor cumque et doloremque repellat quibusdam aspernatur? Quisquam, obcaecati? Exercitationem enim commodi debitis velit expedita nihil, sequi quas sunt provident aliquid nam molestiae sint officia suscipit.</div>
+          </div>
+        </div>
+        <!-- faq 3 -->
+        <div class="accordion-item text-success">
+          <h2 class="accordion-header" id="flush">
+            <button class="accordion-button collapsed text-success" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3">
+              Do I have to workout?
+            </button>
+          </h2>
+          <div id="faq-3" class="accordion-collapse collapse"  data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo ipsa iure perferendis aliquam distinctio sint, incidunt quos eveniet minima eius magnam quia corporis, non debitis error vero labore quod sapiente!
+            Dolores debitis cum quia possimus, odio impedit. Soluta molestias accusamus quae consequuntur culpa aut voluptatibus quisquam cupiditate possimus! Repellat sit placeat quidem id! Repudiandae reprehenderit, ducimus obcaecati incidunt sequi odio!
+            Vero, consequatur at repellat asperiores obcaecati qui assumenda maxime a hic quo. Voluptatibus, labore. Mollitia dignissimos nesciunt quo est, corrupti aut recusandae perferendis ad blanditiis. Exercitationem aliquam adipisci praesentium suscipit?
+            Vel hic quos vero debitis provident recusandae culpa dolorem. Nemo, adipisci totam perspiciatis blanditiis suscipit eveniet. Fugiat harum odio facilis cum libero sunt rem! Veritatis repellendus similique aliquid molestias deserunt!
+            Voluptatem minima delectus eius illo! Corporis minima tempore reprehenderit recusandae nemo, omnis quas officia cumque iure dolores. Iusto, dignissimos quasi quisquam est facilis omnis reprehenderit? Eum nostrum voluptate neque in!</div>
+          </div>
+        </div>
+        <!-- faq 4 -->
+        <div class="accordion-item text-success">
+            <h2 class="accordion-header" id="flush">
+              <button class="accordion-button collapsed text-success" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" >
+              How long the diet lasts?
+              </button>
+            </h2>
+            <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptatum exercitationem beatae excepturi, nobis numquam libero quisquam error assumenda sit corporis. Iusto soluta reprehenderit placeat magni officia sit ea quae!
+              Ratione nesciunt officiis veniam! Deleniti aperiam repudiandae atque architecto, excepturi, tempora mollitia cum ipsum facilis minima quod placeat vitae eligendi vel quis voluptatum laudantium obcaecati eaque. Ullam minima necessitatibus harum!
+              Sunt, enim? Voluptatum, fugit dolor cumque et doloremque repellat quibusdam aspernatur? Quisquam, obcaecati? Exercitationem enim commodi debitis velit expedita nihil, sequi quas sunt provident aliquid nam molestiae sint officia suscipit.</div>
+            </div>
+          </div>
+          <!-- faq-5 -->
+          <div class="accordion-item text-success">
+            <h2 class="accordion-header" id="flush">
+              <button class="accordion-button collapsed text-success" type="button" data-bs-toggle="collapse" data-bs-target="#faq-5" >
+              When can I expect first results?
+              </button>
+            </h2>
+            <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptatum exercitationem beatae excepturi, nobis numquam libero quisquam error assumenda sit corporis. Iusto soluta reprehenderit placeat magni officia sit ea quae!
+              Ratione nesciunt officiis veniam! Deleniti aperiam repudiandae atque architecto, excepturi, tempora mollitia cum ipsum facilis minima quod placeat vitae eligendi vel quis voluptatum laudantium obcaecati eaque. Ullam minima necessitatibus harum!
+              Sunt, enim? Voluptatum, fugit dolor cumque et doloremque repellat quibusdam aspernatur? Quisquam, obcaecati? Exercitationem enim commodi debitis velit expedita nihil, sequi quas sunt provident aliquid nam molestiae sint officia suscipit.</div>
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- OPINIONS -->
+<section  id="opinions" class="bg-success text-light p-5 text-center ">
+  
+  <h2>Check some opinions about us!</h2>
+  
+  <div class="people-data text-center card bg-light text-success opinions_card">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png
+    " id="new_picture"/>
+        <div>
+  
+            <p>
+                <span> Name: </span><span id="new_name"></span>
+            </p>
+            <p>
+                <span> e-mail: </span><span id="new_email"></span>
+            </p>
+  </div>
+          <p>
+            <span>What they say: </span>
+              <div id="text_opinion" class="not_visible">
+               <span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis quae, magnam autem sunt, dolore iure natus placeat sint quidem tempora soluta praesentium at illum eos? Vero repellat numquam quasi delectus.
+              Velit amet nobis est officia voluptatem aliquam! Doloremque excepturi sequi vitae obcaecati beatae saepe reiciendis, perspiciatis, maiores omnis harum dignissimos ea corrupti temporibus facilis repellat sint blanditiis impedit laboriosam ab!</span>
+              </div>
+                
+          </p>
+        </div>
+        <button class="generate_button" id="generate_opinion">Check opinions</button>
+
+</section>
+
+
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-light text-success p-5 text-center text-sm-start">
+    <div class="container">
+        <div class="row g-4">
+           <div class="col-md">
+             <h2 class="text center mb-4 text-contact">
+              Contact info
+              <ul class="list-group list-group-flush lead list-contact">
+                <li class="list-group-item">
+                  <span class="fw-bold">Main location:</span>  Example Street 12/22 Boston
+                </li>
+                <li class="list-group-item">
+                  <span class="fw-bold">Call Center:</span>  +00 000 000 000
+                </li>
+                <li class="list-group-item">
+                  <span class="fw-bold">e-mail:</span>  example@email.com
+                </li>
+                <li class="list-group-item">
+                  <span class="fw-bold"> Account: </span>  00 0000 0000 0000 0000 0000
+                </li>
+                
+              </ul>
+             </h2>
+           </div>
+           <div class="col-md"> 
+
+            <div id="map">
+            </div>
+
+           </div>
+                </div>
+</section>
+
+<!-- modal -->
+<div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Information Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p clas="lead"> Fill the data below so we can come back to you with first draft of your diet!</p>
+        <form>
+          <div class="mb-2">
+            <label for="first-name" class="col-form-label">
+              First name:
+              <input type="text" class="form-control" id="first-name">
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="last-name" class="col-form-label">
+             Last name:
+              <input type="text" class="form-control" id="last-name">
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="weight" class="col-form-label">
+              Weight:
+              <input type="text" class="form-control" id="weight">
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="Height" class="col-form-label">
+              Height
+              <input type="text" class="form-control" id="Height">
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="intolarance" class="col-form-label">
+              Food Intolarance:
+              <input type="text" class="form-control" id="intolarance">
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"> Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer  -->
+<footer class="p-5 bg-success text-white text-center position-relative">
+  <div class="container">
+    <p class="p lead"> 
+      Made by: Paulina for CDV project 
+    </p>
+
+  </div>
+
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
