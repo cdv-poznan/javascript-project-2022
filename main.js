@@ -38,6 +38,13 @@ async function initGeoWeather() {
   }
 
   function getWeatherIconPath(code) {
+    if (code > 3){
+      if (code != 45){
+        if (code != 48){
+          return 'images/default.svg';
+        }
+      }
+    } 
     iconPath = icon.get(code);
     return iconPath;
   }
