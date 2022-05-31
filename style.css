@@ -1,13 +1,8 @@
 body {
     background-color: rgb(250, 250, 238);
-    margin:0.5%;
+    margin: 0.5%;
     position: relative;
- 
-    /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-  }
+}
 .articlelist {
     background-image: url(obrazki/body.jpg);
     background-repeat: no-repeat;
@@ -16,8 +11,6 @@ body {
     width: 100%;
     max-width: 1000px;
     height: auto;
-    /* background-color: #E0DB34;background-color: #dfbd17; */
-    
     border: 1.5px solid rgb(214, 211, 201);
     margin: 0 auto;
     margin-left: auto;
@@ -26,18 +19,13 @@ body {
     -moz-box-shadow: 0px 0px 29px -16px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 29px -16px rgba(66, 68, 90, 1);
 }
-
 header {
     width: 100%;
-   
     display: flex;
     border: 1px solid #564d20;
-    
     background: #5b5958;
-   
     border-bottom-width: 4px;
 }
-
 .title {
     display: flex;
     justify-content: center;
@@ -49,41 +37,22 @@ header {
     color: #FDF4F4;
     text-shadow: 4px 1px 14px rgb(97, 110, 136);
 }
-
-.fa-plate-wheat{
+.fa-plate-wheat {
     margin-right: 8px;
 }
-
-
-
 .topButtons {
-    margin-top: 25px;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
+    padding: 50px;
     display: flex;
     justify-content: center;
     text-align: center;
     position: relative;
 }
-
-.data{
+.losuj {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.email{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.losuj{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
 .randomFood {
     width: 1000px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -91,49 +60,59 @@ header {
     text-align: center;
     position: relative;
 }
-
-.foodSuggest{
+.foodSuggest {
     display: flex;
-   justify-content: center; 
+    justify-content: center;
     position: relative;
     width: 333.33px;
+    margin-bottom: 8px;
 }
 .buttons1 {
     position: absolute;
-   top: 10px;
-   left: 15px; 
-   margin-left: 10px;
-  }
+    top: 10px;
+    left: 15px;
+    margin-left: 10px;
+}
 .buttons2 {
     position: absolute;
-   top: 10px;
-   left: 15px; 
-   margin-left: 10px;
+    top: 10px;
+    left: 15px;
+    margin-left: 10px;
 }
-
 .buttons3 {
     position: absolute;
-   top: 10px;
-   left: 15px; 
+    top: 10px;
+    left: 15px;
     margin-left: 10px;
-   }
-
-
+}
+.footer {
+    margin-bottom: 0px;
+}
 footer {
+    height: auto;
     border: 1px solid #4d4624;
     border-top-width: 9px;
     border-bottom: 1px;
-    margin-top: 18%;
+    margin-top: 10%;
     background: #5b5958;
     font-family: 'Dancing Script', cursive;
     color: #FDF4F4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: 1px solid #6b6027;
-  }
-  
-  
+}
+a {
+    color: #FDF4F4;
+    text-decoration: none;
+    cursor: pointer;
+}
+.cdv {margin-top: 12px;
+    margin-left: 20px;
+    width: 80px;
+    height: 80px;
+}
+.texrFooter {
+    margin-top: 0px;
+    margin-left: 20px;
+}
 .styleButton {
     width: 248px;
     box-shadow: 0px 10px 14px -7px #3e7327;
@@ -147,28 +126,16 @@ footer {
     font-family: 'Dancing Script', cursive;
     font-size: 18px;
     font-weight: bold;
-       text-decoration: none;
+    text-decoration: none;
     text-shadow: 0px 1px 0px #5b8a3c;
     outline: none;
     padding: 10px;
     cursor: pointer;
 }
-
 .styleButton:hover {
     background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
     background-color: #72b352;
 }
-
-.styleButton:active {
-   /* position: absolute; 
-    top: 1px;*/
-} 
-
-a:link {
-    color: green;
-    text-decoration: none;
-}
-
 .titleRecipe1 {
     width: 280px;
     font-size: 100%;
@@ -178,113 +145,99 @@ a:link {
     border: 2px solid rgba(216, 221, 231, 0.1);
     border-radius: 92px 93px 93px 92px;
     background-color: rgba(216, 221, 231, 0.6);
-    color: #02201c;
+    color: #010706;
     position: absolute;
     top: 80%;
     left: 9px;
 }
-
 .titleRecipe2 {
     width: 280px;
     font-size: 100%;
     font-family: 'Dancing Script', cursive;
     text-align: center;
     display: inline-block;
-    color: #02201c;
+    color: #010706;
     border: 2px solid rgba(216, 221, 231, 0.1);
     border-radius: 92px 93px 93px 92px;
     background-color: rgba(216, 221, 231, 0.6);
     position: absolute;
     top: 80%;
     left: 9px;
-    
 }
-
 .titleRecipe3 {
     width: 280px;
     font-size: 100%;
     font-family: 'Dancing Script', cursive;
     text-align: center;
     display: inline-block;
-    color: #02201c;
+    color: #010706;
     border: 2px solid rgba(216, 221, 231, 0.1);
     border-radius: 92px 93px 93px 92px;
     background-color: rgba(216, 221, 231, 0.6);
     position: absolute;
     top: 80%;
-    left:9px;
+    left: 9px;
 }
-
 .imgFood {
     position: relative;
     text-align: center;
     justify-content: center;
-
 }
-img{
+img {
     border: 1px solid rgba(67, 61, 35, 0.2);
     object-fit: cover;
+    width: 300px;
+    height: 400px;
 }
-
-button{
+button {
     color: #6e559c;
-    background-color:rgba(246, 244, 238, 0.2);
+    background-color: rgba(246, 244, 238, 0.6);
     width: 27px;
-    }
-
-.detailsButton{
-    margin-bottom: 3px;
- }
-
-.mailButton{
-    width:29px;
+}
+.detailsButton {
     margin-bottom: 3px;
 }
-
-.youtubeButton{
-    width:29px;
+.mailButton {
+    width: 29px;
     margin-bottom: 3px;
 }
-
-.fa-bars{
-    color: #6e3a1f;
+.youtubeButton {
+    width: 29px;
+    margin-bottom: 3px;
+}
+.fa-bars {
+    color: #5e0d0d;
     width: 15px;
-height: 13px;
+    height: 13px;
 }
-
-.fa-youtube{
-color: #a24516;
-width: 15px;
-height: 13px;
+.fa-youtube {
+    color: #cb0d0d;
+    width: 15px;
+    height: 13px;
 }
-
-.fa-envelope{
+.fa-envelope {
     color: #b75829;
     width: 15px;
-height: 13px;
+    height: 13px;
 }
-
-
-
-@media (max-width:978px ) {
-    .randomFood{
-    display:block;
-    width: 334px;}
-    
+p {
+    font-size: 120%;
 }
-img{
-    width:300px;
-     height:400px;
-}
-@media (max-width: 799px) {.topButtons{
-    display: block;}
-    .randomFood{
+@media (max-width:978px) {
+    .randomFood {
+        display: block;
         width: 334px;
-    }
+   }
 }
-
-main{
+@media (max-width: 799px) {
+    .topButtons {
+        display: block;
+   }
+    .randomFood {
+        width: 334px;
+   }
+}
+main {
     display: flex;
     justify-content: center;
 }
-
