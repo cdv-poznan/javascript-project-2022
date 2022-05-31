@@ -4,16 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DOM  Elements
   const $previousButton = document.getElementById("previous");
-  const $previousNav = document.getElementById("previous-project")
+  const $previousTab = document.getElementById("previous-project")
   const $previousSection = document.getElementById("previous-project-display")
   const $nextButton = document.getElementById("next");
   const $genEmojis = document.getElementById("generated-emojis");
   const save = document.getElementById("save-button");
-  const $displayImage = document.getElementById("previous-project-display");
   const $clearBttn = document.getElementById("clear-button");
   const $colorButton = document.getElementById("color-button");
   const $emojiButton = document.getElementById("emojis-button");
   const colors = document.getElementById("generated-colors");
+  const $tab = document.querySelectorAll('#nav button');
+
 
 
   // -------------------------CANVAS-----------------------
@@ -76,18 +77,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // });
 
   $clearBttn.addEventListener("click", () => {
+    if ($previousSection.firstElementChild.tagName = 'h2') {
+      $previousSection.firstElementChild.className = 'hide';
+    };
     const addImg = document.createElement("img");
     addImg.classList.add("saved-image");
     addImg.src = imgLink();
     addImg.alt = "Previous project";
     addImg.style.alignContent = "center";
-    $displayImage.append(addImg);
+    $previousSection.append(addImg);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
 
-  $previousNav.addEventListener('click', () => {
-    $previousSection.style.display = "flex";
-    });
+  // $previousTab.addEventListener('click', () => {
+  //   $previousSection.style.display = "flex";
+  //   });
 
   // ------------------------CANVAS-END-----------------------------------------
 
@@ -130,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     colorsElement.addEventListener("click", () =>  ctx.strokeStyle = `${hex}`);
     colors.append(colorsElement);
   }
-
+  getColors();
   $colorButton.addEventListener("click", () => getColors());
 
   /*    ------------------- XML file --------------------------
@@ -242,6 +246,8 @@ http.send(JSON.stringify(data));
   }
 
   save.addEventListener("click", imgLink);
+
+  
 
   // end of DOMContentLoaded
 });
