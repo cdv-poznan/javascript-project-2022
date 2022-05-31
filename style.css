@@ -1,0 +1,161 @@
+@media only screen and (max-width: 1800px) {
+    #main {
+      width: 40%;
+    }
+    .container-up, .container {
+      width: 40%;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    #main {
+      width: 65%;
+    }
+    .container-up, .container {
+      width: 65%;
+    }
+  }
+  
+  @media only screen and (max-width: 425px) {
+    #main {
+      width:85%;
+    }
+    .container-up, .container {
+      width: 85%;
+    }
+  }
+  
+  body {
+    background-image: linear-gradient(to top, #fff2c3, #fdfbe3);
+  }
+  .color1 {
+    background-color: #ef959c;
+  }
+  .color2 {
+    background-color: #cbb3bf;
+  }
+  .color3 {
+    background-color: #95adb6;
+  }
+  .color4 {
+    background-color: #7285b3;
+  }
+  #main {
+    border-radius: 15px;
+    box-shadow: 8px 8px 25px -12px rgba(43, 43, 169, 1);
+    margin: 20px auto;
+    padding: 1px;
+    background-image: url(./stars.jpg);
+    background-size: cover;
+    color: white;
+  }
+  .container-up {
+    border-radius: 15px 15px 0px 0px;
+    box-shadow: 8px 8px 25px -12px rgba(43, 43, 169, 1);
+    margin: 20px auto 0px auto;
+    padding: 1px;
+    color: white;
+  }
+  .container {
+    background-color: white;
+    border-color: white;
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 8px 8px 25px -12px rgba(43, 43, 169, 1);
+    margin: 0px auto 20px auto;
+    padding: 1px;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Crimson Pro", serif;
+    text-align: center;
+  }
+  h5 {
+    font-family: "Nunito", sans-serif;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+  }
+  /* words to live by start */
+  cite {
+    font-family: "Nunito", sans-serif;
+    font-style: italic;
+  }
+  /* words to live by end */
+  button {
+    border: none;
+    opacity: 70%;
+    color: white;
+    border-radius: 1.5rem;
+    padding: 0.7rem;
+    margin: 7px;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+  }
+  button.color1:hover {
+    border: 2px solid #ef959c;
+    background-color: white;
+    color: #ef959c;
+    border-radius: 1.5rem;
+    padding: 0.7rem;
+    margin: 5px;
+    cursor: pointer;
+  }
+  button.color2:hover {
+    border: 2px solid #cbb3bf;
+    background-color: white;
+    color: #cbb3bf;
+    border-radius: 1.5rem;
+    padding: 0.7rem;
+    margin: 5px;
+    cursor: pointer;
+  }
+  button.color3:hover {
+    border: 2px solid #95adb6;
+    background-color: white;
+    color: #95adb6;
+    border-radius: 1.5rem;
+    padding: 0.7rem;
+    margin: 5px;
+    cursor: pointer;
+  }
+  button.color4:hover {
+    border: 2px solid #7285b3;
+    background-color: white;
+    color: #7285b3;
+    border-radius: 1.5rem;
+    padding: 0.7rem;
+    margin: 5px;
+    cursor: pointer;
+  }
+  .card-footer {
+    margin: 10px;
+    text-align: center;
+  }
+  #luckynumbers {
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+  }
+  /* live in 10 years start */
+  .continentselect {
+    margin: 10px;
+    text-align: center;
+  }
+  select {
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+  }
+  /* live in 10 years end */
+  #randomImageContainer {
+    width: 95%;
+    border-radius: 15px;
+    margin: 5px auto;
+  }
+  #randomImageContainer img {
+    width: 100%;
+  }
+  
