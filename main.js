@@ -43,6 +43,4 @@ button.addEventListener("click", event => {
             })
         }
     }
-        
-        // console.log("NOPE")
 })

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Jost:ital,wght@1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Jost:ital,wght@1,100&family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 * {
     margin: 0;
@@ -27,7 +28,6 @@ header {
 }
 
 #subtitle {
-    font-family: 'Caveat';
     font-family: 'Jost', sans-serif;
     font-size: 150%;
 }
@@ -40,11 +40,10 @@ section {
 
 .search {
     margin: auto;
-    height: 50%;
+    height: 60%;
     width: 25%;
     padding: 10px;
     text-align: center;
-    font-family: 'Caveat', bold;
     font-family: 'Jost', sans-serif;
     font-size: 150%;
 }
@@ -69,4 +68,19 @@ footer {
     text-align: center;
     color: white;
     height: 10%;
+    font-family: 'Amatic SC', cursive;
+    font-size: 150%;
+}
+
+button {
+    background-color: rgba(52, 95, 145, 0.869);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
