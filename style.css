@@ -5,19 +5,18 @@
   padding: 0;
   box-sizing: inherit;
   font-family: "Special Elite", cursive;
-  font:bold;
+  font: bold;
   background-color: #8573f8;
- 
 }
 
 body {
   height: 100%;
   box-sizing: border-box;
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
-body::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 #nav {
@@ -35,7 +34,7 @@ body::-webkit-scrollbar {
 #nav button {
   min-height: 48px;
   margin-top: 2px;
-  background-color:#f8a500;
+  background-color: #f8a500;
   padding: 3vh;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
@@ -64,6 +63,7 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: space-around;
 }
+
 #draw-page .single-section {
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ body::-webkit-scrollbar {
   width: 20%;
   margin-top: 10%;
   justify-content: space-between;
-  }
+}
 .right {
   flex-direction: column;
   align-items: center;
@@ -88,7 +88,6 @@ body::-webkit-scrollbar {
   width: 20%;
   margin-top: 15%;
 }
-
 
 .btn {
   background-color: #0019d988;
@@ -100,13 +99,12 @@ body::-webkit-scrollbar {
   cursor: pointer;
   width: 200px;
   text-align: center;
-  font-size:medium;
+  font-size: medium;
   border: 2px solid #001ad9;
- 
 }
 .btn:hover {
   background-color: #ffc400;
-  color:#001ad9;
+  color: #001ad9;
 }
 .btn:active {
   background-color: #ffc400;
@@ -132,11 +130,6 @@ a:hover {
   color: black;
 }
 
-#previous {
-  background-color: #001ad9;
-  color: rgb(255, 255, 255);
-  border-radius: 50%;
-}
 #previous-projects-page {
   margin: auto;
   display: block;
@@ -148,8 +141,14 @@ a:hover {
   display: inline-block;
   margin-left: 30vh;
 }
-#rendered-elements{
+#rendered-elements {
   justify-content: space-between;
+}
+
+#previous {
+  background-color: #001ad9;
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
 }
 #next {
   background-color: #001ad9;
@@ -159,6 +158,17 @@ a:hover {
 #generated-colors {
   text-align: center;
 }
+#generated-colors span:active {
+  border: #001ad9 solid 2px;
+  border-radius: 50%;
+}
+.emojis {
+  text-align: center;
+  /* display: contents; */
+  display: block;
+  font-size: 30px;
+  margin: 10px;
+}
 #generated-emojis {
   display: inline-block;
 }
@@ -166,7 +176,7 @@ a:hover {
   cursor: pointer;
 }
 #emojis-button {
-  display:block;
+  display: block;
   margin: auto;
   margin-top: 5px;
 }
@@ -176,7 +186,6 @@ a:hover {
   margin: 15px 10px;
   background-color: #43da532b;
 }
-
 
 #nav #logo {
   cursor: default;
@@ -205,20 +214,13 @@ a:hover {
   margin: auto;
 }
 #about-me img {
-max-width: 30vh;
-max-height: fit-content;
+  max-width: 30vh;
+  max-height: fit-content;
 }
 .show {
   display: block;
-  margin-top: 50%
+  margin-top: 50%;
 }
 .hide {
   display: none;
-}
-.emojis {
-  text-align: center;
-  /* display: contents; */
-  display: block;
-  font-size: 30px;
-    margin: 10px;
 }
