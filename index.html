@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anna's canvas</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0"
+    />
+  </head>
+  <body>
+    <nav id="nav">
+      <button id="logo">
+        <img src="./images/logo.png" alt="LOGO" />
+        <!-- <a href='https://pl.freepik.com/wektory/streszczenie'>Streszczenie plik wektorowy utworzone przez vectorjuice - pl.freepik.com</a> -->
+      </button>
+      <button id="new-image-btn" class="tablink">Draw new image!</button>
+      <button id="previous-project-btn" class="tablink">Previous projects</button>
+      <button id="me-btn" class="tablink">About me</button>
+    </nav>
+    <main>
+      <container id="draw-page" class="page-content">
+        <section id="rendered-elements" class="single-section left">
+          <div class="colors">
+            <div id="generated-colors"></div>
+            <button id="color-button" class="btn">Generate new palette</button>
+          </div>
+          <div class="emojis">
+            <a id="previous" class="e-btn" title="Previous emojis">&#8249;</a>
+            <span id="generated-emojis"></span>
+            <a id="next" class="e-btn" title="Next emojis">&#8250;</a>
+            <button id="emojis-button" class="btn" title="Back to first emojis">
+              Back to first emojis
+            </button>
+          </div>
+        </section>
+        <canvas id="canvas" width="300" height="350" class="single-section"
+          >The canva is error</canvas
+        >
+        <section id="buttons" class="single-section right">
+          <button
+            id="clear-button"
+            class="btn"
+            title="Deleted projects are displayed in PREVIOUS PROJECTS section"
+          >
+          Clear canvas
+          </button>
+          <a id="save-button" class="btn">Save as jpeg</a>
+        </section>
+      </container>
+      <container id="previous-projects-page" class="page-content">
+        <section id="previous-project-display">
+          <h2 class="show">You haven't got projects yet. Draw something!</h2>
+        </section>
+      </container>
+      <container id="about-me-page" class="page-content">
+        <section id="about-me">
+          <h2 class="text">Hello!</h2>
+          <p class="text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
+            dolorum ab incidunt ipsum, officiis delectus repudiandae quaerat,
+            voluptatibus ipsam asperiores eveniet? Dolores tenetur rem veritatis
+            perferendis reiciendis corporis laboriosam dolore! Provident,
+            quaerat ab nesciunt amet saepe dicta, modi necessitatibus
+            repudiandae ex, debitis iste! Hic ratione animi quis esse saepe ad
+            accusamus quae, laudantium placeat debitis harum maiores pariatur
+            nam necessitatibus. Laudantium dolor praesentium, voluptatum facilis
+            ea reiciendis porro maiores velit neque rem. Inventore, praesentium?
+            Architecto labore ut totam repellat nam debitis ratione illum, quam
+            aspernatur fuga consectetur amet nulla enim?
+          </p>
+          <img src="./images/sitting-person.png" alt="My image" />
+        </section>
+      </container>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
