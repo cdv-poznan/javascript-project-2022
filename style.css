@@ -12,10 +12,6 @@ body {
 
 }
 
-button {
-  cursor: pointer;
-}
-
 header {
 background-image: url('https://images.pexels.com/photos/33779/hand-microphone-mic-hold.jpg?cs=srgb&dl=pexels-pixabay-33779.jpg&fm=jpg');
 background-repeat: no-repeat;
@@ -33,4 +29,25 @@ justify-content: center;
 align-items: center;
 padding: 120px 0;
 position: relative;
+}
+
+button {
+  cursor: pointer;
+  font-family:'Amatic SC', cursive;
+}
+
+button:active {
+transform: scale(0.95);
+
+}
+
+.btn {
+background-color: orange;
+border-radius: 20px;
+
+}
+
+input:focus,
+button:focus {
+outline:none;
 }
