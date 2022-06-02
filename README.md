@@ -6,4 +6,4 @@ Projekt - wyszukiwarka tekstów piosenek
 
 w toku...
 
-niestety nie udało mi się połączyc z api :(
+niestety nie udało mi się połączyć z api :(
