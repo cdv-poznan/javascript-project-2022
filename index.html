@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Web App based on IMDb API" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Emilia" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/loader.css" />
+    <title>movie app</title>
+  </head>
+
+  <body>
+    <h1 id="appname">
+      Find. <br />
+      Your. <br />
+      Movie.
+    </h1>
+
+    <!-- input for search movie  -->
+    <input
+      type="text"
+      id="search-movie"
+      name="searchTxt"
+      placeholder="movie title"
+    />
+    <!-- search results movies -->
+    <div id="movies">
+      <div class="loader-container">
+        <div class="loader">Loading...</div>
+      </div>
+      <div id="results-movies" class="results-movies"></div>
+    </div>
+
+    <div id="pagination-results" class="pagination">
+      <button class="prev-btn" id="previous"><span>&#8592;</span></button>
+      page
+      <div id="current-page" class="bold"></div>
+      of
+      <div id="total-pages" class="bold"></div>
+      <button class="next-btn" id="next"><span>&#8594;</span></button>
+    </div>
+
+    <div id="clicked-movie-id"></div>
+
+    <ul id="genres-list"></ul>
+    <!-- suggested movies -->
+    <div id="suggested-movies">
+      <div class="loader-container">
+        <div class="loader">Loading...</div>
+      </div>
+      <div id="suggested-results" class="results-genres"></div>
+    </div>
+
+    <div id="pagination-suggestions" class="pagination">
+      <button class="prev-btn" id="prev-bt"><span>&#8592;</span></button>
+      page
+      <div id="cur-page" class="bold"></div>
+      of
+      <div id="tot-pages" class="bold"></div>
+      <button class="next-btn" id="next-bt"><span>&#8594;</span></button>
+    </div>
+
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/pagination.js"></script>
+    <!-- <script type="module" src="/pagination-suggestions.js"></script> -->
+    <script type="module" src="scripts/scrolling.js"></script>
+  </body>
+</html>
