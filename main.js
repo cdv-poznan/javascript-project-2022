@@ -15,8 +15,9 @@ form.addEventListener("submit", (e) => {
 
 async function getWeather(location) {
   const response = await fetch(
-    `${apiUrl}current?access-key=${apiKey}&query=${location}`
+    `${apiUrl}current?access_key=${apiKey}&query=${location}`
   );
+
   const data = await response.json();
   console.log(data);
 }
